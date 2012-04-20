@@ -17,6 +17,7 @@
 *~.nib
 
 build/
+bin/
 
 *.pbxuser
 *.perspective

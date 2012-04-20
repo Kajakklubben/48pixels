@@ -1,40 +1,57 @@
 <root>
 	<settings>
-	
-	</settings>	
-	<graphics>
-		
-		<backgrounds>
-			<sprite name="morning" layer="0" duration="7" fade="2">
-				<variation>
-					<frame img="../assets/backgrounds/morning.png"/>
-				</variation>
-			<sprite>
-			
-			<background name="day" time="10" fade="3" img="../assets/backgrounds/day.png" />
-		</backgrounds>
-		
-		<tiles>
-			<sprite name="earth" margin="5" layer="1" fade="1">
-				<variation>						
-					<frame img="../assets/earth/earth01.png"/>
-				</variation>
-			</sprite>
-		</tiles>
-		
-		<character>
-			<idle>
-				<frame time="0" img="../assets/character/char01.png"/>
-			</idle>
-			<run>
-				<frame time="0" img="../assets/character/char01.png"/>
-			</run>
-			<jump>
-				<frame time="0" img="../assets/character/char01.png"/>
-			</jump>
-			<fall>
-				<frame time="0" img="../assets/character/char01.png"/>
-			</fall>
-		<character>
-	</graphics>
+
+	</settings>
+
+    <backgrounds>
+        <background spriteIndex="0" duration="7" fade="2" layer="0" />
+    </backgrounds>
+
+    <blocks>
+        <block spriteIndex="1" layer="1" />
+    </blocks>
+
+    <character layer="4" >
+        <state name="run" spriteIndex="3" />
+        <state name="idle" spriteIndex="4" />
+    </character>
+
+	<sprites>
+        <sprite name="morning" layer="0" >
+            <variation>
+                <frame img="../assets/backgrounds/morning.png"/>
+            </variation>
+        <sprite>
+
+        <sprite name="earth" margin="5" >
+            <variation>
+                <frame img="../assets/earth/earth01.png"/>
+            </variation>
+        </sprite>
+
+        <sprite>
+            <variation>
+                <frame time="0" img="../assets/character/char01.png"/>
+            </variation>
+        </sprite>
+
+        <sprite>
+            <variation>
+                <frame time="0" img="../assets/character/char01.png"/>
+            </variation>
+        </sprite>
+
+        <sprite>
+            <variation>
+                <frame time="0" img="../assets/character/char01.png"/>
+            </variation>
+        </sprite>
+
+        <sprite>
+            <variation>
+                <frame time="0" img="../assets/character/char01.png"/>
+            </variation>
+        </sprite>
+    </sprites>
+
 </root>

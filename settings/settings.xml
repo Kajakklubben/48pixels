@@ -5,9 +5,9 @@
 	<graphics>
 		
 		<backgrounds>
-			<sprite name="morning" border="0" layer="0" time="7" fade="2">
+			<sprite name="morning" layer="0" duration="7" fade="2">
 				<variation>
-					<frame time="0" img="../assets/backgrounds/morning.png"/>
+					<frame img="../assets/backgrounds/morning.png"/>
 				</variation>
 			<sprite>
 			
@@ -15,9 +15,9 @@
 		</backgrounds>
 		
 		<tiles>
-			<sprite name="earth" border="5" layer="1">
+			<sprite name="earth" margin="5" layer="1" fade="1">
 				<variation>						
-					<frame time="0" img="../assets/earth/earth01.png"/>
+					<frame img="../assets/earth/earth01.png"/>
 				</variation>
 			</sprite>
 		</tiles>

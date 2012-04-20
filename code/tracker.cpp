@@ -13,6 +13,7 @@ void Tracker::setup(){
     
     handleHover = -1;
     handleSelected = -1;
+    blockSelected.x = -1;
     
     for(int x=0;x<8;x++){
         for(int y=0;y<6;y++){
@@ -22,6 +23,12 @@ void Tracker::setup(){
             
             blocks[x][y].age = 0;
         }
+    }
+    
+    for(int i=0;i<NUM_BLOCKS;i++){
+        blockCalibrationColor[i].r = ofRandom(1);
+        blockCalibrationColor[i].g = ofRandom(1);
+        blockCalibrationColor[i].b = ofRandom(1);
     }
 }
 
@@ -53,6 +60,26 @@ ofVec2f Tracker::blockPixelLocationInCamera(int x, int y){
 
 //------------------
 
+string Tracker::nameOfBlockColor(BlockColor color){
+    switch (color) {
+        case BlockBlue:
+            return "Blue";
+            break;
+        case BlockGreen:
+            return "Green";
+            break;
+        case BlockBrown:
+            return "Brown";
+            break;
+            
+        default:
+            return "N/A";
+            break;
+    }
+}
+
+//------------------
+
 void Tracker::update(){
     videoGrabber.update();
     
@@ -78,18 +105,45 @@ void Tracker::update(){
                     color.b += pixel[2]/255.0;
                 }
             }
-
+            
             color.r /= trackingAreaSize*trackingAreaSize;
             color.g /= trackingAreaSize*trackingAreaSize;
             color.b /= trackingAreaSize*trackingAreaSize;
             
             blocks[x][y].runningAverageColor.r = blocks[x][y].runningAverageColor.r * (1-runningAverageAmount) + (color.r * runningAverageAmount);
             blocks[x][y].runningAverageColor.g = blocks[x][y].runningAverageColor.g * (1-runningAverageAmount) + (color.g * runningAverageAmount);
-            blocks[x][y].runningAverageColor.b = blocks[x][y].runningAverageColor.b * (1-runningAverageAmount) + (color.b * runningAverageAmount);}
+            blocks[x][y].runningAverageColor.b = blocks[x][y].runningAverageColor.b * (1-runningAverageAmount) + (color.b * runningAverageAmount);
+            
+            
+            //Match
+            blocks[x][y].invalid = true;
+            for(int i=0;i<NUM_BLOCKS;i++){
+                ofVec3f v1 = ofVec3f(blocks[x][y].runningAverageColor.r, blocks[x][y].runningAverageColor.g, blocks[x][y].runningAverageColor.b);
+                ofVec3f v2 = ofVec3f(blockCalibrationColor[i].r, blockCalibrationColor[i].g, blockCalibrationColor[i].b);
+                
+                float distance = v1.distance(v2);
+                if(distance < colorMatchDistance){
+                    if(blocks[x][y].blockColor != i){
+                        blocks[x][y].age = 0;
+                    }
+                    blocks[x][y].blockColor = (BlockColor)i;
+                    blocks[x][y].invalid = false;
+                    blocks[x][y].matchDistance = distance;
+                }
+            }
+            if(blocks[x][y].invalid){
+                blocks[x][y].age = 0;
+            } else {
+                blocks[x][y].age++;
+            }
+        }
     }
 }
 
 //------------------
+
+const int colorPickerY = 300;
+const int colorPickerW = 200/(float)NUM_BLOCKS;
 
 void Tracker::drawDebug(){
     float w = CAM_W;
@@ -109,9 +163,32 @@ void Tracker::drawDebug(){
 
                 ofNoFill();
                 ofSetLineWidth(1);
-                glColor3f(blocks[x][y].runningAverageColor.r, blocks[x][y].runningAverageColor.g, blocks[x][y].runningAverageColor.b);
+                //glColor3f(blocks[x][y].runningAverageColor.r, blocks[x][y].runningAverageColor.g, blocks[x][y].runningAverageColor.b);
+                if(blocks[x][y].invalid){
+                    ofSetColor(255, 255, 255,100);
+                } else {
+                    switch (blocks[x][y].blockColor) {
+                        case BlockGreen:
+                            ofSetColor(0, 255, 0);
+                            break;
+                        case BlockBrown:
+                            ofSetColor(255, 100, 0);
+                            break;
+                        case BlockBlue:
+                            ofSetColor(0, 0, 255);
+                            break;                            
+                        default:
+                            break;
+                    }
+                }
                 ofCircle(pos.x, pos.y, 7);
                 
+                if(blockSelected.x == x && blockSelected.y == y){
+                    float a = sin(ofGetElapsedTimeMillis()/200.0);
+                ofSetColor(150+a*80, 0, 0);
+                ofCircle(pos.x, pos.y, 10+a*1.0);
+                }
+
             }
         }
         
@@ -142,7 +219,7 @@ void Tracker::drawDebug(){
     //Info box
     int infoBoxX = 650;
     int infoBoxY = 0;
-    if(blockHover.x != -1){
+    if(blockSelected.x != -1){
         ofFill();
         ofSetColor(0, 0, 0,100);
         ofRect(infoBoxX, infoBoxY, 200, 480);
@@ -158,16 +235,46 @@ void Tracker::drawDebug(){
         ofSetColor(220, 220, 220);
 
         y += 15;
-        ofDrawBitmapString("Block "+ofToString(blockHover.x)+"x"+ofToString(blockHover.y), infoBoxX +5, infoBoxY + y);
+        ofDrawBitmapString("Block "+ofToString(blockSelected.x)+":"+ofToString(blockSelected.y), infoBoxX +5, infoBoxY + y);
 
-        Block block = blocks[(int)blockHover.x][(int)blockHover.y];
+        Block block = blocks[(int)blockSelected.x][(int)blockSelected.y];
         
         y += 25;
-        ofDrawBitmapString("r: "+ofToString(block.runningAverageColor.r,2)+"\n"+"g: "+ofToString(block.runningAverageColor.g,2)+"\n"+"b: "+ofToString(block.runningAverageColor.b,2), infoBoxX +5, infoBoxY + y);
+        ofDrawBitmapString("r: "+ofToString(block.runningAverageColor.r,2)+"\n"+
+                           "g: "+ofToString(block.runningAverageColor.g,2)+"\n"+
+                           "b: "+ofToString(block.runningAverageColor.b,2), infoBoxX +5+30, infoBoxY + y);
         
         ofFill();
         glColor3f(block.runningAverageColor.r, block.runningAverageColor.g, block.runningAverageColor.b);
-        ofRect(infoBoxX + 70, y-10, 30, 40);
+        ofRect(infoBoxX, y-10, 30, 40);
+        ofSetColor(220, 220, 220);
+        
+        
+
+        if(!block.invalid){
+            y += 60;
+            ofDrawBitmapString("Match: "+nameOfBlockColor(block.blockColor)+
+                               "\nDistance: "+ofToString(block.matchDistance,2)+
+                               "\nAge: "+ofToString(block.age), infoBoxX +5+30, infoBoxY + y);
+            
+            glColor3f(blockCalibrationColor[block.blockColor].r, blockCalibrationColor[block.blockColor].g, blockCalibrationColor[block.blockColor].b);
+            ofRect(infoBoxX, y-10, 30, 40);
+            ofSetColor(220, 220, 220);
+        }
+        
+        ofFill();
+
+        
+        //Color picker
+        y = colorPickerY;
+        for(int i=0;i<NUM_BLOCKS;i++){
+            ofSetColor(255, 255, 255);
+            ofDrawBitmapString(nameOfBlockColor((BlockColor)i), ofPoint(i*colorPickerW+infoBoxX+3 , y-14));
+            glColor3f(blockCalibrationColor[i].r, blockCalibrationColor[i].g, blockCalibrationColor[i].b);
+            ofRect(i*colorPickerW+infoBoxX, y, colorPickerW, 50);
+        }
+        
+        
     }
     
     ofSetColor(0, 0, 0);
@@ -184,15 +291,7 @@ void Tracker::mouseMoved(int x, int y ){
         }
     }
     
-    blockHover = ofVec2f(-1,-1);
-    for(int bx=0;bx<8;bx++){
-        for(int by=0;by<6;by++){
-            ofVec2f mouse = ofVec2f(x,y);
-            if(mouse.distance(blockPixelLocationInCamera(bx,by)) < 8){
-                blockHover = ofVec2f(bx,by); 
-            }
-        }
-    }
+
 }
 void Tracker::mouseDragged(int x, int y, int button){
     if(handleSelected >= 0){
@@ -202,11 +301,34 @@ void Tracker::mouseDragged(int x, int y, int button){
     }
 }
 void Tracker::mousePressed(int x, int y, int button){
-    handleSelected = -1;
-    for(int i=0;i<4;i++){
-        ofVec2f mouse = ofVec2f(x,y);
-        if(mouse.distance(calibrationCorners[i]) < 8){
-            handleSelected = i; 
+    if(x < CAM_W){
+        handleSelected = -1;
+        for(int i=0;i<4;i++){
+            ofVec2f mouse = ofVec2f(x,y);
+            if(mouse.distance(calibrationCorners[i]) < 8){
+                handleSelected = i; 
+            }
+        }
+        
+        blockSelected = ofVec2f(-1,-1);
+        for(int bx=0;bx<8;bx++){
+            for(int by=0;by<6;by++){
+                ofVec2f mouse = ofVec2f(x,y);
+                if(mouse.distance(blockPixelLocationInCamera(bx,by)) < 8){
+                    blockSelected = ofVec2f(bx,by); 
+                }
+            }
+        }
+    } else {
+        if(y >= colorPickerY && y < colorPickerY + 50){
+            for(int i=0;i<NUM_BLOCKS;i++){
+                if(x - 650 < colorPickerW * (i+1)){
+                    blockCalibrationColor[i].r = blocks[(int)blockSelected.x][(int)blockSelected.y].runningAverageColor.r;
+                    blockCalibrationColor[i].g = blocks[(int)blockSelected.x][(int)blockSelected.y].runningAverageColor.g;
+                    blockCalibrationColor[i].b = blocks[(int)blockSelected.x][(int)blockSelected.y].runningAverageColor.b;
+                    break;
+                }
+            }
         }
     }
 }

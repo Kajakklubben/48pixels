@@ -23,6 +23,11 @@
 		DD78E4171541F95E00E60A4A /* GameBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4151541F95E00E60A4A /* GameBlock.cpp */; };
 		DD78E41A1541F96500E60A4A /* gameScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4181541F96500E60A4A /* gameScreen.cpp */; };
 		DD78E41D1541FAD900E60A4A /* coordWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E41C1541FAD900E60A4A /* coordWarp.cpp */; };
+		DD78E43615421BDE00E60A4A /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E42F15421BDE00E60A4A /* tinyxml.cpp */; };
+		DD78E43715421BDE00E60A4A /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43115421BDE00E60A4A /* tinyxmlerror.cpp */; };
+		DD78E43815421BDE00E60A4A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43215421BDE00E60A4A /* tinyxmlparser.cpp */; };
+		DD78E43915421BDE00E60A4A /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43415421BDE00E60A4A /* ofxXmlSettings.cpp */; };
+		DD78E43C15421C1000E60A4A /* SpriteAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -170,6 +175,15 @@
 		DD78E4191541F96500E60A4A /* gameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameScreen.h; sourceTree = "<group>"; };
 		DD78E41B1541FAD900E60A4A /* coordWarp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordWarp.h; sourceTree = "<group>"; };
 		DD78E41C1541FAD900E60A4A /* coordWarp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordWarp.cpp; sourceTree = "<group>"; };
+		DD78E42D15421BDE00E60A4A /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
+		DD78E42F15421BDE00E60A4A /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		DD78E43015421BDE00E60A4A /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		DD78E43115421BDE00E60A4A /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		DD78E43215421BDE00E60A4A /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		DD78E43415421BDE00E60A4A /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
+		DD78E43515421BDE00E60A4A /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
+		DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteAnimation.cpp; sourceTree = "<group>"; };
+		DD78E43B15421C1000E60A4A /* SpriteAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteAnimation.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -218,6 +232,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				DD78E42C15421BDE00E60A4A /* ofxXmlSettings */,
 				DD78E39C1541EFF200E60A4A /* ofxOpenCv */,
 			);
 			name = addons;
@@ -258,6 +273,8 @@
 				DD78E3981541EBBA00E60A4A /* testApp.cpp */,
 				DD78E4151541F95E00E60A4A /* GameBlock.cpp */,
 				DD78E4161541F95E00E60A4A /* GameBlock.h */,
+				DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */,
+				DD78E43B15421C1000E60A4A /* SpriteAnimation.h */,
 				DD78E4181541F96500E60A4A /* gameScreen.cpp */,
 				DD78E4191541F96500E60A4A /* gameScreen.h */,
 				DD78E4131541F1C700E60A4A /* calibrator.h */,
@@ -525,6 +542,37 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		DD78E42C15421BDE00E60A4A /* ofxXmlSettings */ = {
+			isa = PBXGroup;
+			children = (
+				DD78E42D15421BDE00E60A4A /* install.xml */,
+				DD78E42E15421BDE00E60A4A /* libs */,
+				DD78E43315421BDE00E60A4A /* src */,
+			);
+			name = ofxXmlSettings;
+			path = ../../../addons/ofxXmlSettings;
+			sourceTree = "<group>";
+		};
+		DD78E42E15421BDE00E60A4A /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				DD78E42F15421BDE00E60A4A /* tinyxml.cpp */,
+				DD78E43015421BDE00E60A4A /* tinyxml.h */,
+				DD78E43115421BDE00E60A4A /* tinyxmlerror.cpp */,
+				DD78E43215421BDE00E60A4A /* tinyxmlparser.cpp */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		DD78E43315421BDE00E60A4A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DD78E43415421BDE00E60A4A /* ofxXmlSettings.cpp */,
+				DD78E43515421BDE00E60A4A /* ofxXmlSettings.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		E4328144138ABC890047C5CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +710,11 @@
 				DD78E4171541F95E00E60A4A /* GameBlock.cpp in Sources */,
 				DD78E41A1541F96500E60A4A /* gameScreen.cpp in Sources */,
 				DD78E41D1541FAD900E60A4A /* coordWarp.cpp in Sources */,
+				DD78E43615421BDE00E60A4A /* tinyxml.cpp in Sources */,
+				DD78E43715421BDE00E60A4A /* tinyxmlerror.cpp in Sources */,
+				DD78E43815421BDE00E60A4A /* tinyxmlparser.cpp in Sources */,
+				DD78E43915421BDE00E60A4A /* ofxXmlSettings.cpp in Sources */,
+				DD78E43C15421C1000E60A4A /* SpriteAnimation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

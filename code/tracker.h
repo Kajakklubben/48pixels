@@ -5,13 +5,16 @@
 
 #define CAM_W 640
 #define CAM_H 480
+#define NUM_BLOCKS 3
 
 const int trackingAreaSize = 6; //Pixels wide and high tracking rect
 const float runningAverageAmount = 0.01; //Lower is slower
+const float colorMatchDistance = 0.2;
 
 enum BlockColor {
-    BlockRed,
-    BlockPoo
+    BlockBlue=0,
+    BlockGreen=1,
+    BlockBrown=2,
 };
 
 struct Color {
@@ -24,6 +27,7 @@ struct Block {
     BlockColor blockColor;
     bool invalid;    
     int age;
+    float matchDistance;
     
     Color runningAverageColor;
 };
@@ -51,6 +55,8 @@ public:
     //Returns the pixel location for the block at x,y
     ofVec2f blockPixelLocationInCamera(int x, int y);
     
+    string nameOfBlockColor(BlockColor color);
+    
     Block blocks[8][6];
   
 private:
@@ -60,8 +66,8 @@ private:
     //0 ... CAM_SIZE
     ofVec2f calibrationCorners[4];
     
-    
+    Color blockCalibrationColor[NUM_BLOCKS];
     
     int handleHover, handleSelected;
-    ofVec2f blockHover;
+    ofVec2f blockSelected;
 };

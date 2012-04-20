@@ -1,7 +1,22 @@
-<BACKGROUND>
-    <COLOR>
-        <RED>245</RED>
-        <GREEN>140</GREEN>
-        <BLUE>104</BLUE>
-    </COLOR>
-</BACKGROUND>
+<root>
+	<settings>
+	
+	</settings>	
+	<graphics>
+		
+		<backgrounds>
+			<background name="name" time="time present" fade="fade in time" image="xxx.png" />
+		</backgrounds>
+		
+		<tiles>
+			<tile name="name">
+				<frame time="time present" image="xxx.png"/>
+			</tile>
+		</tiles>
+		
+		<character>
+			<frame time="time present" image="xxx.png"/>
+		<character>
+		
+	</graphics>
+</root>

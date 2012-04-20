@@ -9,7 +9,6 @@
 #include "GameBlock.h"
 #include "ofMain.h"
 
-using namespace std;
 
 class gameScreen
 {

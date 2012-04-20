@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-
+    tracker.setup();
     ofBackground(255,255,255);
 	ofSetWindowTitle("graphics example");
 	ofSetFrameRate(60);
@@ -12,11 +12,13 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
     game.update(1);
+    tracker.update();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     game.draw();
+    tracker.drawDebug();
 }
 
 //--------------------------------------------------------------

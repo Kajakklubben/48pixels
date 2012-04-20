@@ -11,7 +11,6 @@
 #include "ofxXmlSettings.h"
 #include "SpriteAnimation.h"
 
-using namespace std;
 
 class gameScreen
 {

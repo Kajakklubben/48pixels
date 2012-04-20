@@ -8,6 +8,7 @@
 #include "ofMain.h"
 #include "GameBlock.h"
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ class gameScreen
 
         int blockWidth;
 		int blockHeight;
+		ofxXmlSettings XML;
 
     protected:
     private:

@@ -1,0 +1,22 @@
+<root>
+	<settings>
+	
+	</settings>	
+	<graphics>
+		
+		<backgrounds>
+			<background name="morning" time="7" fade="2" img="../assets/backgrounds/morning.png" />
+		</backgrounds>
+		
+		<tiles>
+			<tile name="name">
+				<frame time="time present" img="xxx.png"/>
+			</tile>
+		</tiles>
+		
+		<character>
+			<frame time="time present" img="xxx.png"/>
+		<character>
+		
+	</graphics>
+</root>

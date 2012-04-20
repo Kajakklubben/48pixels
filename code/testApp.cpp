@@ -3,21 +3,25 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 
+    ofBackground(255,255,255);
+	ofSetWindowTitle("graphics example");
+	ofSetFrameRate(60);
+
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    game.update(1);
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-
+    game.draw();
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
+    game.keyPressed(key);
 }
 
 //--------------------------------------------------------------
@@ -56,6 +60,6 @@ void testApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
+void testApp::dragEvent(ofDragInfo dragInfo){
 
 }

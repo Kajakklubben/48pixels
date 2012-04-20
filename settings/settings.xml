@@ -9,14 +9,15 @@
 		</backgrounds>
 		
 		<tiles>
-			<tile name="name">
-				<frame time="time present" img="xxx.png"/>
+			<tile name="earth" border="5" layer="1">
+				<frame time="0" img="../assets/earth/earth01.png"/>
 			</tile>
 		</tiles>
 		
 		<character>
-			<frame time="time present" img="xxx.png"/>
+			<idle>
+				<frame time="0" img="../assets/character/char01.png"/>
+			</idle>
 		<character>
-		
 	</graphics>
 </root>

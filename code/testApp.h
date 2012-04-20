@@ -17,6 +17,11 @@ public:
     Tracker tracker;
     Calibrator calibrator;
     gameScreen game;
+    
+    //---------------------
+    
+    bool trackerDebug;
+    
     //---------------------
 
 

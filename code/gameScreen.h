@@ -8,6 +8,8 @@
 #include "ofMain.h"
 #include "GameBlock.h"
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
+#include "SpriteAnimation.h"
 
 
 class gameScreen
@@ -24,6 +26,9 @@ class gameScreen
 
         int blockWidth;
 		int blockHeight;
+		ofxXmlSettings XML;
+
+        SpriteAnimation background;
 
     protected:
     private:

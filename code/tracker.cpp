@@ -9,6 +9,8 @@ void Tracker::update(){
 }
 
 void Tracker::drawDebug(){
+    #ifdef TARGET_OSX
     videoGrabber.draw(0, 0, 640, 480);
+    #endif
 }
 

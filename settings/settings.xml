@@ -14,9 +14,6 @@
 				<variation>						
 					<frame time="0" img="../assets/earth/earth01.png"/>
 				</variation>
-				<variation>						
-					<frame time="0" img="../assets/earth/earth01.png"/>
-				</variation>
 			</tile>
 		</tiles>
 		

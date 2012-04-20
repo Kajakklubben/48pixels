@@ -5,16 +5,21 @@
 	<graphics>
 		
 		<backgrounds>
-			<background name="morning" time="7" fade="2" img="../assets/backgrounds/morning.png" />
+			<sprite name="morning" layer="0" duration="7" fade="2">
+				<variation>
+					<frame img="../assets/backgrounds/morning.png"/>
+				</variation>
+			<sprite>
+			
 			<background name="day" time="10" fade="3" img="../assets/backgrounds/day.png" />
 		</backgrounds>
 		
 		<tiles>
-			<tile name="earth01" border="5" layer="1">
+			<sprite name="earth" margin="5" layer="1" fade="1">
 				<variation>						
-					<frame time="0" img="../assets/earth/earth01.png"/>
+					<frame img="../assets/earth/earth01.png"/>
 				</variation>
-			</tile>
+			</sprite>
 		</tiles>
 		
 		<character>

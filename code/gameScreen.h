@@ -18,6 +18,7 @@ class gameScreen
     public:
         gameScreen();
         virtual ~gameScreen();
+        void loadBackgrounds();
         void update(float delta);
         void draw();
         void keyPressed  (int key);
@@ -28,6 +29,7 @@ class gameScreen
         int blockWidth;
 		int blockHeight;
 		ofxXmlSettings XML;
+
 
         SpriteAnimation background;
 

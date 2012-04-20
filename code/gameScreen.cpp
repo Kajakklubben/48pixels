@@ -20,9 +20,16 @@ gameScreen::gameScreen()
 	*/
 }
 
+
 gameScreen::~gameScreen()
 {
     //dtor
+}
+
+
+void gameScreen::loadBackgrounds()
+{
+
 }
 
 void gameScreen::update(float deltatime)

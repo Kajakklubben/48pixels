@@ -1482,14 +1482,15 @@
 1334951218 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.cpp
 	"calibrator.h"
 
-1334953923 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
+1334957018 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
 	"gameScreen.h"
 
-1334952991 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
+1334958217 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
 	"ofMain.h"
 	"GameBlock.h"
 	"ofMain.h"
 	"ofxXmlSettings.h"
+	"SpriteAnimation.h"
 
 1334952316 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
 	"testApp.h"
@@ -1533,4 +1534,11 @@
 	<stddef.h>
 	"tinyxml.h"
 	<windows.h>
+
+1334960524 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\spriteanimation.h
+	"ofMain.h"
+	<vector>
+
+1334960706 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\spriteanimation.cpp
+	"SpriteAnimation.h"
 

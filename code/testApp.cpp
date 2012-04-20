@@ -3,10 +3,12 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     tracker.setup();
-    ofBackground(255,255,255);
-	ofSetWindowTitle("graphics example");
+    ofBackground(0,0,0);
+	ofSetWindowTitle("48 by Kajakklubben");
 	ofSetFrameRate(60);
 
+    trackerDebug = true;
+    
 }
 
 //--------------------------------------------------------------
@@ -18,7 +20,10 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     game.draw();
-    tracker.drawDebug();
+    
+    if(trackerDebug){
+        tracker.drawDebug();
+    }
 }
 
 //--------------------------------------------------------------
@@ -33,22 +38,30 @@ void testApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
-
+    if(trackerDebug){
+        tracker.mouseMoved(x, y);
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-
+    if(trackerDebug){
+        tracker.mouseDragged(x, y, button);
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-
+    if(trackerDebug){
+        tracker.mousePressed(x, y, button);
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-
+    if(trackerDebug){
+        tracker.mouseReleased(x, y, button);
+    }
 }
 
 //--------------------------------------------------------------

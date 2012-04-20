@@ -20,6 +20,9 @@
 		DD78E40E1541EFF200E60A4A /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4041541EFF200E60A4A /* ofxCvShortImage.cpp */; };
 		DD78E4101541F01600E60A4A /* tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E40F1541F01600E60A4A /* tracker.cpp */; };
 		DD78E4141541F1C700E60A4A /* calibrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4121541F1C600E60A4A /* calibrator.cpp */; };
+		DD78E4171541F95E00E60A4A /* GameBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4151541F95E00E60A4A /* GameBlock.cpp */; };
+		DD78E41A1541F96500E60A4A /* gameScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4181541F96500E60A4A /* gameScreen.cpp */; };
+		DD78E41D1541FAD900E60A4A /* coordWarp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E41C1541FAD900E60A4A /* coordWarp.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -161,6 +164,12 @@
 		DD78E4111541F02100E60A4A /* tracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tracker.h; sourceTree = "<group>"; };
 		DD78E4121541F1C600E60A4A /* calibrator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = calibrator.cpp; sourceTree = "<group>"; };
 		DD78E4131541F1C700E60A4A /* calibrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = calibrator.h; sourceTree = "<group>"; };
+		DD78E4151541F95E00E60A4A /* GameBlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBlock.cpp; sourceTree = "<group>"; };
+		DD78E4161541F95E00E60A4A /* GameBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBlock.h; sourceTree = "<group>"; };
+		DD78E4181541F96500E60A4A /* gameScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gameScreen.cpp; sourceTree = "<group>"; };
+		DD78E4191541F96500E60A4A /* gameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameScreen.h; sourceTree = "<group>"; };
+		DD78E41B1541FAD900E60A4A /* coordWarp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordWarp.h; sourceTree = "<group>"; };
+		DD78E41C1541FAD900E60A4A /* coordWarp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordWarp.cpp; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -247,10 +256,16 @@
 				DD78E3971541EBBA00E60A4A /* main.cpp */,
 				DD78E3991541EBBA00E60A4A /* testApp.h */,
 				DD78E3981541EBBA00E60A4A /* testApp.cpp */,
-				DD78E4111541F02100E60A4A /* tracker.h */,
-				DD78E40F1541F01600E60A4A /* tracker.cpp */,
+				DD78E4151541F95E00E60A4A /* GameBlock.cpp */,
+				DD78E4161541F95E00E60A4A /* GameBlock.h */,
+				DD78E4181541F96500E60A4A /* gameScreen.cpp */,
+				DD78E4191541F96500E60A4A /* gameScreen.h */,
 				DD78E4131541F1C700E60A4A /* calibrator.h */,
 				DD78E4121541F1C600E60A4A /* calibrator.cpp */,
+				DD78E4111541F02100E60A4A /* tracker.h */,
+				DD78E40F1541F01600E60A4A /* tracker.cpp */,
+				DD78E41B1541FAD900E60A4A /* coordWarp.h */,
+				DD78E41C1541FAD900E60A4A /* coordWarp.cpp */,
 			);
 			name = code;
 			path = ../code;
@@ -644,6 +659,9 @@
 				DD78E40E1541EFF200E60A4A /* ofxCvShortImage.cpp in Sources */,
 				DD78E4101541F01600E60A4A /* tracker.cpp in Sources */,
 				DD78E4141541F1C700E60A4A /* calibrator.cpp in Sources */,
+				DD78E4171541F95E00E60A4A /* GameBlock.cpp in Sources */,
+				DD78E41A1541F96500E60A4A /* gameScreen.cpp in Sources */,
+				DD78E41D1541FAD900E60A4A /* coordWarp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

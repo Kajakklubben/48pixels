@@ -14,7 +14,7 @@ gameScreen::gameScreen()
 
 	//read the colors from XML
 	//if the settings file doesn't exist we assigns default values (170, 190, 240)
-	printf("red: %i \n",XML.getValue("BACKGROUND:COLOR:RED", 170));
+	printf("\n red: %i \n",XML.getValue("BACKGROUND:COLOR:RED", 170));
 	/*green	= XML.getValue("BACKGROUND:COLOR:GREEN", 190);
 	blue	= XML.getValue("BACKGROUND:COLOR:BLUE", 240);
 	*/
@@ -27,8 +27,6 @@ gameScreen::~gameScreen()
 
 void gameScreen::update(float deltatime)
 {
-
-
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
         blocks[i].Update(1.0f);

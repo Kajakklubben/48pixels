@@ -4,7 +4,7 @@
 void testApp::setup(){
     tracker.setup();
     ofBackground(255,255,255);
-	ofSetWindowTitle("graphics example");
+	ofSetWindowTitle("48 by Kajakklubben");
 	ofSetFrameRate(60);
 
 }

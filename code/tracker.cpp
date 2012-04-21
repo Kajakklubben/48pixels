@@ -115,6 +115,7 @@ void Tracker::initUeye()
         //ueye.enableAutoWhiteBalance();
         //ueye.enableAutoExposureTime();
 
+        //Almost optimal settings when sitting in labitat in dimmed light.
         ueye.setFPS(40);
         ueye.setGainMaster(96);
         ueye.setGainRed(0);

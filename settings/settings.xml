@@ -15,21 +15,21 @@
         <state name="run" spriteIndex="0" />
         <state name="idle" spriteIndex="1" />
     </character>
-	
-	<!-- Background Sprites -->
+
+
 	<backgroundSprites>
 		<sprites>
 			<sprite name="morning">
 				<variation>
-					<frame img="../assets/backgrounds/morning.png"/>
+					<frame img="../../../assets/backgrounds/morning.png"/>
 				</variation>
-			<sprite>        
+			</sprite>
 		</sprites>
 	</backgroundSprites>
-	
-	<!-- Block Sprites -->
+
+
 	<blockSprites>
-		<sprites>		
+		<sprites>
 			<sprite name="earth" margin="5" >
 				<variation>
 					<frame img="../assets/earth/earth01.png"/>
@@ -37,34 +37,12 @@
 			</sprite>
 		</sprites>
 	</blockSprites>
-	
-	<!-- Character Sprites -->
+
+
 	<characterSprites>
 		<sprites>
-			<sprite>
-				<variation>
-					<frame time="0" img="../assets/character/char01.png"/>
-				</variation>
-			</sprite>
-	
-			<sprite>
-				<variation>
-					<frame time="0" img="../assets/character/char01.png"/>
-				</variation>
-			</sprite>
-	
-			<sprite>
-				<variation>
-					<frame time="0" img="../assets/character/char01.png"/>
-				</variation>
-			</sprite>
-	
-			<sprite>
-				<variation>
-					<frame time="0" img="../assets/character/char01.png"/>
-				</variation>
-			</sprite>
+
 		</sprites>
-	<characterSprites>
+	</characterSprites>
 
 </root>

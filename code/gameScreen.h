@@ -5,23 +5,27 @@
 #define GAMEBLOCK_ROWS 6
 
 
-#include "ofMain.h"
 #include "GameBlock.h"
 #include "ofMain.h"
 #include "ofxXmlSettings.h"
 #include "SpriteAnimation.h"
-
+#include "AnimationLoader.h"
+#include "tracker.h"
+#include "GameBackground.h"
 
 class gameScreen
 {
     public:
         gameScreen();
         virtual ~gameScreen();
+        void init(Tracker& tracker);
         void loadBackgrounds();
         void update(float delta);
         void draw();
+        void drawBackground();
         void keyPressed  (int key);
 
+        Tracker* tracker;
         GameBlock blocks[GAMEBLOCK_COLS*GAMEBLOCK_ROWS];
 
 
@@ -30,7 +34,7 @@ class gameScreen
 		ofxXmlSettings XML;
 
 
-        SpriteAnimation background;
+        vector<GameBackground*> backgrounds;
 
     protected:
     private:

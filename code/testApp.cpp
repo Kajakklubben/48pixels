@@ -4,11 +4,12 @@
 void testApp::setup(){
     tracker.setup();
     ofBackground(0,0,0);
-	ofSetWindowTitle("48 by Kajakklubben");
+	ofSetWindowTitle("Farmors Baghave - a Kajakklubben project");
 	ofSetFrameRate(60);
 
-    trackerDebug = true;
-    
+    trackerDebug = false;
+    game.init(tracker);
+
 }
 
 //--------------------------------------------------------------
@@ -20,7 +21,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     game.draw();
-    
+
     if(trackerDebug){
         tracker.drawDebug();
     }
@@ -28,7 +29,12 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-    game.keyPressed(key);
+    if(!trackerDebug)
+        game.keyPressed(key);
+
+    if(key=='c')
+        trackerDebug = !trackerDebug ;
+
 }
 
 //--------------------------------------------------------------

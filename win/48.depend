@@ -1462,40 +1462,45 @@
 	"testApp.h"
 	"ofAppGlutWindow.h"
 
-1334952130 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.h
+1334961405 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.h
 	"ofMain.h"
 	"tracker.h"
 	"calibrator.h"
 	"GameScreen.h"
 
-1334952296 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.h
+1335024999 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.h
 	"ofxOpenCv.h"
+	"coordWarp.h"
+	"ofxUeye.h"
+	"ofxUeyeSettings.h"
 
 1334951218 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.h
 
-1334775005 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.cpp
+1335035282 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.cpp
 	"GameBlock.h"
 
-1334773829 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.h
+1335035022 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.h
 	"ofMain.h"
 
 1334951218 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.cpp
 	"calibrator.h"
 
-1334957018 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
+1335035242 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
 	"gameScreen.h"
 
-1334961273 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
-	"ofMain.h"
+1335030554 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
 	"GameBlock.h"
 	"ofMain.h"
 	"ofxXmlSettings.h"
 	"SpriteAnimation.h"
+	"AnimationLoader.h"
+	"tracker.h"
+	"GameBackground.h"
 
-1334952316 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
+1335027231 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
 	"testApp.h"
 
-1334952697 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.cpp
+1335025268 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.cpp
 	"tracker.h"
 
 1311249352 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\addons\ofxxmlsettings\src\ofxxmlsettings.h
@@ -1535,10 +1540,74 @@
 	"tinyxml.h"
 	<windows.h>
 
-1334960524 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\spriteanimation.h
+1335030470 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\spriteanimation.h
 	"ofMain.h"
 	<vector>
 
-1334960706 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\spriteanimation.cpp
+1335029765 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\spriteanimation.cpp
+	"SpriteAnimation.h"
+
+1334961405 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\coordwarp.h
+	"ofxCvConstants.h"
+
+1334965313 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\animationloader.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+	"SpriteAnimation.h"
+
+1335030881 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\animationloader.cpp
+	"AnimationLoader.h"
+
+1334961405 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\coordwarp.cpp
+	"coordWarp.h"
+	"ofxOpenCv.h"
+	"ofxCvConstants.h"
+
+1323089998 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\ofxkeyboardsettings\ofxkeyboardsettings.cpp
+	"ofxKeyboardSettings.h"
+
+1323089998 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\ofxkeyboardsettings\ofxkeyboardsettings.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+
+1323089998 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxkeyboardsettings.cpp
+	"ofxKeyboardSettings.h"
+
+1323089998 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxkeyboardsettings.h
+	"ofMain.h"
+	"ofxXmlSettings.h"
+
+1312718838 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxueye.h
+	<iostream>
+	<tchar.h>
+	<conio.h>
+	<windows.h>
+	"uEye.h"
+	"ofxUeyeEvents.h"
+
+1312718838 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ueye.h
+	<unistd.h>
+	<stdint.h>
+	<windows.h>
+
+1312718838 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxueyeevents.h
+	"ofMain.h"
+
+1312718838 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxueyesettings.h
+	"ofMain.h"
+	"ofxUeye.h"
+	"ofxKeyboardSettings.h"
+
+1335016554 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxueye.cpp
+	"ofxUeye.h"
+
+1312718838 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\ofxueyesettings.cpp
+	"ofxUeyeSettings.h"
+
+1335034341 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamebackground.cpp
+	"GameBackground.h"
+
+1335034764 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamebackground.h
+	"ofMain.h"
 	"SpriteAnimation.h"
 

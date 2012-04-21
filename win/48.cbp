@@ -6,7 +6,7 @@
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="addons\;addons\ofxOpenCv\libs\opencv\include\opencv2\core\;addons\ofxOpenCv\libs\opencv\include\opencv2\flann\;addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\;addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\;addons\ofxOpenCv\libs\opencv\include\opencv\;addons\ofxOpenCv\src\;" />
+		<Option virtualFolders="addons\;addons\ofxOpenCv\libs\opencv\include\opencv2\core\;addons\ofxOpenCv\libs\opencv\include\opencv2\flann\;addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\;addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\;addons\ofxOpenCv\libs\opencv\include\opencv\;addons\ofxOpenCv\src\;addons\addons\;ueye\;" />
 		<Build>
 			<Target title="release">
 				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -98,6 +98,8 @@
 			<Add directory="..\..\..\addons\ofxXmlSettings\src" />
 			<Add directory="..\..\..\addons\ofxXmlSettings" />
 			<Add directory="..\..\..\addons\ofxXmlSettings\libs" />
+			<Add directory="..\ueye\lib" />
+			<Add directory="..\ueye\src" />
 		</Compiler>
 		<Linker>
 			<Add option="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_legacy220.a" />
@@ -313,13 +315,44 @@
 		<Unit filename="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h">
 			<Option virtualFolder="addons\ofxOpenCv\src" />
 		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
+			<Option virtualFolder="addons\addons\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
+			<Option virtualFolder="addons\addons\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+			<Option virtualFolder="addons\addons\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+			<Option virtualFolder="addons\addons\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+			<Option virtualFolder="addons\addons\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+			<Option virtualFolder="addons\addons\" />
+		</Unit>
+		<Unit filename="..\code\AnimationLoader.cpp" />
+		<Unit filename="..\code\AnimationLoader.h" />
 		<Unit filename="..\code\GameBlock.cpp" />
 		<Unit filename="..\code\GameBlock.h" />
+		<Unit filename="..\code\SpriteAnimation.cpp" />
+		<Unit filename="..\code\SpriteAnimation.h" />
 		<Unit filename="..\code\calibrator.cpp" />
 		<Unit filename="..\code\calibrator.h" />
+		<Unit filename="..\code\coordWarp.cpp" />
+		<Unit filename="..\code\coordWarp.h" />
 		<Unit filename="..\code\gameScreen.cpp" />
 		<Unit filename="..\code\gameScreen.h" />
 		<Unit filename="..\code\main.cpp" />
+		<Unit filename="..\code\ofxKeyboardSettings.cpp" />
+		<Unit filename="..\code\ofxKeyboardSettings.h" />
+		<Unit filename="..\code\ofxUeye.cpp" />
+		<Unit filename="..\code\ofxUeye.h" />
+		<Unit filename="..\code\ofxUeyeEvents.h" />
+		<Unit filename="..\code\ofxUeyeSettings.cpp" />
+		<Unit filename="..\code\ofxUeyeSettings.h" />
 		<Unit filename="..\code\testApp.cpp" />
 		<Unit filename="..\code\testApp.h" />
 		<Unit filename="..\code\tracker.cpp" />

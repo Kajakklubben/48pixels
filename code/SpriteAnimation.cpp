@@ -1,9 +1,11 @@
 #include "SpriteAnimation.h"
-vector<ofImage> SpriteAnimation::frames;
 
 SpriteAnimation::SpriteAnimation()
 {
     currentframe = 0;
+    margin = 0;
+    height = 10;
+    width = 10;
 }
 
 SpriteAnimation::~SpriteAnimation()
@@ -21,10 +23,19 @@ void SpriteAnimation::update(float deltatime)
         currentframe =  currentframe%frames.size();
 }
 
-void SpriteAnimation::draw(int x, int y)
+void SpriteAnimation::draw(int frame, int x, int y, int w, int h)
 {
-    if(frames.size() > currentframe)
-       frames[currentframe].draw(x-margin,y-margin,width+margin,height+margin);
+
+    if(frames[0].size() > frame)
+       frames[0][frame].draw(x-margin,y-margin,w+margin,h+margin);
+    else
+        printf("\n Warning: Animation is out of frames!");
+}
+
+void SpriteAnimation::draw(int frame, int x, int y)
+{
+    if(frames[0].size() > frame)
+       draw(frame,x,y,frames[0][frame].width,frames[0][frame].height);
     else
         printf("\n Warning: Animation is out of frames!");
 }

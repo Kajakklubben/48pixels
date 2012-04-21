@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="release" />
-	<File name="..\code\gameScreen.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="437" topLine="0" />
+	<File name="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h" open="0" top="0" tabpos="0">
+		<Cursor position="913" topLine="28" />
+	</File>
+	<File name="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1750" topLine="57" />
+	</File>
+	<File name="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" open="0" top="0" tabpos="0">
+		<Cursor position="1868" topLine="40" />
+	</File>
+	<File name="..\code\AnimationLoader.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="1147" topLine="31" />
+	</File>
+	<File name="..\code\SpriteAnimation.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="618" topLine="11" />
+	</File>
+	<File name="..\code\SpriteAnimation.h" open="1" top="0" tabpos="4">
+		<Cursor position="295" topLine="18" />
+	</File>
+	<File name="..\code\gameScreen.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1124" topLine="39" />
 	</File>
 	<File name="..\code\gameScreen.h" open="1" top="0" tabpos="2">
-		<Cursor position="531" topLine="0" />
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\code\ofxUeye.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="32174" topLine="786" />
+	</File>
+	<File name="..\code\ofxUeye.h" open="1" top="1" tabpos="11">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\code\ofxUeyeEvents.h" open="1" top="0" tabpos="12">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="..\code\ofxUeyeSettings.h" open="1" top="0" tabpos="10">
+		<Cursor position="293" topLine="0" />
 	</File>
 	<File name="..\code\testApp.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="0" topLine="0" />
+		<Cursor position="399" topLine="0" />
+	</File>
+	<File name="..\code\tracker.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="146" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

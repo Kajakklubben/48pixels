@@ -12,8 +12,13 @@ class SpriteAnimation
         virtual ~SpriteAnimation();
 
         void update(float delta);
-		void draw(int x, int y);
+        void draw (int frame, int x, int y);
+		void draw(int frame, int x, int y, int w, int h);
 		void fadeTo(int alpha, float time);
+
+        int layer;
+        int duration;
+        int fade;
 
         int margin;
         int width;
@@ -29,7 +34,7 @@ class SpriteAnimation
         int currentframe;
 
 
-        static vector<ofImage> frames;
+        vector<vector<ofImage> > frames; //and variations
 
         static void load();
 

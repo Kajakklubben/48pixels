@@ -204,7 +204,7 @@ void Tracker::setCalibrationCorner(ofVec2f p, int corner){
 
 //------------------
 
-ofVec2f Tracker::blockPixelLocationInCamera(int x, int y){
+ofVec2f Tracker::blockPixelLocationInCamera(float x, float y){
     return coordWarper.transform(x,y);
 }
 
@@ -230,7 +230,7 @@ string Tracker::nameOfBlockColor(BlockColor color){
 
 //------------------
 
-const int colorPickerY = 300;
+const int colorPickerY = 380;
 const int colorPickerW = 200/(float)NUM_BLOCKS;
 
 void Tracker::drawDebug(){
@@ -253,24 +253,53 @@ void Tracker::drawDebug(){
                 ofSetLineWidth(1);
                 //glColor3f(blocks[x][y].runningAverageColor.r, blocks[x][y].runningAverageColor.g, blocks[x][y].runningAverageColor.b);
                 if(blocks[x][y].invalid){
-                    ofSetColor(255, 255, 255,100);
+                    ofSetColor(0, 0, 0,100);
                 } else {
                     switch (blocks[x][y].blockColor) {
                         case BlockGreen:
-                            ofSetColor(0, 255, 0);
+                            ofSetColor(0, 255, 0,100);
                             break;
                         case BlockBrown:
-                            ofSetColor(255, 100, 0);
+                            ofSetColor(255, 100, 0,100);
                             break;
                         case BlockBlue:
-                            ofSetColor(0, 0, 255);
+                            ofSetColor(0, 0, 255,100);
                             break;
                         default:
                             break;
                     }
                 }
-                ofCircle(pos.x, pos.y, 7);
                 
+                //Small rect
+                ofRect(pos.x-trackingAreaSize*0.5, pos.y-trackingAreaSize*0.5, trackingAreaSize, trackingAreaSize);
+                
+                //Big rect
+                ofVec2f p1 = blockPixelLocationInCamera(x-0.5, y-0.5);
+                ofVec2f p2 = blockPixelLocationInCamera(x+0.5, y-0.5);
+                ofVec2f p3 = blockPixelLocationInCamera(x+0.5, y+0.5);
+                ofVec2f p4 = blockPixelLocationInCamera(x-0.5, y+0.5);
+
+
+                ofFill();
+                
+                glBegin(GL_QUADS);
+                glVertex2d(p1.x, p1.y);
+                glVertex2d(p2.x, p2.y);
+                glVertex2d(p3.x, p3.y);
+                glVertex2d(p4.x, p4.y);                
+                glEnd();
+                
+                
+                ofSetColor(0, 0, 0);
+                glBegin(GL_LINE_STRIP);
+                glVertex2d(p1.x, p1.y);
+                glVertex2d(p2.x, p2.y);
+                glVertex2d(p3.x, p3.y);
+                glVertex2d(p4.x, p4.y);
+                glVertex2d(p1.x, p1.y);
+                glEnd();
+
+                ofNoFill();
                 if(blockSelected.x == x && blockSelected.y == y){
                     float a = sin(ofGetElapsedTimeMillis()/200.0);
                     ofSetColor(150+a*80, 0, 0);
@@ -302,8 +331,7 @@ void Tracker::drawDebug(){
         }
         
     } ofPopStyle();
-    
-    
+       
     //Info box
     int infoBoxX = 650;
     int infoBoxY = 0;
@@ -352,6 +380,32 @@ void Tracker::drawDebug(){
         
         ofFill();
         
+        
+        
+        //Zoom view
+        int zoomY = 200;
+        ofPushStyle();{
+            ofVec2f pixelLoc = blockPixelLocationInCamera(blockSelected.x, blockSelected.y);
+            
+            int y=0;
+            ofFill();
+            for(int row=pixelLoc.y-trackingAreaSize/2.0 ; row<pixelLoc.y+trackingAreaSize/2.0 ; row++){
+                int x=0;
+                unsigned char * pixel = (unsigned char*) pixels + int((row*CAM_W + (pixelLoc.x - trackingAreaSize/2.0)))*3;
+                
+                for(int i=0 ; i<trackingAreaSize ; i++, pixel += 3){
+                    ofSetColor(pixel[0], pixel[1], pixel[2],255);
+                    ofRect(x*20+650, y*20+zoomY, 20, 20);
+                    
+                    x++;
+                }
+                y++;
+            }
+            
+            
+        } ofPopStyle();
+        
+
         
         //Color picker
         y = colorPickerY;

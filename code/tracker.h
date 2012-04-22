@@ -3,14 +3,19 @@
 #include "ofxOpenCv.h"
 #include "coordWarp.h"
 
-#include "ofxUeye.h"
-#include "ofxUeyeSettings.h"
+#ifndef TARGET_OSX
+    //WIN
+    #define USE_UEYE
+    #include "ofxUeye.h"
+    #include "ofxUeyeSettings.h"
+#else
+    //OSX
+#endif
 
 #define CAM_W 640
 #define CAM_H 480
 #define NUM_BLOCKS 3
 
-#define USE_UEYE
 
 
 
@@ -50,8 +55,6 @@ public:
     void update();
     void drawDebug();
 
-    void ueyeDimensionChanged(ofxUeyeEventArgs &args);
-    void initUeye();
 
     void mouseMoved(int x, int y );
     void mouseDragged(int x, int y, int button);
@@ -59,8 +62,6 @@ public:
     void mouseReleased(int x, int y, int button);
 
 
-    ofxUeye	ueye; // Only one instance of ofxUeye is allowed! ofxUeye is singleton.
-    ofxUeyeSettings settings;
     ofTexture tex;
 
     //Sets the corners in 0...1 space
@@ -72,11 +73,21 @@ public:
     string nameOfBlockColor(BlockColor color);
 
     Block blocks[8][6];
+    
+#ifdef USE_UEYE
+    void ueyeDimensionChanged(ofxUeyeEventArgs &args);
+    void initUeye();
+
+    ofxUeye	ueye; // Only one instance of ofxUeye is allowed! ofxUeye is singleton.
+    ofxUeyeSettings settings;
+#else 
+    ofVideoGrabber videoGrabber;
+#endif
+    
 
 private:
 
     unsigned char * pixels;
-    ofVideoGrabber videoGrabber;
     coordWarping coordWarper;
 
     //0 ... CAM_SIZE

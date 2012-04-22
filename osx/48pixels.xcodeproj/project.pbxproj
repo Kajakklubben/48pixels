@@ -28,6 +28,8 @@
 		DD78E43815421BDE00E60A4A /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43215421BDE00E60A4A /* tinyxmlparser.cpp */; };
 		DD78E43915421BDE00E60A4A /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43415421BDE00E60A4A /* ofxXmlSettings.cpp */; };
 		DD78E43C15421C1000E60A4A /* SpriteAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */; };
+		DD78E43F1544478D00E60A4A /* AnimationLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43D1544478D00E60A4A /* AnimationLoader.cpp */; };
+		DD78E4421544479C00E60A4A /* GameBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4401544479C00E60A4A /* GameBackground.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -184,6 +186,10 @@
 		DD78E43515421BDE00E60A4A /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteAnimation.cpp; sourceTree = "<group>"; };
 		DD78E43B15421C1000E60A4A /* SpriteAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteAnimation.h; sourceTree = "<group>"; };
+		DD78E43D1544478D00E60A4A /* AnimationLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationLoader.cpp; sourceTree = "<group>"; };
+		DD78E43E1544478D00E60A4A /* AnimationLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationLoader.h; sourceTree = "<group>"; };
+		DD78E4401544479C00E60A4A /* GameBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBackground.cpp; sourceTree = "<group>"; };
+		DD78E4411544479C00E60A4A /* GameBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBackground.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -275,6 +281,10 @@
 				DD78E4161541F95E00E60A4A /* GameBlock.h */,
 				DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */,
 				DD78E43B15421C1000E60A4A /* SpriteAnimation.h */,
+				DD78E43D1544478D00E60A4A /* AnimationLoader.cpp */,
+				DD78E43E1544478D00E60A4A /* AnimationLoader.h */,
+				DD78E4401544479C00E60A4A /* GameBackground.cpp */,
+				DD78E4411544479C00E60A4A /* GameBackground.h */,
 				DD78E4181541F96500E60A4A /* gameScreen.cpp */,
 				DD78E4191541F96500E60A4A /* gameScreen.h */,
 				DD78E4131541F1C700E60A4A /* calibrator.h */,
@@ -715,6 +725,8 @@
 				DD78E43815421BDE00E60A4A /* tinyxmlparser.cpp in Sources */,
 				DD78E43915421BDE00E60A4A /* ofxXmlSettings.cpp in Sources */,
 				DD78E43C15421C1000E60A4A /* SpriteAnimation.cpp in Sources */,
+				DD78E43F1544478D00E60A4A /* AnimationLoader.cpp in Sources */,
+				DD78E4421544479C00E60A4A /* GameBackground.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -83,6 +83,8 @@ string Tracker::nameOfBlockColor(BlockColor color){
 
 //------------------
 
+#ifdef USE_UEYE
+
 void Tracker::initUeye()
 {
     ofAddListener(ueye.events.dimensionChanged, this, &Tracker::ueyeDimensionChanged);
@@ -140,6 +142,9 @@ void Tracker::ueyeDimensionChanged(ofxUeyeEventArgs &args){
 	tex.clear();
 	tex.allocate(ueye.getWidth(), ueye.getHeight(),GL_RGB);
 }
+
+#endif
+
 void Tracker::update(){
 
     #ifdef USE_UEYE

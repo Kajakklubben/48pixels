@@ -1,6 +1,7 @@
 #ifndef GAMEBLOCK_H
 #define GAMEBLOCK_H
 #include "ofMain.h"
+#include "SpriteAnimation.h"
 
 enum GameBlockType {
     BlockGrass=0,
@@ -29,6 +30,12 @@ class GameBlock
 
         int h;
         int w;
+
+        double lifetime;
+
+        SpriteAnimation groundSprite;
+        SpriteAnimation grassSprite;
+        SpriteAnimation waterSprite;
 
     protected:
     private:

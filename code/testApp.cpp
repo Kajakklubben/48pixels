@@ -14,7 +14,7 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-    game.update(1);
+    game.update(1.0/ofGetFrameRate());
     tracker.update();
 }
 

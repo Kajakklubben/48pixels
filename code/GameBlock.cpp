@@ -2,6 +2,8 @@
 
 GameBlock::GameBlock()
 {
+    lifetime = 0;
+    type = BlockNone;
 }
 
 void GameBlock::Set(int w, int h, int x, int y)
@@ -16,7 +18,12 @@ void GameBlock::Set(int w, int h, int x, int y)
 }
 void GameBlock::SetType(GameBlockType type)
 {
+    if(this->type != type)
+        lifetime = 0;
+
     this->type = type;
+
+
 }
 
 GameBlock::~GameBlock()
@@ -26,16 +33,17 @@ GameBlock::~GameBlock()
 
 void GameBlock::Update(float deltatime)
 {
-
+    lifetime +=deltatime;
 }
 
 void GameBlock::Draw()
 {
+    int frame = 0;
     ofFill();
     if(this->type==BlockNone)
         ofSetColor(200,255,255);
     if(this->type==BlockGrass)
-        ofSetColor(100,255,50);
+        ofSetColor(100,50,255);
     if(this->type==BlockWater)
         ofSetColor(100,50,255);
     if(this->type==BlockGround)

@@ -25,8 +25,8 @@
 const int trackingAreaSize = 6; //Pixels wide and high tracking rect
 const float runningAverageAmount = 0.01; //Lower is slower
 const float colorMatchDistanceHue = 10; //In degrees
-const float colorMatchDistanceValue = 0.3; 
-const float colorMatchDistanceSaturation = 0.3; 
+const float colorMatchDistanceValue = 0.3;
+const float colorMatchDistanceSaturation = 0.3;
 
 enum BlockColor {
     BlockBlue=0,
@@ -72,7 +72,7 @@ public:
     string nameOfBlockColor(BlockColor color);
 
     Block blocks[8][6];
-    
+
 
 private:
 
@@ -86,19 +86,19 @@ private:
 
     int handleHover, handleSelected;
     ofVec2f blockSelected;
-    
+
     ofxXmlSettings settings;
-    
-    
+
+
 #ifdef USE_UEYE
     void ueyeDimensionChanged(ofxUeyeEventArgs &args);
     void initUeye();
-    
+
     ofxUeye	ueye; // Only one instance of ofxUeye is allowed! ofxUeye is singleton.
-    ofxUeyeSettings settings;
-#else 
+    ofxUeyeSettings uEyeSettings;
+#else
     ofVideoGrabber videoGrabber;
 #endif
-    
+
 
 };

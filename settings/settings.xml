@@ -1,12 +1,12 @@
 <root>
     <settings>
-        <calibrationCorner x="0.100000" y="0.100000" />
-        <calibrationCorner x="0.500000" y="0.100000" />
-        <calibrationCorner x="0.917188" y="0.795833" />
-        <calibrationCorner x="0.100000" y="0.500000" />
-        <blockColor r="0.556936" g="0.559457" b="0.505002" />
-        <blockColor r="0.0" g="1.0" b="0.0" />
-        <blockColor r="0.0" g="0.0" b="1.0" />
+        <calibrationCorner x="0.240625" y="0.218750" />
+        <calibrationCorner x="0.859375" y="0.243750" />
+        <calibrationCorner x="0.895312" y="0.877083" />
+        <calibrationCorner x="0.226563" y="0.845833" />
+        <blockColor r="0.246529" g="0.354454" b="0.748016" />
+        <blockColor r="0.507701" g="0.616716" b="0.780938" />
+        <blockColor r="0.384059" g="0.174051" b="0.287323" />
     </settings>
     <backgrounds>
         <background spriteIndex="0" duration="7" fade="2" layer="0" />

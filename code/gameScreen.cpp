@@ -78,7 +78,7 @@ void gameScreen::update(float deltatime)
 {
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
-        blocks[i].Update(1.0f);
+        blocks[i].Update(deltatime);
     }
 
 }

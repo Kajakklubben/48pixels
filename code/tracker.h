@@ -21,12 +21,6 @@
 
 
 
-
-
-const float colorMatchDistanceHue = 10; //In degrees
-const float colorMatchDistanceValue = 0.4;
-const float colorMatchDistanceSaturation = 0.32;
-
 enum BlockColor {
     BlockBlue=0,
     BlockGreen=1,
@@ -76,8 +70,12 @@ public:
     Block blocks[8][6];
 
     int trackingAreaSize; //Pixels wide and high tracking rect
-    float runningAverageAmount; //Lower is slower
+    double runningAverageAmount; //Lower is slower
     bool useCircleAverage;
+
+    float colorMatchDistanceHue;//In degrees
+    float colorMatchDistanceValue;
+    float colorMatchDistanceSaturation;
 
 private:
 

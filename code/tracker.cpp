@@ -16,8 +16,41 @@ void Tracker::setup(){
     #endif
 
 
+if(settings.loadFile("../../../settings/settings.xml"))
+    printf("settings.xml loaded for tracker settings!");
 
-    //Set defeault settings
+    settings.pushTag("root");
+    settings.pushTag("settings");
+
+     if(settings.attributeExists("trackSettings", "trackingAreaSize",0))
+        trackingAreaSize = settings.getAttribute("trackSettings", "trackingAreaSize",8,0);
+
+
+     if(settings.attributeExists("trackSettings", "runningAverageAmount",0))
+        runningAverageAmount = settings.getAttribute("trackSettings", "runningAverageAmount",0.03,0);
+
+     if(settings.attributeExists("trackSettings", "useCircleAverage",0))
+        useCircleAverage = settings.getAttribute("trackSettings", "useCircleAverage",1,0);
+
+
+
+    colorMatchDistanceHue = 10; //In deg
+    colorMatchDistanceValue = 0.4;
+    colorMatchDistanceSaturation = 0.32;    //Set defeault settings
+
+     if(settings.attributeExists("trackSettings", "colorMatchDistanceHue",0))
+        colorMatchDistanceHue = settings.getAttribute("trackSettings", "colorMatchDistanceHue",10,0);
+
+     if(settings.attributeExists("trackSettings", "colorMatchDistanceValue",0))
+        colorMatchDistanceValue = settings.getAttribute("trackSettings", "colorMatchDistanceValue",0.4,0);
+
+     if(settings.attributeExists("trackSettings", "colorMatchDistanceSaturation",0))
+        colorMatchDistanceSaturation = settings.getAttribute("trackSettings", "colorMatchDistanceSaturation",0.32,0);
+
+
+
+
+
     setCalibrationCorner(ofVec2f(0.1,0.1), 0);
     setCalibrationCorner(ofVec2f(0.9,0.1), 1);
     setCalibrationCorner(ofVec2f(0.9,0.9), 2);
@@ -47,9 +80,7 @@ void Tracker::setup(){
     //    ofSetDataPathRoot(<#string root#>)
     //cout<<ofToDataPath(("../../../settings/settings.xml"),true)<<endl;
 
-    settings.loadFile(("../../../settings/settings.xml"));
-    settings.pushTag("root");
-    settings.pushTag("settings");
+
 
 
     if(settings.getNumTags("calibrationCorner") == 4){
@@ -78,6 +109,9 @@ void Tracker::setup(){
     } else {
         ofLog(OF_LOG_FATAL_ERROR, "Setttings not found!");
     }
+
+
+
 }
 
 //------------------
@@ -98,25 +132,34 @@ void Tracker::keyPressed(int key)
 #endif
 
     if(key=='c')
+    {
         useCircleAverage = !useCircleAverage;
+        settings.setAttribute("trackSettings", "useCircleAverage",useCircleAverage?1:0,0);
+    }
+
 
     if(isInDebug && key=='u')
     {
-        runningAverageAmount +=0.00025;
+        runningAverageAmount +=0.005;
+        settings.setAttribute("trackSettings", "runningAverageAmount",runningAverageAmount,0);
     }
     if(isInDebug && key=='i')
     {
-        runningAverageAmount -=0.00025;
+        runningAverageAmount -=0.005;
+        settings.setAttribute("trackSettings", "runningAverageAmount",runningAverageAmount,0);
     }
 
     if(isInDebug && key=='t')
     {
         trackingAreaSize +=1;
+        settings.setAttribute("trackSettings", "trackingAreaSize",trackingAreaSize,0);
     }
     if(isInDebug && key=='y')
     {
         trackingAreaSize -=1;
+        settings.setAttribute("trackSettings", "trackingAreaSize",trackingAreaSize,0);
     }
+    settings.saveFile();
 }
 
 void Tracker::update(){

@@ -1,48 +1,42 @@
 <root>
-	<settings>
-
-	</settings>
-
+    <settings>
+        <calibrationCorner x="0.100000" y="0.100000" />
+        <calibrationCorner x="0.500000" y="0.100000" />
+        <calibrationCorner x="0.917188" y="0.795833" />
+        <calibrationCorner x="0.100000" y="0.500000" />
+        <blockColor r="0.556936" g="0.559457" b="0.505002" />
+        <blockColor r="0.0" g="1.0" b="0.0" />
+        <blockColor r="0.0" g="0.0" b="1.0" />
+    </settings>
     <backgrounds>
         <background spriteIndex="0" duration="7" fade="2" layer="0" />
     </backgrounds>
-
     <blocks>
         <block spriteIndex="0" layer="1" />
     </blocks>
-
     <character layer="4">
         <state name="run" spriteIndex="0" />
         <state name="idle" spriteIndex="1" />
     </character>
-
-
-	<backgroundSprites>
-		<sprites>
-			<sprite name="morning">
-				<variation>
-					<frame img="../../../assets/backgrounds/morning.png"/>
-				</variation>
-			</sprite>
-		</sprites>
-	</backgroundSprites>
-
-
-	<blockSprites>
-		<sprites>
-			<sprite name="earth" margin="5" >
-				<variation>
-					<frame img="../assets/earth/earth01.png"/>
-				</variation>
-			</sprite>
-		</sprites>
-	</blockSprites>
-
-
-	<characterSprites>
-		<sprites>
-
-		</sprites>
-	</characterSprites>
-
+    <backgroundSprites>
+        <sprites>
+            <sprite name="morning">
+                <variation>
+                    <frame img="../../../assets/backgrounds/morning.png" />
+                </variation>
+            </sprite>
+        </sprites>
+    </backgroundSprites>
+    <blockSprites>
+        <sprites>
+            <sprite name="earth" margin="5">
+                <variation>
+                    <frame img="../assets/earth/earth01.png" />
+                </variation>
+            </sprite>
+        </sprites>
+    </blockSprites>
+    <characterSprites>
+        <sprites />
+    </characterSprites>
 </root>

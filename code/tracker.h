@@ -2,6 +2,9 @@
 
 #include "ofxOpenCv.h"
 #include "coordWarp.h"
+#include "rgb_to_hsv.h"
+#include "ofxXmlSettings.h"
+
 
 #ifndef TARGET_OSX
     //WIN
@@ -21,18 +24,14 @@
 
 const int trackingAreaSize = 6; //Pixels wide and high tracking rect
 const float runningAverageAmount = 0.01; //Lower is slower
-const float colorMatchDistance = 0.2;
+const float colorMatchDistanceHue = 10; //In degrees
+const float colorMatchDistanceValue = 0.3; 
+const float colorMatchDistanceSaturation = 0.3; 
 
 enum BlockColor {
     BlockBlue=0,
     BlockGreen=1,
     BlockBrown=2,
-};
-
-struct Color {
-    float r;
-    float g;
-    float b;
 };
 
 struct Block {
@@ -41,7 +40,7 @@ struct Block {
     int age;
     float matchDistance;
 
-    Color runningAverageColor;
+    rgb_color runningAverageColor;
 };
 
 
@@ -74,16 +73,6 @@ public:
 
     Block blocks[8][6];
     
-#ifdef USE_UEYE
-    void ueyeDimensionChanged(ofxUeyeEventArgs &args);
-    void initUeye();
-
-    ofxUeye	ueye; // Only one instance of ofxUeye is allowed! ofxUeye is singleton.
-    ofxUeyeSettings settings;
-#else 
-    ofVideoGrabber videoGrabber;
-#endif
-    
 
 private:
 
@@ -93,8 +82,23 @@ private:
     //0 ... CAM_SIZE
     ofVec2f calibrationCorners[4];
 
-    Color blockCalibrationColor[NUM_BLOCKS];
+    rgb_color blockCalibrationColor[NUM_BLOCKS];
 
     int handleHover, handleSelected;
     ofVec2f blockSelected;
+    
+    ofxXmlSettings settings;
+    
+    
+#ifdef USE_UEYE
+    void ueyeDimensionChanged(ofxUeyeEventArgs &args);
+    void initUeye();
+    
+    ofxUeye	ueye; // Only one instance of ofxUeye is allowed! ofxUeye is singleton.
+    ofxUeyeSettings settings;
+#else 
+    ofVideoGrabber videoGrabber;
+#endif
+    
+
 };

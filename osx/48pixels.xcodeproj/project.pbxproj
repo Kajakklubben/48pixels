@@ -30,6 +30,8 @@
 		DD78E43C15421C1000E60A4A /* SpriteAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43A15421C0F00E60A4A /* SpriteAnimation.cpp */; };
 		DD78E43F1544478D00E60A4A /* AnimationLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E43D1544478D00E60A4A /* AnimationLoader.cpp */; };
 		DD78E4421544479C00E60A4A /* GameBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E4401544479C00E60A4A /* GameBackground.cpp */; };
+		DD78E44415444B4800E60A4A /* rgb_to_hsv.h in Sources */ = {isa = PBXBuildFile; fileRef = DD78E44315444B4800E60A4A /* rgb_to_hsv.h */; };
+		DD78E44615444EED00E60A4A /* rgb_to_hsv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E44515444EED00E60A4A /* rgb_to_hsv.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -190,6 +192,9 @@
 		DD78E43E1544478D00E60A4A /* AnimationLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationLoader.h; sourceTree = "<group>"; };
 		DD78E4401544479C00E60A4A /* GameBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBackground.cpp; sourceTree = "<group>"; };
 		DD78E4411544479C00E60A4A /* GameBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBackground.h; sourceTree = "<group>"; };
+		DD78E44315444B4800E60A4A /* rgb_to_hsv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rgb_to_hsv.h; sourceTree = "<group>"; };
+		DD78E44515444EED00E60A4A /* rgb_to_hsv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rgb_to_hsv.cpp; sourceTree = "<group>"; };
+		DD78E447154455E100E60A4A /* settings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = settings.xml; path = ../settings/settings.xml; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -293,6 +298,8 @@
 				DD78E40F1541F01600E60A4A /* tracker.cpp */,
 				DD78E41B1541FAD900E60A4A /* coordWarp.h */,
 				DD78E41C1541FAD900E60A4A /* coordWarp.cpp */,
+				DD78E44315444B4800E60A4A /* rgb_to_hsv.h */,
+				DD78E44515444EED00E60A4A /* rgb_to_hsv.cpp */,
 			);
 			name = code;
 			path = ../code;
@@ -603,6 +610,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				DD78E447154455E100E60A4A /* settings.xml */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				DD78E3961541EBBA00E60A4A /* code */,
@@ -727,6 +735,8 @@
 				DD78E43C15421C1000E60A4A /* SpriteAnimation.cpp in Sources */,
 				DD78E43F1544478D00E60A4A /* AnimationLoader.cpp in Sources */,
 				DD78E4421544479C00E60A4A /* GameBackground.cpp in Sources */,
+				DD78E44415444B4800E60A4A /* rgb_to_hsv.h in Sources */,
+				DD78E44615444EED00E60A4A /* rgb_to_hsv.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

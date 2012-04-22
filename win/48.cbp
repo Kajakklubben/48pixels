@@ -150,6 +150,8 @@
 			<Add library="wsock32" />
 			<Add library="ws2_32" />
 			<Add library="Iphlpapi" />
+			<Add library="..\ueye\lib\uEye_api.lib" />
+			<Add library="..\ueye\lib\uEye_api_64.lib" />
 		</Linker>
 		<ExtraCommands>
 			<Add after='xcopy /e /i /y &quot;$(PROJECT_DIR)..\..\..\export\win_cb\*.dll&quot;  &quot;$(PROJECT_DIR)bin&quot;' />
@@ -335,6 +337,8 @@
 		</Unit>
 		<Unit filename="..\code\AnimationLoader.cpp" />
 		<Unit filename="..\code\AnimationLoader.h" />
+		<Unit filename="..\code\GameBackground.cpp" />
+		<Unit filename="..\code\GameBackground.h" />
 		<Unit filename="..\code\GameBlock.cpp" />
 		<Unit filename="..\code\GameBlock.h" />
 		<Unit filename="..\code\SpriteAnimation.cpp" />
@@ -353,6 +357,8 @@
 		<Unit filename="..\code\ofxUeyeEvents.h" />
 		<Unit filename="..\code\ofxUeyeSettings.cpp" />
 		<Unit filename="..\code\ofxUeyeSettings.h" />
+		<Unit filename="..\code\rgb_to_hsv.cpp" />
+		<Unit filename="..\code\rgb_to_hsv.h" />
 		<Unit filename="..\code\testApp.cpp" />
 		<Unit filename="..\code\testApp.h" />
 		<Unit filename="..\code\tracker.cpp" />

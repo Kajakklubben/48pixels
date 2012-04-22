@@ -140,7 +140,7 @@ void Tracker::update(){
                 //The defined block color to match with
                 hsv_color hsvColor2 = rgb_to_hsv(blockCalibrationColor[i]);
                 
-                float hueDistance = fabs(hsvColor1.hue - hsvColor2.hue);
+                float hueDistance = MIN(fabs(hsvColor1.hue - hsvColor2.hue), fabs(hsvColor1.hue - (hsvColor2.hue-360)));
                 float satDistance = fabs(hsvColor1.sat - hsvColor2.sat);
                 float valDistance = fabs(hsvColor1.val - hsvColor2.val);
                 
@@ -421,7 +421,7 @@ void Tracker::drawDebug(){
             
             hsv_color hsvColor2 = rgb_to_hsv(blockCalibrationColor[i]);
             
-            float hueDistance = fabs(hsvColor1.hue - hsvColor2.hue);
+            float hueDistance = MIN(fabs(hsvColor1.hue - hsvColor2.hue), fabs(hsvColor1.hue - (hsvColor2.hue-360)));
             float satDistance = fabs(hsvColor1.sat - hsvColor2.sat);
             float valDistance = fabs(hsvColor1.val - hsvColor2.val);
             

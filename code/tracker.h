@@ -67,7 +67,7 @@ public:
     void setCalibrationCorner(ofVec2f p, int corner);
 
     //Returns the pixel location for the block at x,y
-    ofVec2f blockPixelLocationInCamera(int x, int y);
+    ofVec2f blockPixelLocationInCamera(float x, float y);
 
     string nameOfBlockColor(BlockColor color);
 

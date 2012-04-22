@@ -8,7 +8,7 @@
 
 #ifndef TARGET_OSX
     //WIN
-    #define USE_UEYE
+    //#define USE_UEYE
     #include "ofxUeye.h"
     #include "ofxUeyeSettings.h"
 #else
@@ -22,11 +22,10 @@
 
 
 
-const int trackingAreaSize = 6; //Pixels wide and high tracking rect
-const float runningAverageAmount = 0.01; //Lower is slower
+
 const float colorMatchDistanceHue = 10; //In degrees
-const float colorMatchDistanceValue = 0.3;
-const float colorMatchDistanceSaturation = 0.3;
+const float colorMatchDistanceValue = 0.4;
+const float colorMatchDistanceSaturation = 0.32;
 
 enum BlockColor {
     BlockBlue=0,
@@ -55,12 +54,15 @@ public:
     void drawDebug();
 
 
+
+
     void mouseMoved(int x, int y );
     void mouseDragged(int x, int y, int button);
     void mousePressed(int x, int y, int button);
     void mouseReleased(int x, int y, int button);
+    void keyPressed(int key);
 
-
+    bool isInDebug;
     ofTexture tex;
 
     //Sets the corners in 0...1 space
@@ -73,6 +75,9 @@ public:
 
     Block blocks[8][6];
 
+    int trackingAreaSize; //Pixels wide and high tracking rect
+    float runningAverageAmount; //Lower is slower
+    bool useCircleAverage;
 
 private:
 
@@ -96,6 +101,9 @@ private:
 
     ofxUeye	ueye; // Only one instance of ofxUeye is allowed! ofxUeye is singleton.
     ofxUeyeSettings uEyeSettings;
+
+    void setAutoSettings();
+    void setStaticSettings();
 #else
     ofVideoGrabber videoGrabber;
 #endif

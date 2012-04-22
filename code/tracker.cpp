@@ -3,6 +3,11 @@
 
 void Tracker::setup(){
 
+    useCircleAverage = true;
+    trackingAreaSize = 8; //Pixels wide and high tracking rect
+    runningAverageAmount = 0.02; //Lower is slower
+
+    isInDebug = false;
     //Initialize camera stuff
     #ifdef USE_UEYE
     initUeye();
@@ -78,6 +83,42 @@ void Tracker::setup(){
 //------------------
 
 
+void Tracker::keyPressed(int key)
+{
+    if(key=='d')
+        isInDebug = !isInDebug ;
+
+#ifdef USE_UEYE
+    if(key=='a')
+        setAutoSettings();
+
+    if(key=='s')
+        setStaticSettings();
+
+#endif
+
+    if(key=='c')
+        useCircleAverage = !useCircleAverage;
+
+    if(isInDebug && key=='u')
+    {
+        runningAverageAmount +=0.00025;
+    }
+    if(isInDebug && key=='i')
+    {
+        runningAverageAmount -=0.00025;
+    }
+
+    if(isInDebug && key=='t')
+    {
+        trackingAreaSize +=1;
+    }
+    if(isInDebug && key=='y')
+    {
+        trackingAreaSize -=1;
+    }
+}
+
 void Tracker::update(){
 
 #ifdef USE_UEYE
@@ -110,19 +151,26 @@ void Tracker::update(){
             color.g = 0;
             color.b = 0;
 
+            int countedPixels = 0;
             for(int row=pixelLoc.y-trackingAreaSize/2 ; row<pixelLoc.y+trackingAreaSize/2 ; row++){
-                unsigned char * pixel = (unsigned char*) pixels + int((row*CAM_W + (pixelLoc.x - trackingAreaSize/2)))*3;
 
-                for(int i=0 ; i<trackingAreaSize ; i++, pixel += 3){
-                    color.r += pixel[0]/255.0;
-                    color.g += pixel[1]/255.0;
-                    color.b += pixel[2]/255.0;
-                }
+                    unsigned char * pixel = (unsigned char*) pixels + int((row*CAM_W + (pixelLoc.x - trackingAreaSize/2)))*3;
+
+                    for(int i=0 ; i<trackingAreaSize ; i++, pixel += 3){
+
+                        if(!useCircleAverage || ofDist(pixelLoc.x+i,row,pixelLoc.x,pixelLoc.y)<trackingAreaSize/2.0)
+                        {
+                            color.r += pixel[0]/255.0;
+                            color.g += pixel[1]/255.0;
+                            color.b += pixel[2]/255.0;
+                            countedPixels++;
+                        }
+                    }
             }
 
-            color.r /= trackingAreaSize*trackingAreaSize;
-            color.g /= trackingAreaSize*trackingAreaSize;
-            color.b /= trackingAreaSize*trackingAreaSize;
+            color.r /= countedPixels;
+            color.g /= countedPixels;
+            color.b /= countedPixels;
 
             blocks[x][y].runningAverageColor.r = blocks[x][y].runningAverageColor.r * (1-runningAverageAmount) + (color.r * runningAverageAmount);
             blocks[x][y].runningAverageColor.g = blocks[x][y].runningAverageColor.g * (1-runningAverageAmount) + (color.g * runningAverageAmount);
@@ -140,7 +188,8 @@ void Tracker::update(){
                 //The defined block color to match with
                 hsv_color hsvColor2 = rgb_to_hsv(blockCalibrationColor[i]);
 
-                float hueDistance = fabs(hsvColor1.hue - hsvColor2.hue);
+                float hueDistance = MIN(fabs(hsvColor1.hue - hsvColor2.hue), fabs(hsvColor1.hue - (hsvColor2.hue-360)));
+
                 float satDistance = fabs(hsvColor1.sat - hsvColor2.sat);
                 float valDistance = fabs(hsvColor1.val - hsvColor2.val);
 
@@ -234,6 +283,8 @@ const int colorPickerY = 380;
 const int colorPickerW = 200/(float)NUM_BLOCKS;
 
 void Tracker::drawDebug(){
+    if(!isInDebug)
+        return;
     float w = CAM_W;
     float h = CAM_H;
 
@@ -251,6 +302,15 @@ void Tracker::drawDebug(){
 
                 ofNoFill();
                 ofSetLineWidth(1);
+
+                //Small rect
+                ofSetColor(200, 0, 0,100);
+                if(useCircleAverage)
+                    ofCircle(pos.x, pos.y, trackingAreaSize/2.0);
+                else
+                    ofRect(pos.x-trackingAreaSize*0.5, pos.y-trackingAreaSize*0.5, trackingAreaSize, trackingAreaSize);
+
+
                 //glColor3f(blocks[x][y].runningAverageColor.r, blocks[x][y].runningAverageColor.g, blocks[x][y].runningAverageColor.b);
                 if(blocks[x][y].invalid){
                     ofSetColor(0, 0, 0,100);
@@ -270,8 +330,6 @@ void Tracker::drawDebug(){
                     }
                 }
 
-                //Small rect
-                ofRect(pos.x-trackingAreaSize*0.5, pos.y-trackingAreaSize*0.5, trackingAreaSize, trackingAreaSize);
 
                 //Big rect
                 ofVec2f p1 = blockPixelLocationInCamera(x-0.5, y-0.5);
@@ -338,11 +396,11 @@ void Tracker::drawDebug(){
     if(blockSelected.x != -1){
         ofFill();
         ofSetColor(0, 0, 0,150);
-        ofRect(infoBoxX, infoBoxY, 200, 480);
+        ofRect(infoBoxX, infoBoxY, 200, 600);
 
         ofNoFill();
         ofSetColor(255, 255, 255, 200);
-        ofRect(infoBoxX, infoBoxY, 200, 480);
+        ofRect(infoBoxX, infoBoxY, 200, 600);
 
         ofSetColor(255, 255, 255);
         int y= 15;
@@ -421,7 +479,8 @@ void Tracker::drawDebug(){
 
             hsv_color hsvColor2 = rgb_to_hsv(blockCalibrationColor[i]);
 
-            float hueDistance = fabs(hsvColor1.hue - hsvColor2.hue);
+
+            float hueDistance = MIN(fabs(hsvColor1.hue - hsvColor2.hue), fabs(hsvColor1.hue - (hsvColor2.hue-360)));
             float satDistance = fabs(hsvColor1.sat - hsvColor2.sat);
             float valDistance = fabs(hsvColor1.val - hsvColor2.val);
 
@@ -447,6 +506,17 @@ void Tracker::drawDebug(){
 
 
     }
+
+    //Showing current values
+    ofSetColor(255, 255, 255);
+    ofDrawBitmapString("trackingAreaSize (t/y):\n "+ofToString(trackingAreaSize,2),
+                                ofPoint(653 , 510));
+
+   ofDrawBitmapString("runningAverage (u/i):\n "+ofToString(runningAverageAmount,4),
+                                ofPoint(652 , 540));
+
+   ofDrawBitmapString("use cirle: (c):\n "+(string)(useCircleAverage?"True":"False"),
+                                ofPoint(652 , 570));
 
     ofSetColor(0, 0, 0);
 
@@ -482,6 +552,7 @@ void Tracker::initUeye()
 		fullHD.y = 0;
 		//fullHD.y = (ueye.getAOIMax().height - fullHD.height) * 0.5;
 		ueye.setAOI(fullHD);
+		//ueye.setAOI(ueye.getAOIMax());
 		//ueye.setAOINormalized(ofRectangle(0,0, 0.6, 0.6));
 
 		// Start grabbing pixels
@@ -491,21 +562,41 @@ void Tracker::initUeye()
         //ueye.enableAutoExposureTime();
 
         //Almost optimal settings when sitting in labitat in dimmed light.
-        ueye.setFPS(40);
-        ueye.setGainMaster(96);
-        ueye.setGainRed(9);
-        ueye.setGainGreen(0);
-        ueye.setGainBlue(18);
-        ueye.setAutoWhiteBalance(false);
-        ueye.setAutoGain(false);
 
-        ueye.setExposureTime(25.4);
-        ueye.setPixelClock(18);
+        setStaticSettings();
         ueye.enableLive();
 
 		//settings.setup(&ueye);
 	}
 
+}
+
+void Tracker::setStaticSettings(){
+
+ #ifdef USE_UEYE
+    ueye.setFPS(40);
+    ueye.setGainMaster(17);
+    ueye.setGainRed(20);
+    ueye.setGainGreen(14);
+    ueye.setGainBlue(53);
+    ueye.setAutoWhiteBalance(false);
+    ueye.setAutoGain(false);
+
+    ueye.setExposureTime(19.0);
+    ueye.setPixelClock(32);
+    //ueye.setPixelClock(ueye.getPixelClockMax());
+ #endif
+
+}
+
+void Tracker::setAutoSettings(){
+
+    #ifdef USE_UEYE
+    ueye.setAutoExposureTime(true);
+    ueye.setAutoWhiteBalance(true);
+    ueye.setAutoGain(true);
+    ueye.setPixelClock(ueye.getPixelClockMax());
+    #endif
 }
 void Tracker::ueyeDimensionChanged(ofxUeyeEventArgs &args){
 	// If we got here, bandwith has changed.
@@ -526,6 +617,9 @@ void Tracker::ueyeDimensionChanged(ofxUeyeEventArgs &args){
 #pragma mark - Mouse Stuff
 
 void Tracker::mouseMoved(int x, int y ){
+    if(!isInDebug)
+        return;
+
     handleHover = -1;
     for(int i=0;i<4;i++){
         ofVec2f mouse = ofVec2f(x,y);
@@ -535,6 +629,9 @@ void Tracker::mouseMoved(int x, int y ){
     }
 }
 void Tracker::mouseDragged(int x, int y, int button){
+    if(!isInDebug)
+        return;
+
     if(handleSelected >= 0){
         ofVec2f pos = ofVec2f((float)x/CAM_W, (float)y/CAM_H);
 
@@ -542,6 +639,10 @@ void Tracker::mouseDragged(int x, int y, int button){
     }
 }
 void Tracker::mousePressed(int x, int y, int button){
+
+    if(!isInDebug)
+        return;
+
     if(x < CAM_W){
         handleSelected = -1;
         for(int i=0;i<4;i++){

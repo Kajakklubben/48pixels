@@ -22,18 +22,16 @@ void testApp::update(){
 void testApp::draw(){
     game.draw();
 
-    if(trackerDebug){
-        tracker.drawDebug();
-    }
+
+    tracker.drawDebug();
+
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-    if(!trackerDebug)
-        game.keyPressed(key);
+    game.keyPressed(key);
 
-    if(key=='c')
-        trackerDebug = !trackerDebug ;
+    tracker.keyPressed(key);
 
 }
 
@@ -44,30 +42,28 @@ void testApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
-    if(trackerDebug){
-        tracker.mouseMoved(x, y);
-    }
+
+    tracker.mouseMoved(x, y);
+
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
-    if(trackerDebug){
-        tracker.mouseDragged(x, y, button);
-    }
+
+    tracker.mouseDragged(x, y, button);
+
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-    if(trackerDebug){
-        tracker.mousePressed(x, y, button);
-    }
+    tracker.mousePressed(x, y, button);
+
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-    if(trackerDebug){
-        tracker.mouseReleased(x, y, button);
-    }
+    tracker.mouseReleased(x, y, button);
+
 }
 
 //--------------------------------------------------------------

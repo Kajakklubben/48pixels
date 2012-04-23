@@ -20,6 +20,7 @@ class gameScreen
         virtual ~gameScreen();
         void init(Tracker& tracker);
         void loadBackgrounds();
+        void loadBlocks();
         void update(float delta);
         void draw();
         void drawBackground();
@@ -36,6 +37,7 @@ class gameScreen
 
         vector<GameBackground*> backgrounds;
         int currentBackgroundIndex;
+        int nextBackgroundIndex;
 
     protected:
     private:

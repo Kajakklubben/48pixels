@@ -15,9 +15,10 @@ class AnimationLoader
         static SpriteAnimation* loadSprite(ofxXmlSettings xml);
 
         static void loadBackgroundAnimations(ofxXmlSettings xml);
+        static void loadBlockAnimations(ofxXmlSettings xml);
 
         static vector<SpriteAnimation*> backgroundAnimations;
-
+         static vector<SpriteAnimation*> blockAnimations;
 
     protected:
     private:

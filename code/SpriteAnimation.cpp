@@ -6,6 +6,7 @@ SpriteAnimation::SpriteAnimation()
     margin = 0;
     height = 10;
     width = 10;
+    duration = 1.0;
 }
 
 SpriteAnimation::~SpriteAnimation()
@@ -26,8 +27,9 @@ void SpriteAnimation::update(float deltatime)
 void SpriteAnimation::draw(int frame, int x, int y, int w, int h)
 {
 
+
     if(frames[0].size() > frame)
-       frames[0][frame].draw(x-margin,y-margin,w+margin,h+margin);
+       frames[0][frame].draw(x,y,w,h);
     else
         printf("\n Warning: Animation is out of frames!");
 }

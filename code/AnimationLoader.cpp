@@ -1,6 +1,8 @@
 #include "AnimationLoader.h"
 
 vector<SpriteAnimation*>  AnimationLoader::backgroundAnimations;
+vector<SpriteAnimation*>  AnimationLoader::blockAnimations;
+
 
 AnimationLoader::AnimationLoader()
 {
@@ -32,6 +34,10 @@ SpriteAnimation* AnimationLoader::loadSprite(ofxXmlSettings xml)
             if(xml.attributeExists("frame","img",f))
             {
                 img.loadImage(ASSET_PATH+xml.getAttribute("frame","img","",f));
+
+                if(xml.attributeExists("frame","duration",f))
+                    sprite->duration = xml.getAttribute("frame","duration",1.0,f);
+
                 frames.push_back(img);
                 printf("\n Frame loaded successful! ");
             }
@@ -60,4 +66,23 @@ void AnimationLoader::loadBackgroundAnimations(ofxXmlSettings xml)
     }
     xml.popTag();
     xml.popTag();
+}
+
+void AnimationLoader::loadBlockAnimations(ofxXmlSettings xml)
+{
+
+    xml.pushTag("blockSprites");
+    xml.pushTag("sprites");
+    int num = xml.getNumTags("sprite");
+    printf("\n %i number of block sprites",num);
+    for(int i = 0; i < num; i++)
+    {
+        xml.pushTag("sprite", i);
+        blockAnimations.push_back(loadSprite(xml));
+        xml.popTag();
+    }
+    xml.popTag();
+    xml.popTag();
+
+    printf("\nblockAnimations loaded: %i",blockAnimations.size());
 }

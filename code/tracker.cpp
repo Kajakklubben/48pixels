@@ -9,12 +9,14 @@ void Tracker::setup(){
 
     isInDebug = false;
     //Initialize camera stuff
+    #ifdef USE_TRACKER
+
     #ifdef USE_UEYE
     initUeye();
     #else
     videoGrabber.initGrabber(CAM_W, CAM_H);
     #endif
-
+    #endif
 
 if(settings.loadFile("../../../settings/settings.xml"))
     printf("settings.xml loaded for tracker settings!");
@@ -162,6 +164,9 @@ void Tracker::keyPressed(int key)
 
 void Tracker::update(){
 
+#ifndef USE_TRACKER
+return;
+#endif
 #ifdef USE_UEYE
     {
         ueye.update();

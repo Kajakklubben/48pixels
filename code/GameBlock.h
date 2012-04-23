@@ -2,12 +2,14 @@
 #define GAMEBLOCK_H
 #include "ofMain.h"
 #include "SpriteAnimation.h"
+#include "AnimationLoader.h"
 
 enum GameBlockType {
+    BlockNone=-1,
     BlockGrass=0,
     BlockGround=1,
-    BlockWater=2,
-    BlockNone=3,
+    BlockWater=2
+
 };
 
 
@@ -31,11 +33,11 @@ class GameBlock
         int h;
         int w;
 
+        int margin;
+
         double lifetime;
 
-        SpriteAnimation groundSprite;
-        SpriteAnimation grassSprite;
-        SpriteAnimation waterSprite;
+        SpriteAnimation* sprite;
 
     protected:
     private:

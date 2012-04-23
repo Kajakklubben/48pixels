@@ -6,7 +6,8 @@ GameBackground::GameBackground(SpriteAnimation* sprite)
     showing = false;
     timer = 0;
     targetAlpha = 0;
-    alpha = 1;
+    alpha = 0;
+
 }
 
 GameBackground::~GameBackground()

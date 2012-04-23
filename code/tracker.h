@@ -18,6 +18,7 @@
 #define CAM_W 640
 #define CAM_H 480
 #define NUM_BLOCKS 3
+//#define USE_TRACKER
 
 
 

@@ -17,7 +17,7 @@ class SpriteAnimation
 		void fadeTo(int alpha, float time);
 
         int layer;
-        int duration;
+        double duration;
         int fade;
 
         int margin;

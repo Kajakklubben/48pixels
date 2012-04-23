@@ -23,10 +23,11 @@ gameScreen::gameScreen()
 	loadBackgrounds();
     currentBackgroundIndex = 0;
     backgrounds[currentBackgroundIndex]->show();
+    loadBlocks();
 
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
-        blocks[i].Set(blockWidth,blockHeight,i%GAMEBLOCK_COLS,i/GAMEBLOCK_COLS);
+        blocks[i].Set(blockWidth,blockHeight,(i%GAMEBLOCK_COLS)*blockWidth,i/GAMEBLOCK_COLS*blockHeight);
     }
 }
 
@@ -59,14 +60,12 @@ void gameScreen::loadBackgrounds()
             int spriteIndex = XML.getAttribute("background","spriteIndex",0,i);
             int duration = XML.getAttribute("background","duration",0,i);
             int fade = XML.getAttribute("background","fade",0,i);
-            int timeOffset = XML.getAttribute("background","timeOffset",0,i);
 
             GameBackground* bg = new GameBackground(AnimationLoader::backgroundAnimations[spriteIndex]);
 
             bg->duration = duration;
             bg->fade = fade;
-            bg->timeOffset = timeOffset;
-printf("\nd: %i , f: %i , o: %i",duration,fade,timeOffset);
+
             backgrounds.push_back(bg);
 
         }
@@ -77,8 +76,40 @@ printf("\nd: %i , f: %i , o: %i",duration,fade,timeOffset);
 
 }
 
+void gameScreen::loadBlocks()
+{
+    //Loading images
+    printf("\n Loading blocks! ");
+    AnimationLoader::loadBlockAnimations(XML);
+
+    //Done loading images, loading settings
+   /* XML.pushTag("blocks");
+    int num = XML.getNumTags("block");
+
+    for(int i = 0; i < num; i++)
+    {
+        //xml.pushTag("background", i);
+        if(XML.attributeExists("block","spriteIndex",i))
+        {
+            int spriteIndex = XML.getAttribute("block","spriteIndex",0,i);
+            int layer = XML.getAttribute("block","layer",0,i);
+
+            GameBlock* block = new GameBlock();
+            block->layer = layer;
+
+            backgrounds.push_back(bg);
+
+        }
+    }
+    XML.popTag();*/
+
+    printf("\n Done loading blocks! ");
+
+}
+
 void gameScreen::update(float deltatime)
 {
+
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
         blocks[i].Update(deltatime);
@@ -89,37 +120,15 @@ void gameScreen::update(float deltatime)
 
     if(!backgrounds[currentBackgroundIndex]->showing)
     {
+        nextBackgroundIndex = currentBackgroundIndex;
         currentBackgroundIndex =  (currentBackgroundIndex+1)%backgrounds.size();
         backgrounds[currentBackgroundIndex]->show();
     }
 
-}
-
-void gameScreen::drawBackground()
-{
-    for(int i = 0; i<backgrounds.size();i++)
-        backgrounds[i]->draw();
-
-    backgrounds[currentBackgroundIndex]->draw();
-}
-
-void gameScreen::draw()
-{
-    drawBackground();
-
-
-
-    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
-    {
-        //blocks[i].Draw();
-    }
-
+return;
     for(int x=0;x<8;x++){
             for(int y=0;y<6;y++){
 
-                ofNoFill();
-                ofSetLineWidth(1);
-                //glColor3f(blocks[x][y].runningAverageColor.r, blocks[x][y].runningAverageColor.g, blocks[x][y].runningAverageColor.b);
                 if(tracker->blocks[x][y].invalid){
                     blocks[GAMEBLOCK_COLS*y+x].SetType(BlockNone);
                 } else {
@@ -144,18 +153,43 @@ void gameScreen::draw()
 
 }
 
+void gameScreen::drawBackground()
+{
+
+    backgrounds[nextBackgroundIndex]->draw();
+    backgrounds[currentBackgroundIndex]->draw();
+}
+
+void gameScreen::draw()
+{
+    drawBackground();
+
+
+
+    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
+    {
+        blocks[i].Draw();
+    }
+
+
+}
+
 void gameScreen::keyPressed  (int key){
 
     int x = rand()%GAMEBLOCK_COLS;
     int y = rand()%GAMEBLOCK_ROWS;
 
-	if (key == 'w'){
-		//blocks[y*GAMEBLOCK_COLS+x].Set(blockWidth,blockHeight,x,y,'w');
-		printf("Set new block\n");
+	if (key == 'e'){
+		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockGround);
+		printf("Set new test block\n");
 	}
 
     if (key == 'g'){
-		//blocks[y*GAMEBLOCK_COLS+x].Set(blockWidth,blockHeight,x,y,'g');
-		printf("Set new block\n");
+		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockGrass);
+		printf("Set new test block\n");
+	}
+    if (key == 'w'){
+		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockWater);
+		printf("Set new test block\n");
 	}
 }

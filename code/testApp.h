@@ -4,6 +4,7 @@
 #include "tracker.h"
 #include "calibrator.h"
 #include "GameScreen.h"
+#include "gamepad.h"
 
 class testApp : public ofBaseApp{
 
@@ -17,6 +18,7 @@ public:
     Tracker tracker;
     Calibrator calibrator;
     gameScreen game;
+    Gamepad gamepad;
     
     //---------------------
     

@@ -11,12 +11,15 @@ void testApp::setup(){
     trackerDebug = false;
     game.init(tracker);
 
+    gamepad.setup();
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     game.update(1.0/ofGetFrameRate());
     tracker.update();
+    
+    gamepad.update();
 }
 
 //--------------------------------------------------------------
@@ -34,11 +37,12 @@ void testApp::keyPressed(int key){
 
     tracker.keyPressed(key);
 
+    gamepad.keyPressed(key);
 }
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
-
+    gamepad.keyReleased(key);
 }
 
 //--------------------------------------------------------------

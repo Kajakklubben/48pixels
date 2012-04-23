@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		DD5F63A81545F977003B51D1 /* gamepad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD5F63A61545F977003B51D1 /* gamepad.cpp */; };
 		DD78E39A1541EBBA00E60A4A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E3971541EBBA00E60A4A /* main.cpp */; };
 		DD78E39B1541EBBA00E60A4A /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD78E3981541EBBA00E60A4A /* testApp.cpp */; };
 		DD78E4071541EFF200E60A4A /* opencv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD78E3F31541EFF200E60A4A /* opencv.a */; };
@@ -80,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
+		DD5F63A61545F977003B51D1 /* gamepad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gamepad.cpp; sourceTree = "<group>"; };
+		DD5F63A71545F977003B51D1 /* gamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gamepad.h; sourceTree = "<group>"; };
 		DD78E3971541EBBA00E60A4A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DD78E3981541EBBA00E60A4A /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		DD78E3991541EBBA00E60A4A /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				DD78E3971541EBBA00E60A4A /* main.cpp */,
+				DD5F63A61545F977003B51D1 /* gamepad.cpp */,
+				DD5F63A71545F977003B51D1 /* gamepad.h */,
 				DD78E3991541EBBA00E60A4A /* testApp.h */,
 				DD78E3981541EBBA00E60A4A /* testApp.cpp */,
 				DD78E4151541F95E00E60A4A /* GameBlock.cpp */,
@@ -737,6 +742,7 @@
 				DD78E4421544479C00E60A4A /* GameBackground.cpp in Sources */,
 				DD78E44415444B4800E60A4A /* rgb_to_hsv.h in Sources */,
 				DD78E44615444EED00E60A4A /* rgb_to_hsv.cpp in Sources */,
+				DD5F63A81545F977003B51D1 /* gamepad.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

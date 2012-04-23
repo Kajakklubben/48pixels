@@ -12,6 +12,7 @@
 #include "AnimationLoader.h"
 #include "tracker.h"
 #include "GameBackground.h"
+#include "GameCharacter.h"
 
 class gameScreen
 {
@@ -34,7 +35,7 @@ class gameScreen
 		int blockHeight;
 		ofxXmlSettings XML;
 
-
+        GameCharacter player;
         vector<GameBackground*> backgrounds;
         int currentBackgroundIndex;
         int nextBackgroundIndex;

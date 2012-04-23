@@ -1478,7 +1478,7 @@
 
 1334951218 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.h
 
-1335194358 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.cpp
+1335194487 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.cpp
 	"GameBlock.h"
 
 1335191742 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.h
@@ -1489,10 +1489,10 @@
 1334951218 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.cpp
 	"calibrator.h"
 
-1335193993 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
+1335195324 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
 	"gameScreen.h"
 
-1335180527 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
+1335195258 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
 	"GameBlock.h"
 	"ofMain.h"
 	"ofxXmlSettings.h"
@@ -1500,6 +1500,7 @@
 	"AnimationLoader.h"
 	"tracker.h"
 	"GameBackground.h"
+	"GameCharacter.h"
 
 1335178966 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
 	"testApp.h"
@@ -1622,9 +1623,9 @@
 1335109320 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\rgb_to_hsv.cpp
 	"rgb_to_hsv.h"
 
-1335189449 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.cpp
+1335195910 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.cpp
 	"GameCharacter.h"
 
-1335189955 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.h
+1335196095 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.h
 	"ofMain.h"
 

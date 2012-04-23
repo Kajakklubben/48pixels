@@ -29,6 +29,9 @@ gameScreen::gameScreen()
     {
         blocks[i].Set(blockWidth,blockHeight,(i%GAMEBLOCK_COLS)*blockWidth,i/GAMEBLOCK_COLS*blockHeight);
     }
+
+
+    player.setPosition(ofVec2f(100.0,100.0));
 }
 
 
@@ -125,6 +128,8 @@ void gameScreen::update(float deltatime)
         backgrounds[currentBackgroundIndex]->show();
     }
 
+    player.update(deltatime);
+
 return;
     for(int x=0;x<8;x++){
             for(int y=0;y<6;y++){
@@ -171,6 +176,8 @@ void gameScreen::draw()
         blocks[i].Draw();
     }
 
+     player.draw();
+
 
 }
 
@@ -192,4 +199,7 @@ void gameScreen::keyPressed  (int key){
 		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockWater);
 		printf("Set new test block\n");
 	}
+
+
+	player.move(1);
 }

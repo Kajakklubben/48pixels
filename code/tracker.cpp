@@ -49,8 +49,6 @@ if(settings.loadFile("../../../settings/settings.xml"))
 
 
 
-
-
     setCalibrationCorner(ofVec2f(0.1,0.1), 0);
     setCalibrationCorner(ofVec2f(0.9,0.1), 1);
     setCalibrationCorner(ofVec2f(0.9,0.9), 2);
@@ -201,7 +199,7 @@ void Tracker::update(){
 
                     for(int i=0 ; i<trackingAreaSize ; i++, pixel += 3){
 
-                        if(!useCircleAverage || ofDist(pixelLoc.x+i,row,pixelLoc.x,pixelLoc.y)<trackingAreaSize/2.0)
+                        if(!useCircleAverage || ofDist(pixelLoc.x- trackingAreaSize/2+i,row,pixelLoc.x,pixelLoc.y)<trackingAreaSize/2.0)
                         {
                             color.r += pixel[0]/255.0;
                             color.g += pixel[1]/255.0;
@@ -331,8 +329,29 @@ void Tracker::drawDebug(){
     float w = CAM_W;
     float h = CAM_H;
 
-    ofSetColor(255, 255, 255);
 
+
+    ofFill();
+    ofSetColor(0);
+    ofRect(0,0,ofGetWidth(),ofGetHeight());
+
+    ofFill();
+    ofSetColor(0, 0, 0,150);
+       //Info box
+    int infoBoxX = 650;
+    int infoBoxY = 0;
+    ofRect(infoBoxX, infoBoxY, 200, 600);
+
+    ofNoFill();
+    ofSetColor(255, 255, 255, 200);
+    ofRect(infoBoxX, infoBoxY, 200, 600);
+
+    ofSetColor(255, 255, 255);
+    int y= 15;
+    ofDrawBitmapString("Super Info Box", infoBoxX +5, infoBoxY + y);
+
+
+    ofSetColor(255, 255, 255);
     tex.draw(0,0,w,h);
 
     ofPushStyle(); {
@@ -347,7 +366,7 @@ void Tracker::drawDebug(){
                 ofSetLineWidth(1);
 
                 //Small rect
-                ofSetColor(200, 0, 0,100);
+                ofSetColor(200, 0, 0);
                 if(useCircleAverage)
                     ofCircle(pos.x, pos.y, trackingAreaSize/2.0);
                 else
@@ -433,22 +452,9 @@ void Tracker::drawDebug(){
 
     } ofPopStyle();
 
-    //Info box
-    int infoBoxX = 650;
-    int infoBoxY = 0;
+
     if(blockSelected.x != -1){
-        ofFill();
-        ofSetColor(0, 0, 0,150);
-        ofRect(infoBoxX, infoBoxY, 200, 600);
-
         ofNoFill();
-        ofSetColor(255, 255, 255, 200);
-        ofRect(infoBoxX, infoBoxY, 200, 600);
-
-        ofSetColor(255, 255, 255);
-        int y= 15;
-        ofDrawBitmapString("Super Info Box", infoBoxX +5, infoBoxY + y);
-
         ofSetColor(220, 220, 220);
 
         y += 15;
@@ -484,7 +490,10 @@ void Tracker::drawDebug(){
 
 
         //Zoom view
-        int zoomY = 200;
+        int zoomY = 160;
+        int width = 150;
+        int pixelWidth = width/trackingAreaSize;
+
         ofPushStyle();{
             ofVec2f pixelLoc = blockPixelLocationInCamera(blockSelected.x, blockSelected.y);
 
@@ -495,9 +504,12 @@ void Tracker::drawDebug(){
                 unsigned char * pixel = (unsigned char*) pixels + int((row*CAM_W + (pixelLoc.x - trackingAreaSize/2.0)))*3;
 
                 for(int i=0 ; i<trackingAreaSize ; i++, pixel += 3){
-                    ofSetColor(pixel[0], pixel[1], pixel[2],255);
-                    ofRect(x*20+650, y*20+zoomY, 20, 20);
 
+                    if(!useCircleAverage || ofDist(pixelLoc.x-trackingAreaSize/2.0+i,row,pixelLoc.x,pixelLoc.y)<trackingAreaSize/2.0)
+                    {
+                        ofSetColor(pixel[0], pixel[1], pixel[2],255);
+                        ofRect(x*pixelWidth+600+width/2.0, y*pixelWidth+zoomY,pixelWidth, pixelWidth);
+                    }
                     x++;
                 }
                 y++;

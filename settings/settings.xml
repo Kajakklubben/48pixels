@@ -2,11 +2,11 @@
     <settings>
         <calibrationCorner x="0.100000" y="0.100000" />
         <calibrationCorner x="0.900000" y="0.100000" />
-        <calibrationCorner x="0.903125" y="0.900000" />
+        <calibrationCorner x="0.900000" y="0.900000" />
         <calibrationCorner x="0.100000" y="0.900000" />
         <blockColor r="0.054332" g="0.112903" b="0.216597" />
         <blockColor r="0.279376" g="0.274872" b="0.245263" />
-        <blockColor r="0.548526" g="0.544262" b="0.328941" />
-        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.030000" trackingAreaSize="8" useCircleAverage="1" />
+        <blockColor r="0.626368" g="0.437718" b="0.549192" />
+        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.035000" trackingAreaSize="9" useCircleAverage="1" />
     </settings>
 </root>

@@ -610,14 +610,6 @@ void Tracker::initUeye()
 		//ueye.setAOI(ueye.getAOIMax());
 		//ueye.setAOINormalized(ofRectangle(0,0, 0.6, 0.6));
 
-		// Start grabbing pixels
-
-       // ueye.enableAutoGain();
-        //ueye.enableAutoWhiteBalance();
-        //ueye.enableAutoExposureTime();
-
-        //Almost optimal settings when sitting in labitat in dimmed light.
-
         setStaticSettings();
         ueye.enableLive();
 

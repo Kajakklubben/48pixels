@@ -9,4 +9,131 @@
         <blockColor r="0.441253" g="0.541644" b="0.567442" />
         <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.035000" trackingAreaSize="9" useCircleAverage="1" />
     </settings>
+    <backgrounds>
+        <background spriteIndex="0" duration="10" fade="4" layer="0" />
+        <background spriteIndex="1" duration="10" fade="4" layer="0" />
+        <background spriteIndex="2" duration="10" fade="4" layer="0" />
+        <background spriteIndex="3" duration="10" fade="4" layer="0" />
+    </backgrounds>
+    <blocks>
+        <block spriteIndex="0" layer="1" />
+        <block spriteIndex="1" layer="1" />
+        <block spriteIndex="2" layer="1" />
+        <block spriteIndex="3" layer="1" />
+        <block spriteIndex="4" layer="1" />
+        <block spriteIndex="5" layer="1" />
+        <block spriteIndex="6" layer="1" />
+        <block spriteIndex="7" layer="1" />
+        <block spriteIndex="8" layer="1" />
+    </blocks>
+    <character layer="4">
+        <state name="idle" spriteIndex="0" />
+        <state name="walk" spriteIndex="1" />
+        <state name="jump" spriteIndex="2" />
+        <state name="fall" spriteIndex="2" />
+    </character>
+    <backgroundSprites>
+        <sprites>
+            <sprite name="morning">
+                <variation>
+                    <frame img="backgrounds/morning.png" />
+                </variation>
+            </sprite>
+            <sprite name="day">
+                <variation>
+                    <frame img="backgrounds/day.png" />
+                </variation>
+            </sprite>
+            <sprite name="dusk">
+                <variation>
+                    <frame img="backgrounds/dusk.png" />
+                </variation>
+            </sprite>
+            <sprite name="night">
+                <variation>
+                    <frame img="backgrounds/night.png" />
+                </variation>
+            </sprite>
+        </sprites>
+    </backgroundSprites>
+    <blockSprites>
+        <sprites>
+            <sprite name="earth" margin="5">
+                <variation>
+                    <frame img="earth/earth01.png" />
+                </variation>
+            </sprite>
+            <sprite name="pond" margin="5">
+                <variation>
+                    <frame duration="0.2" img="water/water_pond01.png" />
+                    <frame duration="0.2" img="water/water_pond02.png" />
+                    <frame duration="0.2" img="water/water_pond03.png" />
+                    <frame duration="0.2" img="water/water_pond04.png" />
+                </variation>
+            </sprite>
+            <sprite name="cloud" margin="5">
+                <variation>
+                    <frame img="water/cloud01.png" />
+                </variation>
+            </sprite>
+            <sprite name="spring" margin="5">
+                <variation>
+                    <frame img="water/spring01.png" />
+                </variation>
+            </sprite>
+            <sprite name="bush" margin="5">
+                <variation>
+                    <frame img="plant/bush01.png" />
+                </variation>
+            </sprite>
+            <sprite name="trunk" margin="5">
+                <variation>
+                    <frame img="plant/trunk01.png" />
+                </variation>
+            </sprite>
+            <sprite name="vine" margin="5">
+                <variation>
+                    <frame img="plant/vine01.png" />
+                </variation>
+            </sprite>
+            <sprite name="vinetrunk" margin="5">
+                <variation>
+                    <frame img="plant/vine02.png" />
+                </variation>
+            </sprite>
+            <sprite name="grass" margin="5">
+                <variation>
+                    <frame img="earth/grass01.png" />
+                </variation>
+            </sprite>
+        </sprites>
+    </blockSprites>
+    <characterSprites>
+        <sprites>
+            <sprite name="idle" margin="5">
+                <variation>
+                    <frame img="character/char_idle01.png" />
+                </variation>
+            </sprite>
+            <sprite name="walk" margin="5">
+                <variation>
+                    <frame duration="0.2" img="character/char_walk01.png" />
+                    <frame duration="0.2" img="character/char_walk02.png" />
+                    <frame duration="0.2" img="character/char_walk03.png" />
+                    <frame duration="0.2" img="character/char_walk04.png" />
+                </variation>
+            </sprite>
+            <sprite name="jump" margin="5">
+                <variation>
+                    <frame img="character/char_jump01.png" />
+                </variation>
+            </sprite>
+            <sprite name="fall" margin="5">
+                <variation>
+                    <frame img="character/char_jump02.png" />
+                </variation>
+            </sprite>
+            <sprites />
+        </sprites>
+    </characterSprites>
 </root>

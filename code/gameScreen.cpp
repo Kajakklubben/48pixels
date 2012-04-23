@@ -21,7 +21,8 @@ gameScreen::gameScreen()
 	*/
 
 	loadBackgrounds();
-
+    currentBackgroundIndex = 0;
+    backgrounds[currentBackgroundIndex]->show();
 
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
@@ -58,12 +59,14 @@ void gameScreen::loadBackgrounds()
             int spriteIndex = XML.getAttribute("background","spriteIndex",0,i);
             int duration = XML.getAttribute("background","duration",0,i);
             int fade = XML.getAttribute("background","fade",0,i);
+            int timeOffset = XML.getAttribute("background","timeOffset",0,i);
 
             GameBackground* bg = new GameBackground(AnimationLoader::backgroundAnimations[spriteIndex]);
 
             bg->duration = duration;
             bg->fade = fade;
-
+            bg->timeOffset = timeOffset;
+printf("\nd: %i , f: %i , o: %i",duration,fade,timeOffset);
             backgrounds.push_back(bg);
 
         }
@@ -81,12 +84,23 @@ void gameScreen::update(float deltatime)
         blocks[i].Update(deltatime);
     }
 
+    for(int i = 0; i<backgrounds.size();i++)
+        backgrounds[i]->update(deltatime);
+
+    if(!backgrounds[currentBackgroundIndex]->showing)
+    {
+        currentBackgroundIndex =  (currentBackgroundIndex+1)%backgrounds.size();
+        backgrounds[currentBackgroundIndex]->show();
+    }
+
 }
 
 void gameScreen::drawBackground()
 {
-    if(backgrounds.size()>0)
-        backgrounds[0]->draw();
+    for(int i = 0; i<backgrounds.size();i++)
+        backgrounds[i]->draw();
+
+    backgrounds[currentBackgroundIndex]->draw();
 }
 
 void gameScreen::draw()
@@ -97,7 +111,7 @@ void gameScreen::draw()
 
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
-        blocks[i].Draw();
+        //blocks[i].Draw();
     }
 
     for(int x=0;x<8;x++){
@@ -124,7 +138,7 @@ void gameScreen::draw()
                             break;
                     }
                 }
-                ofCircle(x*20, y*20, 7);
+
             }
         }
 

@@ -5,6 +5,7 @@ void testApp::setup(){
     tracker.setup();
     ofBackground(0,0,0);
 	ofSetWindowTitle("Farmors Baghave - a Kajakklubben project");
+    ofEnableAlphaBlending();
 	ofSetFrameRate(60);
 
     trackerDebug = false;

@@ -31,7 +31,7 @@ SpriteAnimation* AnimationLoader::loadSprite(ofxXmlSettings xml)
             ofImage img;
             if(xml.attributeExists("frame","img",f))
             {
-                img.loadImage(xml.getAttribute("frame","img","",f));
+                img.loadImage(ASSET_PATH+xml.getAttribute("frame","img","",f));
                 frames.push_back(img);
                 printf("\n Frame loaded successful! ");
             }

@@ -12,11 +12,18 @@ class GameBackground
         virtual ~GameBackground();
         void draw();
         void update(float deltatime);
-
+        void show();
 
         SpriteAnimation* sprite;
-        int fade;
+        float fade;
         int duration;
+        float timeOffset;
+
+        float timer;
+        bool showing;
+        float targetAlpha;
+        float alpha;
+
 
     protected:
     private:

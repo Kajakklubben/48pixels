@@ -35,6 +35,7 @@ class gameScreen
 
 
         vector<GameBackground*> backgrounds;
+        int currentBackgroundIndex;
 
     protected:
     private:

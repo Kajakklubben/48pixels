@@ -78,10 +78,10 @@ void GameBlock::updateSprite(int dir){
 
         if(dir>0)
         {
-            if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[1]) &&
-               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
+            if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond]))
             {
-                sprite = AnimationLoader::blockAnimations[1];
+                sprite = AnimationLoader::blockAnimations[S_pond];
                 return;
             }
 
@@ -90,21 +90,27 @@ void GameBlock::updateSprite(int dir){
         }
         else if(dir<0)
         {
-            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid || rightBlock->sprite==AnimationLoader::blockAnimations[1]) &&
-               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[1]) &&
-               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
+            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond]) &&
+               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond]))
            {
-                sprite = AnimationLoader::blockAnimations[1];
+                sprite = AnimationLoader::blockAnimations[S_pond];
                 return;
             }
-            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[1])
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_spring] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_springStalk])
             {
-                sprite = AnimationLoader::blockAnimations[3];
+                sprite = AnimationLoader::blockAnimations[S_spring];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_springStalk];
+                return;
+            }
+            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond])
+            {
+                sprite = AnimationLoader::blockAnimations[S_spring];
                 return;
             }
         }
 
-        sprite = AnimationLoader::blockAnimations[2];
+        sprite = AnimationLoader::blockAnimations[S_cloud];
 
        /* if((leftBlock->type==BlockGround || leftBlock->sprite==AnimationLoader::blockAnimations[1]) && (rightBlock->type==BlockGround || rightBlock->sprite==AnimationLoader::blockAnimations[1]) && (bottomBlock->type==BlockGround || bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
             sprite = AnimationLoader::blockAnimations[1];

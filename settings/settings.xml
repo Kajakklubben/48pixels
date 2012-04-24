@@ -135,9 +135,9 @@
             <sprite name="springStalk" margin="5">
                 <variation>
                     <frame img="water/springstalk01.png" />
-					<frame img="water/springstalk02.png" />
-					<frame img="water/springstalk03.png" />
-					<frame img="water/springstalk04.png" />						
+                    <frame img="water/springstalk02.png" />
+                    <frame img="water/springstalk03.png" />
+                    <frame img="water/springstalk04.png" />
                 </variation>
             </sprite>
         </sprites>

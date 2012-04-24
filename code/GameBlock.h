@@ -13,6 +13,24 @@ enum GameBlockType {
 
 };
 
+enum BlockAnimationType {
+    S_earth=0,
+    S_pond=1,
+    S_cloud=2,
+    S_spring=3,
+    S_bush=4,
+    S_trunk=5,
+    S_vine=6,
+    S_vinetrunk=7,
+    S_grass=8,
+    S_lillypadFlower=9,
+    S_lillypadStalk=10,
+    S_lillypad=11,
+    S_floatingPlant=12,
+    S_springStalk=13,
+    S_giantHorse=14
+};
+
 
 class GameBlock
 {

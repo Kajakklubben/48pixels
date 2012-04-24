@@ -79,6 +79,9 @@
             <sprite name="spring" margin="5">
                 <variation>
                     <frame img="water/spring01.png" />
+					<frame img="water/spring02.png" />
+					<frame img="water/spring03.png" />
+					<frame img="water/spring04.png" />					
                 </variation>
             </sprite>
             <sprite name="bush" margin="5">

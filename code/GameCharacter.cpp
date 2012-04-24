@@ -5,8 +5,12 @@ GameCharacter::GameCharacter()
 {
     moveDir = 0;
     gravity = ofVec2f(0,1200);
-    width = ofGetWidth()/8;
-    height = ofGetHeight()/6;
+
+
+    drawWidth = ofGetWidth()/8;
+    drawHeight = ofGetHeight()/6;
+    width = drawWidth/2;
+    height = drawHeight/2;
 }
 
 GameCharacter::~GameCharacter()
@@ -92,7 +96,15 @@ void GameCharacter::draw()
     /*ofFill();
     ofSetColor(255,255,255,255);
     ofRect(position.x-width/2,position.y-height/2,width,height);*/
-    AnimationLoader::characterAnimations[S_idle]->draw(0,position.x-width/2,position.y-height/2,width,height);
+    if(!isGrounded && velocity.y<0)
+        AnimationLoader::characterAnimations[S_jump]->draw(0,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
+    else if(!isGrounded)
+        AnimationLoader::characterAnimations[S_fall]->draw(0,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
+    else if(velocity.x<0)
+        AnimationLoader::characterAnimations[S_idle]->draw(0,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
+    else
+        AnimationLoader::characterAnimations[S_idle]->draw(0,position.x+drawWidth/2,position.y-drawHeight/2,-drawWidth,drawHeight);
+
 }
 
 

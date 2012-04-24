@@ -6,8 +6,8 @@
 class gameScreen;
 
 const float GameCharacter_movespeed = 20.0;
-const float GameCharacter_maxMovespeed = 200.0;
-const float GameCharacter_jumpheight = 800.0;
+const float GameCharacter_maxMovespeed = 220.0;
+const float GameCharacter_jumpheight = 900.0;
 
 enum CharacterAnimationType {
     S_idle=0,
@@ -33,6 +33,7 @@ class GameCharacter
 
         gameScreen* game;
         int height,width;
+        int drawHeight, drawWidth;
         ofVec2f gravity;
         ofVec2f velocity;
         ofVec2f position;

@@ -13,13 +13,14 @@
 #include "tracker.h"
 #include "GameBackground.h"
 #include "GameCharacter.h"
+#include "gamepad.h"
 
 class gameScreen
 {
     public:
         gameScreen();
         virtual ~gameScreen();
-        void init(Tracker& tracker);
+        void init(Tracker& tracker, Gamepad& pad);
         void loadBackgrounds();
         void loadBlocks();
         void update(float delta);
@@ -32,6 +33,7 @@ class gameScreen
         GameBlock* GetBlock(int x, int y);
 
         Tracker* tracker;
+        Gamepad* gamepad;
         GameBlock blocks[GAMEBLOCK_COLS*GAMEBLOCK_ROWS];
         GameBlock outsideScreenBlock;
         GameBlock* selectedBlock;

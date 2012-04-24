@@ -25,7 +25,7 @@
         <block spriteIndex="6" layer="1" />
         <block spriteIndex="7" layer="1" />
         <block spriteIndex="8" layer="1" />
-    </blocks>	
+    </blocks>
     <character layer="4">
         <state name="idle" spriteIndex="0" />
         <state name="walk" spriteIndex="1" />
@@ -106,17 +106,17 @@
                     <frame img="earth/grass01.png" />
                 </variation>
             </sprite>
-			<sprite name="lilypad" margin="5">
+            <sprite name="lilypad" margin="5">
                 <variation>
                     <frame img="earth/grass01.png" />
                 </variation>
             </sprite>
-			<sprite name="lilypadFlower" margin="5">
+            <sprite name="lilypadFlower" margin="5">
                 <variation>
                     <frame img="earth/grass01.png" />
                 </variation>
             </sprite>
-			<sprite name="lilypadStalk" margin="5">
+            <sprite name="lilypadStalk" margin="5">
                 <variation>
                     <frame img="earth/grass01.png" />
                 </variation>

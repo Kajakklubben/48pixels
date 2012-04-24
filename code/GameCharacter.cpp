@@ -78,9 +78,7 @@ void GameCharacter::update(float deltatime)
     if(velocity.x<0 && (hitLT || hitLB))
     {
         velocity.x = 0;
-
         position.x = (hitTL?nextBlockLT->x:nextBlockLB->x)+nextBlockLB->w+width/2;
-
     }
 
 
@@ -91,6 +89,8 @@ void GameCharacter::update(float deltatime)
 
 void GameCharacter::draw()
 {
+    ofFill();
+    ofSetColor(255,255,255,255);
     ofRect(position.x-width/2,position.y-height/2,width,height);
 }
 

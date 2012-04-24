@@ -13,9 +13,12 @@ void testApp::setup(){
 	ofSetFrameRate(60);
 
     trackerDebug = false;
-    game.init(tracker);
 
     gamepad.setup();
+
+    game.init(tracker,gamepad);
+
+
 }
 
 //--------------------------------------------------------------

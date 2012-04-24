@@ -52,11 +52,62 @@ void GameBlock::updateSprite(){
 
     if(type==BlockGround)
     {
+        /*
+        //Earth
+        Default earth
+        -empty space above = grass
+
+        */
         //if empty space above, then grass on top, else earth
-        if(topBlock.type==BlockNone)
-            sprite =AnimationLoader::blockAnimations[0];
+        if(topBlock->type==BlockNone)
+            sprite =AnimationLoader::blockAnimations[8];
         else
             sprite =AnimationLoader::blockAnimations[0];
+
+    }
+
+    if(type==BlockWater)
+    {
+        /*
+        //Water
+        Default cloud
+        -Earth to the sides and below = pond
+        -Earth under = spring
+
+        */
+        if(leftBlock->type==BlockGround && rightBlock->type==BlockGround && bottomBlock->type==BlockGround)
+            sprite =AnimationLoader::blockAnimations[1];
+        else if(bottomBlock->type==BlockGround)
+            sprite =AnimationLoader::blockAnimations[3];
+        else
+            sprite =AnimationLoader::blockAnimations[2];
+
+    }
+
+    if(type==BlockGrass)
+    {
+        /*
+        //Plant
+        Default plant
+        -Earth to both sides and under = vine
+        -Earth to both sides and under, vine above = vinetrunk
+        -Vine below = vine
+
+        -Earth below = bush
+        -Earth below and bush above = trunk
+        -Bush below = bush
+
+        -Pond underneath = lilypad
+        -Pond underneath and lilypad above = lilypadStalk
+        -lillypad underneath = lilypadflower
+
+        */
+        if(leftBlock->type==BlockGround && rightBlock->type==BlockGround && bottomBlock->type==BlockGround)
+            sprite =AnimationLoader::blockAnimations[1];
+        else if(bottomBlock->type==BlockGround)
+            sprite =AnimationLoader::blockAnimations[3];
+        else
+            sprite =AnimationLoader::blockAnimations[2];
 
     }
 }

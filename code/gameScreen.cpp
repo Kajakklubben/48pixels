@@ -11,9 +11,9 @@ gameScreen::~gameScreen()
     //dtor
 }
 
-void gameScreen::init(Tracker& initTracker)
+void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 {
-
+    gamepad = &pad;
     tracker = &initTracker;
 
     blockWidth = ofGetWidth()/GAMEBLOCK_COLS;
@@ -151,6 +151,13 @@ void gameScreen::loadBlocks()
 
 void gameScreen::update(float deltatime)
 {
+
+    /*if(gamepad->gamepadLeft())
+        player.move(-1);
+    if(gamepad->gamepadRight())
+        player.move(1);
+    if(gamepad->gamepadUp())
+        player.jump();*/
 
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {

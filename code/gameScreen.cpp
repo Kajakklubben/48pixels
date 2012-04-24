@@ -153,6 +153,20 @@ void gameScreen::loadBlocks()
 void gameScreen::update(float deltatime)
 {
 
+      for(int y=GAMEBLOCK_ROWS-1;y>=0;y--)
+    {
+        for(int x=0;x<GAMEBLOCK_COLS;x++)
+        {
+            blocks[y*GAMEBLOCK_ROWS+x].updateSprite(1);
+
+        }
+        for(int x2=GAMEBLOCK_COLS-1;x2>=0;x2--)
+        {
+            blocks[y*GAMEBLOCK_ROWS+x2].updateSprite(-1);
+
+        }
+    }
+
     /*if(gamepad->gamepadLeft())
         player.move(-1);
     if(gamepad->gamepadRight())

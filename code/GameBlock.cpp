@@ -26,7 +26,7 @@ void GameBlock::SetType(GameBlockType type)
         lifetime = 0;
 
     this->type = type;
-    updateSprite();
+
     if(type==BlockNone)
         solid = false;
     else
@@ -44,9 +44,9 @@ GameBlock::~GameBlock()
 void GameBlock::Update(float deltatime)
 {
     lifetime +=deltatime;
-    updateSprite();
+
 }
-void GameBlock::updateSprite(){
+void GameBlock::updateSprite(int dir){
 
     if(type==BlockGround)
     {
@@ -74,14 +74,45 @@ void GameBlock::updateSprite(){
         -Earth under = spring
 
         */
-        if(leftBlock->type==BlockGround && rightBlock->type==BlockGround && bottomBlock->type==BlockGround)
-            sprite =AnimationLoader::blockAnimations[1];
-        else if(bottomBlock->type==BlockGround)
-            sprite =AnimationLoader::blockAnimations[3];
-        else if(bottomBlock->leftBlock->type==BlockGround && bottomBlock->rightBlock->type==BlockGround && bottomBlock->bottomBlock->type==BlockGround && bottomBlock->type==BlockWater)
-            sprite =AnimationLoader::blockAnimations[3];
+
+
+        if(dir>0)
+        {
+            if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[1]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
+            {
+                sprite = AnimationLoader::blockAnimations[1];
+                return;
+            }
+
+
+
+        }
+        else if(dir<0)
+        {
+            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid || rightBlock->sprite==AnimationLoader::blockAnimations[1]) &&
+               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[1]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
+           {
+                sprite = AnimationLoader::blockAnimations[1];
+                return;
+            }
+            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[1])
+            {
+                sprite = AnimationLoader::blockAnimations[3];
+                return;
+            }
+        }
+
+        sprite = AnimationLoader::blockAnimations[2];
+
+       /* if((leftBlock->type==BlockGround || leftBlock->sprite==AnimationLoader::blockAnimations[1]) && (rightBlock->type==BlockGround || rightBlock->sprite==AnimationLoader::blockAnimations[1]) && (bottomBlock->type==BlockGround || bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
+            sprite = AnimationLoader::blockAnimations[1];
+        else if(bottomBlock->type==BlockGround || bottomBlock->sprite==AnimationLoader::blockAnimations[1] )
+            sprite = AnimationLoader::blockAnimations[3];
         else
-            sprite =AnimationLoader::blockAnimations[2];
+            sprite = AnimationLoader::blockAnimations[2];
+            */
 
     }
 

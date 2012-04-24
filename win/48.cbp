@@ -351,6 +351,8 @@
 		<Unit filename="..\code\coordWarp.h" />
 		<Unit filename="..\code\gameScreen.cpp" />
 		<Unit filename="..\code\gameScreen.h" />
+		<Unit filename="..\code\gamepad.cpp" />
+		<Unit filename="..\code\gamepad.h" />
 		<Unit filename="..\code\main.cpp" />
 		<Unit filename="..\code\ofxKeyboardSettings.cpp" />
 		<Unit filename="..\code\ofxKeyboardSettings.h" />

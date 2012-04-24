@@ -26,7 +26,7 @@ class GameBlock
         virtual ~GameBlock();
         void Draw();
         void Update(float delta);
-        void updateSprite();
+        void updateSprite(int dir);
 
         GameBlockType type;
         int x;

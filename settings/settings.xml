@@ -106,19 +106,22 @@
                     <frame img="earth/grass01.png" />
                 </variation>
             </sprite>
-			<sprite name="lilypad" margin="5">
-                <variation>
-                    <frame img="earth/grass01.png" />
-                </variation>
-            </sprite>
 			<sprite name="lilypadFlower" margin="5">
                 <variation>
-                    <frame img="earth/grass01.png" />
+                    <frame img="plant/lilypadflower01.png" />
                 </variation>
             </sprite>
 			<sprite name="lilypadStalk" margin="5">
                 <variation>
-                    <frame img="earth/grass01.png" />
+                    <frame img="plant/lilypadstalk01.png" />
+                </variation>
+            </sprite>
+			<sprite name="lilypad" margin="5">
+                <variation>
+                    <frame duration="0.2" img="water/water_pad01.png" />
+                    <frame duration="0.2" img="water/water_pad02.png" />
+                    <frame duration="0.2" img="water/water_pad03.png" />
+                    <frame duration="0.2" img="water/water_pad04.png" />
                 </variation>
             </sprite>
         </sprites>

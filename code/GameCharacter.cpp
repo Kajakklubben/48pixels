@@ -101,9 +101,11 @@ void GameCharacter::draw()
     else if(!isGrounded)
         AnimationLoader::characterAnimations[S_fall]->draw(0,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
     else if(velocity.x<0)
-        AnimationLoader::characterAnimations[S_idle]->draw(0,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
+        AnimationLoader::characterAnimations[S_walk]->draw(1,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
+    else if(velocity.x>0)
+        AnimationLoader::characterAnimations[S_walk]->draw(1,position.x+drawWidth/2,position.y-drawHeight/2,-drawWidth,drawHeight);
     else
-        AnimationLoader::characterAnimations[S_idle]->draw(0,position.x+drawWidth/2,position.y-drawHeight/2,-drawWidth,drawHeight);
+        AnimationLoader::characterAnimations[S_idle]->draw(0,position.x-drawWidth/2,position.y-drawHeight/2,drawWidth,drawHeight);
 
 }
 

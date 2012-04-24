@@ -28,7 +28,7 @@ enum BlockAnimationType {
     S_lillypad=11,
     S_floatingPlant=12,
     S_springStalk=13,
-    S_giantHorse=14
+    S_pondPad=14
 };
 
 

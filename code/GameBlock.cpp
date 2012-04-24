@@ -57,7 +57,10 @@ void GameBlock::updateSprite(int dir){
 
         */
         //if empty space above, then grass on top, else earth
-        if(topBlock->type==BlockNone || topBlock->type==BlockSolid)
+        if(topBlock->type==BlockNone || topBlock->type==BlockGrass ||
+           topBlock->sprite==AnimationLoader::blockAnimations[S_spring]
+           || topBlock->sprite==AnimationLoader::blockAnimations[S_springStalk]
+           || topBlock->sprite==AnimationLoader::blockAnimations[S_cloud])
             sprite = AnimationLoader::blockAnimations[8];
         else
             sprite = AnimationLoader::blockAnimations[0];
@@ -131,6 +134,7 @@ void GameBlock::updateSprite(int dir){
         }
         else if(dir<0)
         {
+            //vines
             if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid) &&
                (leftBlock->type==BlockGround || leftBlock->type==BlockSolid) &&
                (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid))
@@ -144,6 +148,32 @@ void GameBlock::updateSprite(int dir){
                 bottomBlock->sprite = AnimationLoader::blockAnimations[S_vinetrunk];
                 return;
             }
+            //trees
+            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid)
+           {
+                sprite = AnimationLoader::blockAnimations[S_bush];
+                return;
+            }
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_bush] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_bush];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_trunk];
+                return;
+            }
+            //lillypads
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypad])
+           {
+                sprite = AnimationLoader::blockAnimations[S_lillypadFlower];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_lillypad];
+                return;
+            }
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypadFlower] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypadStalk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_lillypadFlower];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_lillypadStalk];
+                return;
+            }
+
         }
 
         sprite = AnimationLoader::blockAnimations[S_floatingPlant];

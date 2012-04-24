@@ -1479,10 +1479,10 @@
 
 1334951218 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.h
 
-1335304862 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.cpp
+1335306334 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.cpp
 	"GameBlock.h"
 
-1335304746 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.h
+1335305740 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gameblock.h
 	"ofMain.h"
 	"SpriteAnimation.h"
 	"AnimationLoader.h"
@@ -1490,10 +1490,10 @@
 1334951218 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.cpp
 	"calibrator.h"
 
-1335303899 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
+1335306540 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
 	"gameScreen.h"
 
-1335295688 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
+1335306520 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
 	"GameBlock.h"
 	"ofMain.h"
 	"ofxXmlSettings.h"
@@ -1557,12 +1557,12 @@
 1334961405 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\coordwarp.h
 	"ofxCvConstants.h"
 
-1335180126 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\animationloader.h
+1335306488 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\animationloader.h
 	"ofMain.h"
 	"ofxXmlSettings.h"
 	"SpriteAnimation.h"
 
-1335297984 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\animationloader.cpp
+1335306820 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\animationloader.cpp
 	"AnimationLoader.h"
 
 1334961405 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\coordwarp.cpp
@@ -1625,12 +1625,13 @@
 1335109320 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\rgb_to_hsv.cpp
 	"rgb_to_hsv.h"
 
-1335295842 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.cpp
+1335307028 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.cpp
 	"GameCharacter.h"
 	"gameScreen.h"
 
-1335204954 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.h
+1335306782 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.h
 	"ofMain.h"
+	"AnimationLoader.h"
 
 1335225680 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamepad.h
 	"ofMain.h"

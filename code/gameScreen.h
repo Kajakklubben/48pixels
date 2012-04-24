@@ -23,6 +23,7 @@ class gameScreen
         void init(Tracker& tracker, Gamepad& pad);
         void loadBackgrounds();
         void loadBlocks();
+        void loadCharacter();
         void update(float delta);
         void draw();
         void drawBackground();

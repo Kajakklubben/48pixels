@@ -2,7 +2,7 @@
 
 vector<SpriteAnimation*>  AnimationLoader::backgroundAnimations;
 vector<SpriteAnimation*>  AnimationLoader::blockAnimations;
-
+vector<SpriteAnimation*>  AnimationLoader::characterAnimations;
 
 AnimationLoader::AnimationLoader()
 {
@@ -85,4 +85,23 @@ void AnimationLoader::loadBlockAnimations(ofxXmlSettings xml)
     xml.popTag();
 
     printf("\nblockAnimations loaded: %i",blockAnimations.size());
+}
+
+void AnimationLoader::loadCharacter(ofxXmlSettings xml)
+{
+
+    xml.pushTag("characterSprites");
+    xml.pushTag("sprites");
+    int num = xml.getNumTags("sprite");
+    printf("\n %i number of character sprites",num);
+    for(int i = 0; i < num; i++)
+    {
+        xml.pushTag("sprite", i);
+        characterAnimations.push_back(loadSprite(xml));
+        xml.popTag();
+    }
+    xml.popTag();
+    xml.popTag();
+
+    printf("\n characteSprites loaded: %i",characterAnimations.size());
 }

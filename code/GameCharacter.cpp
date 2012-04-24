@@ -5,8 +5,8 @@ GameCharacter::GameCharacter()
 {
     moveDir = 0;
     gravity = ofVec2f(0,1200);
-    width = 20;
-    height = 30;
+    width = ofGetWidth()/8;
+    height = ofGetHeight()/6;
 }
 
 GameCharacter::~GameCharacter()
@@ -53,7 +53,7 @@ void GameCharacter::update(float deltatime)
 
     }
 
-    GameBlock* nextBlockTL = game->GetBlock(nextPos.x-width/2,nextPos.y-height/2-CollisionThreshold);
+  /*  GameBlock* nextBlockTL = game->GetBlock(nextPos.x-width/2,nextPos.y-height/2-CollisionThreshold);
     GameBlock* nextBlockTR = game->GetBlock(nextPos.x+width/2,nextPos.y-height/2-CollisionThreshold);
 
     bool hitTR = (nextBlockTR->solid && position.y-height/2> nextBlockTR->y+CollisionThreshold);
@@ -65,9 +65,9 @@ void GameCharacter::update(float deltatime)
 
         position.y = (hitTL?nextBlockTL->y:nextBlockTR->y)+height/2+nextBlockTR->h;
 
-    }
+    }*/
 
-
+/*
     GameBlock* nextBlockLT = game->GetBlock(nextPos.x-width/2-CollisionThreshold,nextPos.y);
     GameBlock* nextBlockLB = game->GetBlock(nextPos.x-width/2-CollisionThreshold,nextPos.y);
 
@@ -82,16 +82,17 @@ void GameCharacter::update(float deltatime)
     }
 
 
-
+*/
 
     position+=velocity*deltatime;
 }
 
 void GameCharacter::draw()
 {
-    ofFill();
+    /*ofFill();
     ofSetColor(255,255,255,255);
-    ofRect(position.x-width/2,position.y-height/2,width,height);
+    ofRect(position.x-width/2,position.y-height/2,width,height);*/
+    AnimationLoader::characterAnimations[S_idle]->draw(0,position.x-width/2,position.y-height/2,width,height);
 }
 
 

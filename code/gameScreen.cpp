@@ -38,7 +38,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
     currentBackgroundIndex = 0;
     backgrounds[currentBackgroundIndex]->show();
     loadBlocks();
-
+    loadCharacter();
 
     for(int y=0;y<GAMEBLOCK_ROWS;y++)
     {
@@ -84,7 +84,11 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 
 
 
+void gameScreen::loadCharacter()
+{
+    AnimationLoader::loadCharacter(XML);
 
+}
 void gameScreen::loadBackgrounds()
 {
     //Loading images

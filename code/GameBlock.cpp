@@ -46,8 +46,20 @@ GameBlock::~GameBlock()
 void GameBlock::Update(float deltatime)
 {
     lifetime +=deltatime;
+    updateSprite();
 }
+void GameBlock::updateSprite(){
 
+    if(type==BlockGround)
+    {
+        //if empty space above, then grass on top, else earth
+        if(topBlock.type==BlockNone)
+            sprite =AnimationLoader::blockAnimations[0];
+        else
+            sprite =AnimationLoader::blockAnimations[0];
+
+    }
+}
 void GameBlock::Draw()
 {
     if(type == BlockNone)

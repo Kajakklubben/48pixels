@@ -26,6 +26,7 @@ class GameBlock
         virtual ~GameBlock();
         void Draw();
         void Update(float delta);
+        void updateSprite();
 
         GameBlockType type;
         int x;
@@ -40,6 +41,12 @@ class GameBlock
         double lifetime;
 
         SpriteAnimation* sprite;
+
+        GameBlock* topBlock;
+        GameBlock* bottomBlock;
+        GameBlock* leftBlock;
+        GameBlock* rightBlock;
+
 
     protected:
     private:

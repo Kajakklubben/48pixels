@@ -28,44 +28,59 @@ void GameCharacter::update(float deltatime)
     if(moveDir==0)
     {
         if( fabs(velocity.x)<GameCharacter_movespeed)
-            velocity.x *=0.7;
+            velocity.x *=0.7; //Hardcoded smooth stop. Fine for installation that only runs on one computer.
         else
             velocity.x += velocity.x<0?GameCharacter_movespeed:-GameCharacter_movespeed;
     }
 
     velocity += gravity*deltatime;
 
+    float CollisionThreshold = 5;
     ofVec2f nextPos = position+velocity*deltatime;
 
-    GameBlock nextBlockLeft = game->GetBlock(nextPos.x-width/2,nextPos.y+height/2+5);
-    GameBlock nextBlockRight = game->GetBlock(nextPos.x+width/2,nextPos.y+height/2+5);
+    GameBlock* nextBlockBL = game->GetBlock(nextPos.x-width/2,nextPos.y+height/2+CollisionThreshold);
+    GameBlock* nextBlockBR = game->GetBlock(nextPos.x+width/2,nextPos.y+height/2+CollisionThreshold);
 
-    bool hitRight = (nextBlockRight.solid && position.y+height/2>nextBlockRight.y-5);
-    bool hitLeft = (nextBlockLeft.solid && position.y+height/2> nextBlockLeft.y-5);
+    bool hitBR = (nextBlockBR->solid && position.y+height/2>nextBlockBR->y-CollisionThreshold);
+    bool hitBL = (nextBlockBL->solid && position.y+height/2> nextBlockBL->y-CollisionThreshold);
 
-    if(velocity.y>0 && (hitLeft || hitRight))
+    if(velocity.y>0 && (hitBL || hitBR))
     {
         velocity.y = 0;
         isGrounded = true;
 
-        position.y = (hitLeft?nextBlockLeft.y:nextBlockRight.y)-height/2;
+        position.y = (hitBL?nextBlockBL->y:nextBlockBR->y)-height/2;
 
     }
 
+    GameBlock* nextBlockTL = game->GetBlock(nextPos.x-width/2,nextPos.y-height/2-CollisionThreshold);
+    GameBlock* nextBlockTR = game->GetBlock(nextPos.x+width/2,nextPos.y-height/2-CollisionThreshold);
 
-    if(nextPos.y<0+width/2)
+    bool hitTR = (nextBlockTR->solid && position.y-height/2> nextBlockTR->y+CollisionThreshold);
+    bool hitTL = (nextBlockTL->solid && position.y-height/2> nextBlockTL->y+CollisionThreshold);
+
+    if(velocity.y<0 && (hitTR || hitTL))
+    {
         velocity.y = 0;
 
-    if(nextPos.x>ofGetWidth()-width/2)
-    {
-        velocity.x = 0;
-        position.x =ofGetWidth()-width/2;
+        position.y = (hitTL?nextBlockTL->y:nextBlockTR->y)+height/2+nextBlockTR->h;
 
     }
-    if(nextPos.x<0+width/2)
+
+
+    GameBlock* nextBlockLT = game->GetBlock(nextPos.x-width/2-CollisionThreshold,nextPos.y);
+    GameBlock* nextBlockLB = game->GetBlock(nextPos.x-width/2-CollisionThreshold,nextPos.y);
+
+
+    bool hitLT = (nextBlockLT->solid && position.x-width/2< nextBlockLT->x+nextBlockLT->w+CollisionThreshold);
+    bool hitLB = (nextBlockLB->solid && position.x-width/2< nextBlockLB->x+nextBlockLB->w+CollisionThreshold);
+
+    if(velocity.x<0 && (hitLT || hitLB))
     {
         velocity.x = 0;
-        position.x = width/2;
+
+        position.x = (hitTL?nextBlockLT->x:nextBlockLB->x)+nextBlockLB->w+width/2;
+
     }
 
 

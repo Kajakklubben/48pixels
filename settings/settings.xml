@@ -4,9 +4,9 @@
         <calibrationCorner x="0.900000" y="0.100000" />
         <calibrationCorner x="0.900000" y="0.900000" />
         <calibrationCorner x="0.100000" y="0.900000" />
-        <blockColor r="0.272209" g="0.475085" b="0.933804" />
-        <blockColor r="0.293903" g="0.734435" b="0.548259" />
-        <blockColor r="0.637297" g="0.367696" b="0.326503" />
+        <blockColor r="0.283298" g="0.293762" b="0.327129" />
+        <blockColor r="0.754348" g="0.757934" b="0.769371" />
+        <blockColor r="0.744279" g="0.386521" b="0.667294" />
         <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.020000" trackingAreaSize="14" useCircleAverage="1" />
     </settings>
     <backgrounds>

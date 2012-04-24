@@ -3,6 +3,7 @@
 gameScreen::gameScreen()
 {
     //Moved to init
+    selectedBlock = 0;
 }
 
 gameScreen::~gameScreen()
@@ -39,9 +40,39 @@ void gameScreen::init(Tracker& initTracker)
     loadBlocks();
 
 
-    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
+    for(int y=0;y<GAMEBLOCK_ROWS;y++)
     {
-        blocks[i].Set(blockWidth,blockHeight,(i%GAMEBLOCK_COLS)*blockWidth,i/GAMEBLOCK_COLS*blockHeight);
+        for(int x=0;x<GAMEBLOCK_COLS;x++)
+        {
+            blocks[y*GAMEBLOCK_ROWS+x].Set(blockWidth,blockHeight,x*blockWidth,y*blockHeight);
+
+
+            //This is super ugly, but a quick fix and we only have to do it once :
+            int leftx = x-1;
+            if(leftx<0 || leftx>=GAMEBLOCK_ROWS)
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            else
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+leftx];
+
+            int rightx = x+1;
+            if(rightx<0 || rightx>=GAMEBLOCK_ROWS)
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            else
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+rightx];
+
+            int topy = y-1;
+            if(topy<0 || topy>=GAMEBLOCK_COLS)
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            else
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+topy];
+
+            int bottomy = y+1;
+            if(bottomy<0 || bottomy>=GAMEBLOCK_COLS)
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            else
+                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+bottomy];
+
+        }
     }
 
 
@@ -49,6 +80,7 @@ void gameScreen::init(Tracker& initTracker)
     player.setPosition(ofVec2f(100.0,100.0));
     outsideScreenBlock.SetType(BlockSolid);
 }
+
 
 
 
@@ -184,28 +216,40 @@ void gameScreen::draw()
     {
         blocks[i].Draw();
     }
-
-     player.draw();
+    if(selectedBlock != 0)
+    {
+        ofNoFill();
+        ofSetLineWidth(3);
+        ofSetColor(230,50,50,50);
+        ofRect(selectedBlock->x,selectedBlock->y,selectedBlock->w,selectedBlock->h);
+        ofSetLineWidth(1);
+        ofFill();
+    }
+    ofSetColor(255,255,255,255);
+    ofFill();
+    player.draw();
 
 
 }
 
+void gameScreen::mousePressed(int x, int y, int button)
+{
+    selectedBlock = GetBlock(x, y);
+    printf("\n Set selected block %i,%i",x,y);
+}
 void gameScreen::keyPressed  (int key){
 
-    int x = rand()%GAMEBLOCK_COLS;
-    int y = rand()%GAMEBLOCK_ROWS;
-
 	if (key == 'e'){
-		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockGround);
+		selectedBlock->SetType(BlockGround);
 		printf("Set new test block\n");
 	}
 
     if (key == 'g'){
-		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockGrass);
+		selectedBlock->SetType(BlockGrass);
 		printf("Set new test block\n");
 	}
     if (key == 'w'){
-		blocks[y*GAMEBLOCK_COLS+x].SetType(BlockWater);
+		selectedBlock->SetType(BlockWater);
 		printf("Set new test block\n");
 	}
 
@@ -238,7 +282,7 @@ void gameScreen::keyReleased  (int key){
 
 }
 
-GameBlock gameScreen::GetBlock(int x, int y)
+GameBlock* gameScreen::GetBlock(int x, int y)
 {
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
@@ -249,13 +293,39 @@ GameBlock gameScreen::GetBlock(int x, int y)
            && y<blocks[i].y+blockHeight
            )
            {
-                return blocks[i];
+                return &blocks[i];
            }
 
     }
-    outsideScreenBlock.x = x;
-    outsideScreenBlock.y = ofGetHeight();
-    outsideScreenBlock.h = blockHeight;
+    if(x>ofGetWidth())
+    {
+        outsideScreenBlock.x = ofGetWidth();
+        outsideScreenBlock.y = y-blockHeight/2;
+    }
+    if(x<0)
+    {
+        outsideScreenBlock.x = -blockWidth;
+        outsideScreenBlock.y = y-blockHeight/2;
+    }
+
+    if(y>ofGetHeight())
+    {
+        outsideScreenBlock.x = x-blockWidth/2;
+        outsideScreenBlock.y = ofGetWidth();
+    }
+    if(y<0)
+    {
+        outsideScreenBlock.x = x-blockWidth/2;
+        outsideScreenBlock.y = -blockHeight;
+    }
+
+
+    if(y>ofGetHeight()/2)
+        outsideScreenBlock.y = ofGetHeight();
+    else
+        outsideScreenBlock.y = -blockHeight;
+
+
     outsideScreenBlock.w = blockWidth;
-    return outsideScreenBlock;
+    return &outsideScreenBlock;
 }

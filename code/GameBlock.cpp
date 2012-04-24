@@ -112,44 +112,41 @@ void GameBlock::updateSprite(int dir){
 
         sprite = AnimationLoader::blockAnimations[S_cloud];
 
-       /* if((leftBlock->type==BlockGround || leftBlock->sprite==AnimationLoader::blockAnimations[1]) && (rightBlock->type==BlockGround || rightBlock->sprite==AnimationLoader::blockAnimations[1]) && (bottomBlock->type==BlockGround || bottomBlock->sprite==AnimationLoader::blockAnimations[1]))
-            sprite = AnimationLoader::blockAnimations[1];
-        else if(bottomBlock->type==BlockGround || bottomBlock->sprite==AnimationLoader::blockAnimations[1] )
-            sprite = AnimationLoader::blockAnimations[3];
-        else
-            sprite = AnimationLoader::blockAnimations[2];
-            */
-
     }
 
     if(type==BlockGrass)
     {
 
-        sprite =AnimationLoader::blockAnimations[9];
-        /*
-        //Plant
-        Default plant
-        -Earth to both sides and under = vine
-        -Earth to both sides and under, vine above = vinetrunk
-        -Vine below = vine
+        if(dir>0)
+        {
+            /*if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond]))
+            {
+                sprite = AnimationLoader::blockAnimations[S_pond];
+                return;
+            }*/
 
-        -Earth below = bush
-        -Earth below and bush above = trunk
-        -Bush below = bush
 
-        -Pond underneath = lilypad
-        -Pond underneath and lilypad above = lilypadStalk
-        -lillypad underneath = lilypadflower
 
-        */
-        /*
-        if(leftBlock->type==BlockGround && rightBlock->type==BlockGround && bottomBlock->type==BlockGround)
-            sprite =AnimationLoader::blockAnimations[1];
-        else if(bottomBlock->type==BlockGround)
-            sprite =AnimationLoader::blockAnimations[3];
-        else
-            sprite =AnimationLoader::blockAnimations[2];
-            */
+        }
+        else if(dir<0)
+        {
+            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid) &&
+               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid))
+           {
+                sprite = AnimationLoader::blockAnimations[S_vine];
+                return;
+            }
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_vine] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_vinetrunk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_vine];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_vinetrunk];
+                return;
+            }
+        }
+
+        sprite = AnimationLoader::blockAnimations[S_floatingPlant];
 
     }
 }

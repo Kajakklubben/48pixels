@@ -26,9 +26,7 @@ void GameBlock::SetType(GameBlockType type)
         lifetime = 0;
 
     this->type = type;
-    if(AnimationLoader::blockAnimations.size()>type && type != BlockNone)
-        sprite = AnimationLoader::blockAnimations[type];
-
+    updateSprite();
     if(type==BlockNone)
         solid = false;
     else
@@ -52,22 +50,23 @@ void GameBlock::updateSprite(){
 
     if(type==BlockGround)
     {
-        /*
+/*
         //Earth
         Default earth
         -empty space above = grass
 
         */
         //if empty space above, then grass on top, else earth
-        if(topBlock->type==BlockNone)
-            sprite =AnimationLoader::blockAnimations[8];
+        if(topBlock->type==BlockNone || topBlock->type==BlockSolid)
+            sprite = AnimationLoader::blockAnimations[8];
         else
-            sprite =AnimationLoader::blockAnimations[0];
+            sprite = AnimationLoader::blockAnimations[0];
 
     }
 
     if(type==BlockWater)
     {
+
         /*
         //Water
         Default cloud
@@ -79,6 +78,8 @@ void GameBlock::updateSprite(){
             sprite =AnimationLoader::blockAnimations[1];
         else if(bottomBlock->type==BlockGround)
             sprite =AnimationLoader::blockAnimations[3];
+        else if(bottomBlock->leftBlock->type==BlockGround && bottomBlock->rightBlock->type==BlockGround && bottomBlock->bottomBlock->type==BlockGround && bottomBlock->type==BlockWater)
+            sprite =AnimationLoader::blockAnimations[3];
         else
             sprite =AnimationLoader::blockAnimations[2];
 
@@ -86,6 +87,8 @@ void GameBlock::updateSprite(){
 
     if(type==BlockGrass)
     {
+
+        sprite =AnimationLoader::blockAnimations[9];
         /*
         //Plant
         Default plant
@@ -102,18 +105,20 @@ void GameBlock::updateSprite(){
         -lillypad underneath = lilypadflower
 
         */
+        /*
         if(leftBlock->type==BlockGround && rightBlock->type==BlockGround && bottomBlock->type==BlockGround)
             sprite =AnimationLoader::blockAnimations[1];
         else if(bottomBlock->type==BlockGround)
             sprite =AnimationLoader::blockAnimations[3];
         else
             sprite =AnimationLoader::blockAnimations[2];
+            */
 
     }
 }
 void GameBlock::Draw()
 {
-    if(type == BlockNone)
+    if(type == BlockNone || type == BlockSolid)
         return;
 
     float  frameLength = sprite->duration;
@@ -130,4 +135,5 @@ void GameBlock::Draw()
     sprite->draw(frame,x-newMargin,y-newMargin,w+newMargin*2,h+newMargin*2);
     ofSetColor(0);
     ofRect(x,y,w,h);
+
 }

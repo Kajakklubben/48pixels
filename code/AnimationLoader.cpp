@@ -39,7 +39,7 @@ SpriteAnimation* AnimationLoader::loadSprite(ofxXmlSettings xml)
                     sprite->duration = xml.getAttribute("frame","duration",1.0,f);
 
                 frames.push_back(img);
-                printf("\n Frame loaded successful! ");
+                //printf("\n Frame loaded successful! ");
             }
             //xml.popTag();
 

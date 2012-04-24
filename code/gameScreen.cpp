@@ -49,28 +49,29 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 
             //This is super ugly, but a quick fix and we only have to do it once :
             int leftx = x-1;
-            if(leftx<0 || leftx>=GAMEBLOCK_ROWS)
+            if(leftx<0 || leftx>GAMEBLOCK_COLS)
                 blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
             else
                 blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+leftx];
 
             int rightx = x+1;
-            if(rightx<0 || rightx>=GAMEBLOCK_ROWS)
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            if(rightx<0 || rightx>=GAMEBLOCK_COLS)
+                blocks[y*GAMEBLOCK_ROWS+x].rightBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+rightx];
+                blocks[y*GAMEBLOCK_ROWS+x].rightBlock = &blocks[y*GAMEBLOCK_ROWS+rightx];
 
             int topy = y-1;
-            if(topy<0 || topy>=GAMEBLOCK_COLS)
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            if(topy<0 || topy>=GAMEBLOCK_ROWS)
+                blocks[y*GAMEBLOCK_ROWS+x].topBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+topy];
+                blocks[y*GAMEBLOCK_ROWS+x].topBlock = &blocks[topy*GAMEBLOCK_ROWS+x];
 
             int bottomy = y+1;
-            if(bottomy<0 || bottomy>=GAMEBLOCK_COLS)
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            if(bottomy<0 || bottomy>=GAMEBLOCK_ROWS)
+                blocks[y*GAMEBLOCK_ROWS+x].bottomBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+bottomy];
+                blocks[y*GAMEBLOCK_ROWS+x].bottomBlock = &blocks[bottomy*GAMEBLOCK_ROWS+x];
+
 
         }
     }
@@ -229,6 +230,11 @@ void gameScreen::draw()
         ofSetLineWidth(3);
         ofSetColor(230,50,50,50);
         ofRect(selectedBlock->x,selectedBlock->y,selectedBlock->w,selectedBlock->h);
+
+        ofRect(selectedBlock->leftBlock->x+selectedBlock->leftBlock->h/2,selectedBlock->leftBlock->y+selectedBlock->leftBlock->w/2,selectedBlock->leftBlock->w/4,selectedBlock->leftBlock->h/4);
+        ofRect(selectedBlock->rightBlock->x+selectedBlock->rightBlock->h/2,selectedBlock->rightBlock->y+selectedBlock->rightBlock->w/2,selectedBlock->rightBlock->w/4,selectedBlock->rightBlock->h/4);
+        ofRect(selectedBlock->topBlock->x+selectedBlock->topBlock->h/2,selectedBlock->topBlock->y+selectedBlock->topBlock->w/2,selectedBlock->topBlock->w/4,selectedBlock->topBlock->h/4);
+        ofRect(selectedBlock->bottomBlock->x+selectedBlock->bottomBlock->h/2,selectedBlock->bottomBlock->y+selectedBlock->bottomBlock->w/2,selectedBlock->bottomBlock->w/4,selectedBlock->bottomBlock->h/4);
         ofSetLineWidth(1);
         ofFill();
     }

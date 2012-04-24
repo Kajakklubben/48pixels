@@ -139,14 +139,6 @@
 					<frame duration="0.2" img="water/springstalk03.png" />
 					<frame duration="0.2" img="water/springstalk04.png" />						
                 </variation>
-            </sprite>
-			<sprite name="pondPad" margin="5">
-                <variation>
-                    <frame duration="0.2" img="water/water_pad01.png" />
-					<frame duration="0.2" img="water/water_pad02.png" />
-					<frame duration="0.2" img="water/water_pad03.png" />
-					<frame duration="0.2" img="water/water_pad04.png" />						
-                </variation>
             </sprite>			
         </sprites>
     </blockSprites>

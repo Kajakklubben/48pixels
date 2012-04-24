@@ -124,11 +124,11 @@
                     <frame duration="0.2" img="water/water_pad04.png" />
                 </variation>
             </sprite>
-			<sprite name="floatingPlant" margin="5">
+            <sprite name="floatingPlant" margin="5">
                 <variation>
                     <frame img="plant/lilypadflower01.png" />
                 </variation>
-            </sprite>			
+            </sprite>
         </sprites>
     </blockSprites>
     <characterSprites>

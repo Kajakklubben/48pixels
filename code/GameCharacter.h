@@ -3,8 +3,11 @@
 
 #include "ofMain.h"
 
-const float GameCharacter_movespeed = 150.0;
-const float GameCharacter_jumpheight = 1000.0;
+class gameScreen;
+
+const float GameCharacter_movespeed = 20.0;
+const float GameCharacter_maxMovespeed = 200.0;
+const float GameCharacter_jumpheight = 800.0;
 class GameCharacter
 {
     public:
@@ -19,10 +22,12 @@ class GameCharacter
         void jump();
         int moveDir;
 
+        gameScreen* game;
         int height,width;
         ofVec2f gravity;
         ofVec2f velocity;
         ofVec2f position;
+        bool isGrounded;
 
     protected:
     private:

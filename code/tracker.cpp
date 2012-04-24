@@ -626,7 +626,7 @@ void Tracker::initUeye()
 void Tracker::setStaticSettings(){
 
  #ifdef USE_UEYE
-    ueye.setFPS(40);
+    /*ueye.setFPS(40);
     ueye.setGainMaster(17);
     ueye.setGainRed(20);
     ueye.setGainGreen(14);
@@ -635,7 +635,20 @@ void Tracker::setStaticSettings(){
     ueye.setAutoGain(false);
 
     ueye.setExposureTime(19.0);
-    ueye.setPixelClock(32);
+    ueye.setPixelClock(32);*/
+    ueye.setFPS(87);
+    ueye.setGainMaster(51);
+    ueye.setGainRed(0);
+    ueye.setGainGreen(1);
+    ueye.setGainBlue(35);
+    ueye.setAutoWhiteBalance(false);
+    ueye.setAutoGain(false);
+    ueye.setColorSaturation(200);
+
+
+    ueye.setExposureTime(6.33);
+    ueye.setPixelClock(40);
+
     //ueye.setPixelClock(ueye.getPixelClockMax());
  #endif
 

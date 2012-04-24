@@ -26,10 +26,12 @@ class gameScreen
         void draw();
         void drawBackground();
         void keyPressed  (int key);
+        void keyReleased (int key);
+        GameBlock GetBlock(int x, int y);
 
         Tracker* tracker;
         GameBlock blocks[GAMEBLOCK_COLS*GAMEBLOCK_ROWS];
-
+        GameBlock outsideScreenBlock;
 
         int blockWidth;
 		int blockHeight;

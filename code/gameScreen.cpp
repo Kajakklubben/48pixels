@@ -31,7 +31,9 @@ gameScreen::gameScreen()
     }
 
 
+    player.game = this;
     player.setPosition(ofVec2f(100.0,100.0));
+    outsideScreenBlock.SetType(BlockSolid);
 }
 
 
@@ -130,7 +132,9 @@ void gameScreen::update(float deltatime)
 
     player.update(deltatime);
 
-return;
+    #ifndef USE_TRACKER
+        return;
+    #endif
     for(int x=0;x<8;x++){
             for(int y=0;y<6;y++){
 
@@ -201,5 +205,52 @@ void gameScreen::keyPressed  (int key){
 	}
 
 
-	player.move(1);
+    if(key=='j')
+    {
+        player.jump();
+    }
+
+    if(key=='m')
+    {
+        player.move(1);
+    }
+    if(key=='n')
+    {
+        player.move(-1);
+    }
+
+}
+void gameScreen::keyReleased  (int key){
+
+    if(key=='m')
+    {
+        player.move(0);
+    }
+    if(key=='n')
+    {
+        player.move(0);
+    }
+
+}
+
+GameBlock gameScreen::GetBlock(int x, int y)
+{
+    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
+    {
+        if(
+           x>blocks[i].x
+           && x<blocks[i].x+blockWidth
+           && y>blocks[i].y
+           && y<blocks[i].y+blockHeight
+           )
+           {
+                return blocks[i];
+           }
+
+    }
+    outsideScreenBlock.x = x;
+    outsideScreenBlock.y = ofGetHeight();
+    outsideScreenBlock.h = blockHeight;
+    outsideScreenBlock.w = blockWidth;
+    return outsideScreenBlock;
 }

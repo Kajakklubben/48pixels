@@ -5,6 +5,7 @@ GameBlock::GameBlock()
     lifetime = 0;
     type = BlockNone;
     margin = 10;
+    solid = true;
 
 }
 
@@ -17,6 +18,7 @@ void GameBlock::Set(int w, int h, int x, int y)
     this->w = w;
 
     this->type = BlockNone;
+    solid = false;
 }
 void GameBlock::SetType(GameBlockType type)
 {
@@ -26,8 +28,13 @@ void GameBlock::SetType(GameBlockType type)
     this->type = type;
     if(AnimationLoader::blockAnimations.size()>type && type != BlockNone)
         sprite = AnimationLoader::blockAnimations[type];
+
+    if(type==BlockNone)
+        solid = false;
     else
-        printf("Block animation index %i does not exist",type);
+        solid = true;
+   // else
+        //printf("\nBlock animation index %i does not exist",type);
 
 }
 
@@ -58,5 +65,6 @@ void GameBlock::Draw()
     ofRect(x,y,w,h);*/
 
     sprite->draw(frame,x-newMargin,y-newMargin,w+newMargin*2,h+newMargin*2);
-
+    ofSetColor(0);
+    ofRect(x,y,w,h);
 }

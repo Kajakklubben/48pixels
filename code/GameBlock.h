@@ -8,7 +8,8 @@ enum GameBlockType {
     BlockNone=-1,
     BlockGrass=0,
     BlockGround=1,
-    BlockWater=2
+    BlockWater=2,
+    BlockSolid=3
 
 };
 
@@ -34,6 +35,7 @@ class GameBlock
         int w;
 
         int margin;
+        bool solid;
 
         double lifetime;
 

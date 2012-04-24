@@ -31,6 +31,7 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
+
     game.keyPressed(key);
 
     tracker.keyPressed(key);
@@ -40,6 +41,7 @@ void testApp::keyPressed(int key){
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
 
+    game.keyReleased(key);
 }
 
 //--------------------------------------------------------------

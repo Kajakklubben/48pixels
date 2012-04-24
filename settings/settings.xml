@@ -4,16 +4,16 @@
         <calibrationCorner x="0.900000" y="0.100000" />
         <calibrationCorner x="0.900000" y="0.900000" />
         <calibrationCorner x="0.100000" y="0.900000" />
-        <blockColor r="0.020082" g="0.061696" b="0.123166" />
-        <blockColor r="0.129956" g="0.073287" b="0.190617" />
-        <blockColor r="0.441253" g="0.541644" b="0.567442" />
-        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.035000" trackingAreaSize="9" useCircleAverage="0" />
+        <blockColor r="0.272209" g="0.475085" b="0.933804" />
+        <blockColor r="0.293903" g="0.734435" b="0.548259" />
+        <blockColor r="0.637297" g="0.367696" b="0.326503" />
+        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.020000" trackingAreaSize="14" useCircleAverage="1" />
     </settings>
     <backgrounds>
-        <background spriteIndex="0" duration="10" fade="4" layer="0" />
-        <background spriteIndex="1" duration="10" fade="4" layer="0" />
-        <background spriteIndex="2" duration="10" fade="4" layer="0" />
-        <background spriteIndex="3" duration="10" fade="4" layer="0" />
+        <background spriteIndex="0" duration="25" fade="6" layer="0" />
+        <background spriteIndex="1" duration="25" fade="6" layer="0" />
+        <background spriteIndex="2" duration="25" fade="6" layer="0" />
+        <background spriteIndex="3" duration="25" fade="6" layer="0" />
     </backgrounds>
     <blocks>
         <block spriteIndex="0" layer="1" />

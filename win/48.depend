@@ -1462,11 +1462,12 @@
 	"testApp.h"
 	"ofAppGlutWindow.h"
 
-1334961405 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.h
+1335225680 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.h
 	"ofMain.h"
 	"tracker.h"
 	"calibrator.h"
 	"GameScreen.h"
+	"gamepad.h"
 
 1335220621 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.h
 	"ofxOpenCv.h"
@@ -1502,7 +1503,7 @@
 	"GameBackground.h"
 	"GameCharacter.h"
 
-1335202753 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
+1335225750 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
 	"testApp.h"
 
 1335216681 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.cpp
@@ -1628,5 +1629,8 @@
 	"gameScreen.h"
 
 1335204954 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamecharacter.h
+	"ofMain.h"
+
+1335225680 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamepad.h
 	"ofMain.h"
 

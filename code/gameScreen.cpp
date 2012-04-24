@@ -2,6 +2,19 @@
 
 gameScreen::gameScreen()
 {
+    //Moved to init
+}
+
+gameScreen::~gameScreen()
+{
+    //dtor
+}
+
+void gameScreen::init(Tracker& initTracker)
+{
+
+    tracker = &initTracker;
+
     blockWidth = ofGetWidth()/GAMEBLOCK_COLS;
 	blockHeight = ofGetHeight()/GAMEBLOCK_ROWS;
 
@@ -17,13 +30,14 @@ gameScreen::gameScreen()
 	//if the settings file doesn't exist we assigns default values (170, 190, 240)
 	printf("\n red: %i \n",XML.getValue("BACKGROUND:COLOR:RED", 170));
 	/*green	= XML.getValue("BACKGROUND:COLOR:GREEN", 190);
-	blue	= XML.getValue("BACKGROUND:COLOR:BLUE", 240);
-	*/
+     blue	= XML.getValue("BACKGROUND:COLOR:BLUE", 240);
+     */
 
 	loadBackgrounds();
     currentBackgroundIndex = 0;
     backgrounds[currentBackgroundIndex]->show();
     loadBlocks();
+
 
     for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
     {
@@ -37,15 +51,6 @@ gameScreen::gameScreen()
 }
 
 
-gameScreen::~gameScreen()
-{
-    //dtor
-}
-
-void gameScreen::init(Tracker& initTracker)
-{
-    tracker = &initTracker;
-}
 
 void gameScreen::loadBackgrounds()
 {

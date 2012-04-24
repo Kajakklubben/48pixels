@@ -129,7 +129,7 @@
             </sprite>
 			<sprite name="floatingPlant" margin="5">
                 <variation>
-                    <frame img="plant/lilypadflower01.png" />
+                    <frame img="plant/hangingplant01.png" />
                 </variation>
             </sprite>
 			<sprite name="springStalk" margin="5">

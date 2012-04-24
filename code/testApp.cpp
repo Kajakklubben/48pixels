@@ -2,6 +2,9 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+
+
+
     tracker.setup();
     ofBackground(0,0,0);
 
@@ -19,7 +22,7 @@ void testApp::setup(){
 void testApp::update(){
     game.update(1.0/ofGetFrameRate());
     tracker.update();
-    
+
     gamepad.update();
 }
 

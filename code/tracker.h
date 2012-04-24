@@ -11,6 +11,7 @@
     //#define USE_UEYE
     #include "ofxUeye.h"
     #include "ofxUeyeSettings.h"
+    //#define USE_COLOR_PROFILES
 #else
     //OSX
 #endif
@@ -60,6 +61,7 @@ public:
     bool isInDebug;
     ofTexture tex;
 
+
     //Sets the corners in 0...1 space
     void setCalibrationCorner(ofVec2f p, int corner);
 
@@ -81,6 +83,10 @@ public:
 private:
 
     unsigned char * pixels;
+
+    unsigned char * pixelsR;
+    unsigned char * pixelsG;
+    unsigned char * pixelsB;
     coordWarping coordWarper;
 
     //0 ... CAM_SIZE

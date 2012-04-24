@@ -19,11 +19,11 @@ public:
     Calibrator calibrator;
     gameScreen game;
     Gamepad gamepad;
-    
+
     //---------------------
-    
+
     bool trackerDebug;
-    
+
     //---------------------
 
 
@@ -36,5 +36,6 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
+
 
 };

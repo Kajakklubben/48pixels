@@ -1462,14 +1462,14 @@
 	"testApp.h"
 	"ofAppGlutWindow.h"
 
-1335225680 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.h
+1335228536 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.h
 	"ofMain.h"
 	"tracker.h"
 	"calibrator.h"
 	"GameScreen.h"
 	"gamepad.h"
 
-1335220621 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.h
+1335228727 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.h
 	"ofxOpenCv.h"
 	"coordWarp.h"
 	"rgb_to_hsv.h"
@@ -1490,7 +1490,7 @@
 1334951218 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\calibrator.cpp
 	"calibrator.h"
 
-1335224605 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
+1335225838 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.cpp
 	"gameScreen.h"
 
 1335204984 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamescreen.h
@@ -1503,7 +1503,7 @@
 	"GameBackground.h"
 	"GameCharacter.h"
 
-1335225750 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
+1335228545 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\testapp.cpp
 	"testApp.h"
 
 1335216681 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\tracker.cpp
@@ -1633,4 +1633,7 @@
 
 1335225680 c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamepad.h
 	"ofMain.h"
+
+1335225680 source:c:\users\student\downloads\of_prerelease_v007_win_cb (1)\of_prerelease_v007_win_cb\apps\48pixels\code\gamepad.cpp
+	"gamepad.h"
 

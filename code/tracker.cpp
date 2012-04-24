@@ -174,8 +174,17 @@ return;
         if(ueye.isReady() )//&& ueye.isFrameNew())
         {
             //printf("\n new frame");
+            #ifndef USE_COLOR_PROFILES
             tex.loadData(ueye.getPixels(), ueye.getWidth(), ueye.getHeight(), GL_RGB);
-            pixels = ueye.getPixels();
+            #else
+            setStaticSettings(0);
+            pixelsR = ueye.getPixels();
+            setStaticSettings(1);
+            pixelsG = ueye.getPixels();
+            setStaticSettings(2);
+            pixelsB = ueye.getPixels();
+            #endif
+
         }
         else return;
     }
@@ -187,6 +196,16 @@ return;
     }
 #endif
 
+#ifdef USE_COLOR_PROFILES
+for(int c=0;c<3;c++)
+{
+if(c==0)
+    pixels = pixelsR;
+if(c==1)
+    pixels = pixelsG;
+if(c==2)
+    pixels = pixelsB;
+#endif
     for(int x=0;x<8;x++){
         for(int y=0;y<6;y++){
             //Find the local average for this block
@@ -229,7 +248,11 @@ return;
             //The average color of the block hole
             hsv_color hsvColor1 = rgb_to_hsv(blocks[x][y].runningAverageColor);
 
+#ifndef USE_COLOR_PROFILES
             for(int i=0;i<NUM_BLOCKS;i++){
+#else
+                int i = c;
+#endif
 
                 //The defined block color to match with
                 hsv_color hsvColor2 = rgb_to_hsv(blockCalibrationColor[i]);
@@ -260,14 +283,21 @@ return;
                     blocks[x][y].invalid = false;
                     blocks[x][y].matchDistance = distance;
                 }*/
-                            }
+#ifndef USE_COLOR_PROFILES
+            }
+#endif
             if(blocks[x][y].invalid){
                 blocks[x][y].age = 0;
             } else {
                 blocks[x][y].age++;
             }
         }
+
     }
+    #ifdef USE_COLOR_PROFILES
+
+}
+#endif
 }
 
 
@@ -357,7 +387,9 @@ void Tracker::drawDebug(){
 
 
     ofSetColor(255, 255, 255);
+
     tex.draw(0,0,w,h);
+
 
     ofPushStyle(); {
         ofEnableAlphaBlending();
@@ -390,7 +422,7 @@ void Tracker::drawDebug(){
                             ofSetColor(255, 100, 0,100);
                             break;
                         case BlockBlue:
-                            ofSetColor(0, 0, 255,100);
+                            ofSetColor(20, 30, 255,110);
                             break;
                         default:
                             break;
@@ -623,31 +655,49 @@ void Tracker::initUeye()
 
 }
 
-void Tracker::setStaticSettings(){
-
- #ifdef USE_UEYE
-    /*ueye.setFPS(40);
-    ueye.setGainMaster(17);
-    ueye.setGainRed(20);
-    ueye.setGainGreen(14);
-    ueye.setGainBlue(53);
+void Tracker::setStaticSettings(int set){
     ueye.setAutoWhiteBalance(false);
     ueye.setAutoGain(false);
-
-    ueye.setExposureTime(19.0);
-    ueye.setPixelClock(32);*/
+ #ifdef USE_UEYE
+if(set==0) //Tracking red
+{
     ueye.setFPS(87);
     ueye.setGainMaster(51);
-    ueye.setGainRed(0);
+    ueye.setGainRed(3);
     ueye.setGainGreen(1);
-    ueye.setGainBlue(35);
-    ueye.setAutoWhiteBalance(false);
-    ueye.setAutoGain(false);
+    ueye.setGainBlue(20);
+
     ueye.setColorSaturation(200);
-
-
     ueye.setExposureTime(6.33);
     ueye.setPixelClock(40);
+}
+if(set==1) //Tracking green
+{
+    ueye.setFPS(87);
+    ueye.setGainMaster(48);
+    ueye.setGainRed(0);
+    ueye.setGainGreen(3);
+    ueye.setGainBlue(27);
+
+    ueye.setColorSaturation(200);
+    ueye.setExposureTime(6.33);
+    ueye.setPixelClock(40);
+}
+if(set==2) //Tracking blue
+{
+    ueye.setFPS(87);
+    ueye.setGainMaster(58);
+    ueye.setGainRed(0);
+    ueye.setGainGreen(0);
+    ueye.setGainBlue(35);
+
+    ueye.setColorSaturation(200);
+    ueye.setExposureTime(6.33);
+    ueye.setPixelClock(40);
+}
+
+
+
 
     //ueye.setPixelClock(ueye.getPixelClockMax());
  #endif

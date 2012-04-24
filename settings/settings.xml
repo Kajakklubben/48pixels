@@ -78,7 +78,10 @@
             </sprite>
             <sprite name="spring" margin="5">
                 <variation>
-                    <frame img="water/spring01.png" />
+                    <frame duration="0.2" img="water/spring01.png" />
+					<frame duration="0.2" img="water/spring02.png" />
+					<frame duration="0.2" img="water/spring03.png" />
+					<frame duration="0.2" img="water/spring04.png" />					
                 </variation>
             </sprite>
             <sprite name="bush" margin="5">
@@ -118,15 +121,20 @@
             </sprite>
 			<sprite name="lilypad" margin="5">
                 <variation>
-                    <frame duration="0.2" img="water/water_pad01.png" />
-                    <frame duration="0.2" img="water/water_pad02.png" />
-                    <frame duration="0.2" img="water/water_pad03.png" />
                     <frame duration="0.2" img="water/water_pad04.png" />
+                    <frame duration="0.2" img="water/water_pad03.png" />
+                    <frame duration="0.2" img="water/water_pad02.png" />
+                    <frame duration="0.2" img="water/water_pad01.png" />
                 </variation>
             </sprite>
 			<sprite name="floatingPlant" margin="5">
                 <variation>
                     <frame img="plant/lilypadflower01.png" />
+                </variation>
+            </sprite>
+			<sprite name="springStalk" margin="5">
+                <variation>
+                    <frame img="water/water/water_pond01.png" />
                 </variation>
             </sprite>			
         </sprites>

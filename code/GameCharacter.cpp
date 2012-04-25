@@ -28,7 +28,7 @@ void GameCharacter::setPosition(ofVec2f pos)
 
 void GameCharacter::update(float deltatime)
 {
-
+    lifetime +=deltatime;
 
     velocity.x += GameCharacter_movespeed*moveDir;
     velocity.x = CLAMP(velocity.x,-GameCharacter_maxMovespeed,GameCharacter_maxMovespeed);
@@ -80,7 +80,8 @@ void GameCharacter::update(float deltatime)
     if(velocity.y>=0 && (hitBR || hitBL))
     {
         velocity.y = 0;
-        state =C_Grounded;
+        if(state!=C_Swimming)
+            state =C_Grounded;
 
         position.y = (hitBR?nextBlockBR->y:nextBlockBL->y)-height/2;
     }
@@ -136,6 +137,10 @@ void GameCharacter::draw()
     ofSetColor(255,255,255,255);
     ofRect(position.x-width/2,position.y-height/2,width,height);*/
 
+
+
+
+
     int x = position.x-drawWidth/2;
     int y = position.y-drawHeight/2;
     int w = drawWidth;
@@ -145,7 +150,7 @@ void GameCharacter::draw()
         x += drawWidth;
         w = -drawWidth;
     }
-    if(moveDown)
+    if(moveDown && state!=C_Grounded)
     {
         y += drawHeight;
         h = -drawHeight;
@@ -156,7 +161,10 @@ void GameCharacter::draw()
     else if(state!=C_Grounded)
         AnimationLoader::characterAnimations[S_fall]->draw(0,x,y,w,h);
     else if(fabs(velocity.x)>0)
-        AnimationLoader::characterAnimations[S_walk]->draw(1,x,y,w,h);
+    {
+        int frame = (int)roundf(lifetime / AnimationLoader::characterAnimations[S_walk]->duration)%(int)AnimationLoader::characterAnimations[S_walk]->frames[0].size();
+        AnimationLoader::characterAnimations[S_walk]->draw(frame,x,y,w,h);
+    }
     else
         AnimationLoader::characterAnimations[S_idle]->draw(0,x,y,w,h);
 
@@ -189,11 +197,10 @@ void GameCharacter::jump()
 }
 void GameCharacter::down()
 {
-    if(moveDown)
-    return;
+
     moveDown = true;
-    if(velocity.y<10)
-        velocity.y = 10;
+    if(velocity.y<80)
+        velocity.y = 80;
 
 }
 

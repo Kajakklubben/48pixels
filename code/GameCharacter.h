@@ -53,6 +53,7 @@ class GameCharacter
         ofVec2f velocity;
         ofVec2f position;
         CharacterState state;
+        double lifetime;
 
     protected:
     private:

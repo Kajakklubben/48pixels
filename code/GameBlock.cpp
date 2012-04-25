@@ -28,7 +28,7 @@ void GameBlock::SetType(GameBlockType type)
     this->type = type;
 
     solid = false;
-    water = true;
+    water = false;
 
     if(type==BlockGround || type==BlockSolid)
         solid = true;
@@ -189,6 +189,10 @@ void GameBlock::Draw()
     if(type == BlockNone || type == BlockSolid)
         return;
 
+    double yOffset = 0;
+    if(sprite==AnimationLoader::blockAnimations[S_floatingPlant])
+        yOffset = sin(lifetime)*10;
+
     float  frameLength = sprite->duration;
 
     int frame = (int)roundf(lifetime / sprite->duration)%(int)sprite->frames[0].size();
@@ -200,7 +204,7 @@ void GameBlock::Draw()
     /*ofRect(x-newMargin,y-newMargin,w+newMargin*2,h+newMargin*2);
     ofRect(x,y,w,h);*/
 
-    sprite->draw(frame,x-newMargin,y-newMargin,w+newMargin*2,h+newMargin*2);
+    sprite->draw(frame,x-newMargin,yOffset+y-newMargin,w+newMargin*2,h+newMargin*2);
     ofSetColor(0);
     ofRect(x,y,w,h);
 

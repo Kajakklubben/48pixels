@@ -44,33 +44,35 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
     {
         for(int x=0;x<GAMEBLOCK_COLS;x++)
         {
-            blocks[y*GAMEBLOCK_ROWS+x].Set(blockWidth,blockHeight,x*blockWidth,y*blockHeight);
-
+            blocks[x][y].Set(blockWidth,blockHeight,x*blockWidth,y*blockHeight);
+            blocks[x][y].xIndex = x;
+            blocks[x][y].yIndex = y;
+            printf("\nSetting x: %i,%i : pos: %i,%i",x,y,x*blockWidth,y*blockHeight);
 
             //This is super ugly, but a quick fix and we only have to do it once :
             int leftx = x-1;
-            if(leftx<0 || leftx>GAMEBLOCK_COLS)
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &outsideScreenBlock;
+            if(leftx<0 || leftx>=GAMEBLOCK_COLS)
+                blocks[x][y].leftBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].leftBlock = &blocks[y*GAMEBLOCK_ROWS+leftx];
+                blocks[x][y].leftBlock = &blocks[leftx][y];
 
             int rightx = x+1;
             if(rightx<0 || rightx>=GAMEBLOCK_COLS)
-                blocks[y*GAMEBLOCK_ROWS+x].rightBlock = &outsideScreenBlock;
+                blocks[x][y].rightBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].rightBlock = &blocks[y*GAMEBLOCK_ROWS+rightx];
+                blocks[x][y].rightBlock = &blocks[rightx][y];
 
             int topy = y-1;
             if(topy<0 || topy>=GAMEBLOCK_ROWS)
-                blocks[y*GAMEBLOCK_ROWS+x].topBlock = &outsideScreenBlock;
+                blocks[x][y].topBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].topBlock = &blocks[topy*GAMEBLOCK_ROWS+x];
+                blocks[x][y].topBlock = &blocks[x][topy];
 
             int bottomy = y+1;
             if(bottomy<0 || bottomy>=GAMEBLOCK_ROWS)
-                blocks[y*GAMEBLOCK_ROWS+x].bottomBlock = &outsideScreenBlock;
+                blocks[x][y].bottomBlock = &outsideScreenBlock;
             else
-                blocks[y*GAMEBLOCK_ROWS+x].bottomBlock = &blocks[bottomy*GAMEBLOCK_ROWS+x];
+                blocks[x][y].bottomBlock = &blocks[x][bottomy];
 
 
         }
@@ -157,32 +159,38 @@ void gameScreen::loadBlocks()
 void gameScreen::update(float deltatime)
 {
 
-      for(int y=GAMEBLOCK_ROWS-1;y>=0;y--)
+    for(int y=GAMEBLOCK_ROWS-1;y>=0;y--)
     {
         for(int x=0;x<GAMEBLOCK_COLS;x++)
         {
-            blocks[y*GAMEBLOCK_ROWS+x].updateSprite(1);
+            blocks[x][y].updateSprite(1);
 
         }
-        for(int x2=GAMEBLOCK_COLS-1;x2>=0;x2--)
+        for(int x=GAMEBLOCK_COLS-1;x>=0;x--)
         {
-            blocks[y*GAMEBLOCK_ROWS+x2].updateSprite(-1);
+            blocks[x][y].updateSprite(-1);
 
         }
     }
 
-    /*if(gamepad->gamepadLeft())
+    if(gamepad->gamepadLeft())
         player.move(-1);
-    if(gamepad->gamepadRight())
+    else if(gamepad->gamepadRight())
         player.move(1);
+    else
+        player.move(0);
     if(gamepad->gamepadUp())
-        player.jump();*/
+        player.jump();
+    if(gamepad->gamepadDown())
+        player.down();
 
-    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
+    for(int y=0;y<GAMEBLOCK_ROWS;y++)
     {
-        blocks[i].Update(deltatime);
+        for(int x=0;x<GAMEBLOCK_COLS;x++)
+        {
+            blocks[x][y].Update(deltatime);
+        }
     }
-
     for(int i = 0; i<backgrounds.size();i++)
         backgrounds[i]->update(deltatime);
 
@@ -198,24 +206,24 @@ void gameScreen::update(float deltatime)
     #ifndef USE_TRACKER
         return;
     #endif
-    for(int x=0;x<8;x++){
-            for(int y=0;y<6;y++){
+    for(int x=0;x<GAMEBLOCK_COLS;x++){
+            for(int y=0;y<GAMEBLOCK_ROWS;y++){
 
                 if(tracker->blocks[x][y].invalid){
-                    blocks[GAMEBLOCK_COLS*y+x].SetType(BlockNone);
+                    blocks[x][y].SetType(BlockNone);
                 } else {
                     switch (tracker->blocks[x][y].blockColor) {
                         case BlockGreen:
-                            blocks[GAMEBLOCK_COLS*y+x].SetType(BlockGrass);
+                            blocks[x][y].SetType(BlockGrass);
                             break;
                         case BlockBrown:
-                            blocks[GAMEBLOCK_COLS*y+x].SetType(BlockGround);
+                            blocks[x][y].SetType(BlockGround);
                             break;
                         case BlockBlue:
-                            blocks[GAMEBLOCK_COLS*y+x].SetType(BlockWater);
+                            blocks[x][y].SetType(BlockWater);
                             break;
                         default:
-                            blocks[GAMEBLOCK_COLS*y+x].SetType(BlockNone);
+                            blocks[x][y].SetType(BlockNone);
                             break;
                     }
                 }
@@ -238,10 +246,14 @@ void gameScreen::draw()
 
 
 
-    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
+    for(int y=0;y<GAMEBLOCK_ROWS;y++)
     {
-        blocks[i].Draw();
+        for(int x=0;x<GAMEBLOCK_COLS;x++)
+        {
+            blocks[x][y].Draw();
+        }
     }
+
     if(selectedBlock != 0)
     {
         ofNoFill();
@@ -266,7 +278,7 @@ void gameScreen::draw()
 void gameScreen::mousePressed(int x, int y, int button)
 {
     selectedBlock = GetBlock(x, y);
-    printf("\n Set selected block %i,%i",x,y);
+    printf("\n Set selected block %i,%i",selectedBlock->xIndex,selectedBlock->yIndex);
 }
 void gameScreen::keyPressed  (int key){
 
@@ -315,48 +327,48 @@ void gameScreen::keyReleased  (int key){
 
 GameBlock* gameScreen::GetBlock(int x, int y)
 {
-    for(int i=0;i<GAMEBLOCK_COLS*GAMEBLOCK_ROWS;i++)
+    for(int yb=0;yb<GAMEBLOCK_ROWS;yb++)
     {
-        if(
-           x>blocks[i].x
-           && x<blocks[i].x+blockWidth
-           && y>blocks[i].y
-           && y<blocks[i].y+blockHeight
+        for(int xb=0;xb<GAMEBLOCK_COLS;xb++)
+        {
+            if(
+           x>=blocks[xb][yb].x
+           && x<=blocks[xb][yb].x+blocks[xb][yb].w
+           && y>=blocks[xb][yb].y
+           && y<=blocks[xb][yb].y+blocks[xb][yb].h
            )
            {
-                return &blocks[i];
+                return &blocks[xb][yb];
            }
 
+        }
     }
-    if(x>ofGetWidth())
+
+    if(x>=ofGetWidth())
     {
         outsideScreenBlock.x = ofGetWidth();
         outsideScreenBlock.y = y-blockHeight/2;
     }
-    if(x<0)
+    if(x<=0)
     {
         outsideScreenBlock.x = -blockWidth;
         outsideScreenBlock.y = y-blockHeight/2;
     }
 
-    if(y>ofGetHeight())
+    if(y>=ofGetHeight())
     {
         outsideScreenBlock.x = x-blockWidth/2;
-        outsideScreenBlock.y = ofGetWidth();
-    }
-    if(y<0)
-    {
-        outsideScreenBlock.x = x-blockWidth/2;
-        outsideScreenBlock.y = -blockHeight;
-    }
-
-
-    if(y>ofGetHeight()/2)
         outsideScreenBlock.y = ofGetHeight();
-    else
+    }
+    if(y<=0)
+    {
+        outsideScreenBlock.x = x-blockWidth/2;
         outsideScreenBlock.y = -blockHeight;
+    }
+
 
 
     outsideScreenBlock.w = blockWidth;
+    outsideScreenBlock.h = blockHeight;
     return &outsideScreenBlock;
 }

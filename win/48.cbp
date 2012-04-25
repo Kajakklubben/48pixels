@@ -100,6 +100,8 @@
 			<Add directory="..\..\..\addons\ofxXmlSettings\libs" />
 			<Add directory="..\ueye\lib" />
 			<Add directory="..\ueye\src" />
+			<Add directory="..\code\ofxBox2d\libs" />
+			<Add directory="..\code\ofxBox2d\src" />
 		</Compiler>
 		<Linker>
 			<Add option="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_legacy220.a" />

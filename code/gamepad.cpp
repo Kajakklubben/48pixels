@@ -22,11 +22,11 @@ bool Gamepad::gamepadDown(){
 
 void Gamepad::setup(){
     serial.listDevices();
-
+    printf("\nserial ready: %i ready %i",serial.available());
 #ifdef TARGET_OSX
     serialConnected = serial.setup("/dev/tty.usbserial-A800eIrv", 9600);
 #else
-    serialConnected = serial.setup(0, 9600);
+    serialConnected = serial.setup("\\\\.\\COM11", 9600);
 #endif
 
     if(!serialConnected){
@@ -67,6 +67,7 @@ void Gamepad::update(){
             }
         }
     }
+
 }
 
 void Gamepad::keyPressed(int key){

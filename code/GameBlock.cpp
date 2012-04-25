@@ -27,10 +27,14 @@ void GameBlock::SetType(GameBlockType type)
 
     this->type = type;
 
-    if(type==BlockNone)
-        solid = false;
-    else
+    solid = false;
+    water = true;
+
+    if(type==BlockGround || type==BlockSolid)
         solid = true;
+    else if(type==BlockWater)
+        water = true;
+
    // else
         //printf("\nBlock animation index %i does not exist",type);
 

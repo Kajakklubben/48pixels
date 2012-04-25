@@ -35,7 +35,7 @@ class gameScreen
 
         Tracker* tracker;
         Gamepad* gamepad;
-        GameBlock blocks[GAMEBLOCK_COLS*GAMEBLOCK_ROWS];
+        GameBlock blocks[GAMEBLOCK_COLS][GAMEBLOCK_ROWS];
         GameBlock outsideScreenBlock;
         GameBlock* selectedBlock;
 

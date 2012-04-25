@@ -47,6 +47,9 @@ class GameBlock
         void updateSprite(int dir);
 
         GameBlockType type;
+        int xIndex;
+        int yIndex;
+
         int x;
         int y;
 
@@ -55,6 +58,7 @@ class GameBlock
 
         int margin;
         bool solid;
+        bool water;
 
         double lifetime;
 

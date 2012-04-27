@@ -127,7 +127,7 @@ void Tracker::keyPressed(int key)
         setAutoSettings();
 
     if(key=='s')
-        setStaticSettings();
+        setStaticSettings(0);
 
 #endif
 
@@ -176,6 +176,7 @@ return;
             //printf("\n new frame");
             #ifndef USE_COLOR_PROFILES
             tex.loadData(ueye.getPixels(), ueye.getWidth(), ueye.getHeight(), GL_RGB);
+            pixels = ueye.getPixels();
             #else
             setStaticSettings(0);
             pixelsR = ueye.getPixels();
@@ -624,7 +625,7 @@ void Tracker::initUeye()
 {
     ofAddListener(ueye.events.dimensionChanged, this, &Tracker::ueyeDimensionChanged);
 
-    ueye.setVerbose(true);
+    ueye.setVerbose(false);
 	ueye.listDevices();
 
 	if(ueye.init())
@@ -647,7 +648,7 @@ void Tracker::initUeye()
 		//ueye.setAOI(ueye.getAOIMax());
 		//ueye.setAOINormalized(ofRectangle(0,0, 0.6, 0.6));
 
-        setStaticSettings();
+        setStaticSettings(0);
         ueye.enableLive();
 
 		//settings.setup(&ueye);

@@ -6,6 +6,7 @@ GameBlock::GameBlock()
     type = BlockNone;
     margin = 10;
     solid = true;
+    oldSprite = 0;
 
 }
 
@@ -35,6 +36,14 @@ void GameBlock::SetType(GameBlockType type)
     else if(type==BlockWater)
         water = true;
 
+    oldSprite = sprite;
+    if(type==BlockNone)
+    {
+        sprite = 0;
+
+    }
+    oldSpriteLifetime = 0;
+
    // else
         //printf("\nBlock animation index %i does not exist",type);
 
@@ -47,10 +56,19 @@ GameBlock::~GameBlock()
 
 void GameBlock::Update(float deltatime)
 {
+
+    if(oldSprite==0)
+    {
+        oldSprite = sprite;
+        oldSpriteLifetime = 0;
+    }
+
     lifetime +=deltatime;
+    oldSpriteLifetime +=deltatime;
 
 }
 void GameBlock::updateSprite(int dir){
+
 
     if(type==BlockGround)
     {
@@ -183,20 +201,44 @@ void GameBlock::updateSprite(int dir){
         sprite = AnimationLoader::blockAnimations[S_floatingPlant];
 
     }
+
+}
+void GameBlock::drawOldSprite()
+{
+    if(oldSprite == 0 || oldSprite==sprite)
+        return;
+
+    float pct = oldSpriteLifetime/BlockFadeTime;
+
+
+    ofSetColor(255,255,255,(1.0-pct)*255);
+
+    double newMargin = (double)w/(double)oldSprite->frames[0][0].width*(double)margin;
+    oldSprite->draw(0,x-newMargin,y-newMargin,w+newMargin*2,h+newMargin*2);
+
+    if(pct>1)
+    {
+        oldSprite = 0;
+    }
 }
 void GameBlock::Draw()
 {
+    drawOldSprite();
+
     if(type == BlockNone || type == BlockSolid)
         return;
 
     double yOffset = 0;
-    if(sprite==AnimationLoader::blockAnimations[S_floatingPlant])
+    if(sprite==AnimationLoader::blockAnimations[S_floatingPlant] || sprite==AnimationLoader::blockAnimations[S_cloud])
         yOffset = sin(lifetime)*10;
 
     float  frameLength = sprite->duration;
 
     int frame = (int)roundf(lifetime / sprite->duration)%(int)sprite->frames[0].size();
-    ofSetColor(255);
+
+    float pct = fmin(1.0,lifetime/BlockFadeInTime);
+
+    ofSetColor(255,255,255,255* pct);
 
     ofNoFill();
 
@@ -206,6 +248,6 @@ void GameBlock::Draw()
 
     sprite->draw(frame,x-newMargin,yOffset+y-newMargin,w+newMargin*2,h+newMargin*2);
     ofSetColor(0);
-    ofRect(x,y,w,h);
+    //ofRect(x,y,w,h);
 
 }

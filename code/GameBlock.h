@@ -31,7 +31,8 @@ enum BlockAnimationType {
     S_pondPad=14
 };
 
-
+const double BlockFadeTime = 0.7;
+const double BlockFadeInTime = 0.7;
 class GameBlock
 {
     public:
@@ -43,6 +44,7 @@ class GameBlock
 
         virtual ~GameBlock();
         void Draw();
+        void drawOldSprite();
         void Update(float delta);
         void updateSprite(int dir);
 
@@ -61,7 +63,9 @@ class GameBlock
         bool water;
 
         double lifetime;
+        double oldSpriteLifetime;
 
+        SpriteAnimation* oldSprite;
         SpriteAnimation* sprite;
 
         GameBlock* topBlock;

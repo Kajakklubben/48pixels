@@ -4,10 +4,10 @@
         <calibrationCorner x="0.900000" y="0.100000" />
         <calibrationCorner x="0.900000" y="0.900000" />
         <calibrationCorner x="0.100000" y="0.900000" />
-        <blockColor r="0.272209" g="0.475085" b="0.933804" />
-        <blockColor r="0.293903" g="0.734435" b="0.548259" />
-        <blockColor r="0.637297" g="0.367696" b="0.326503" />
-        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.020000" trackingAreaSize="14" useCircleAverage="1" />
+        <blockColor r="0.318716" g="0.623615" b="0.759540" />
+        <blockColor r="0.479927" g="1.000000" b="0.000275" />
+        <blockColor r="0.999976" g="0.318158" b="0.023601" />
+        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.020000" trackingAreaSize="12" useCircleAverage="1" />
     </settings>
     <backgrounds>
         <background spriteIndex="0" duration="25" fade="6" layer="0" />

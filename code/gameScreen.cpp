@@ -284,32 +284,21 @@ void gameScreen::keyPressed  (int key){
 
 	if (key == 'e'){
 		selectedBlock->SetType(BlockGround);
-		printf("Set new test block\n");
+
 	}
 
     if (key == 'g'){
 		selectedBlock->SetType(BlockGrass);
-		printf("Set new test block\n");
+
 	}
     if (key == 'w'){
 		selectedBlock->SetType(BlockWater);
-		printf("Set new test block\n");
+
 	}
+    if (key == 'n'){
+		selectedBlock->SetType(BlockNone);
 
-
-    if(key=='j')
-    {
-        player.jump();
-    }
-
-    if(key=='m')
-    {
-        player.move(1);
-    }
-    if(key=='n')
-    {
-        player.move(-1);
-    }
+	}
 
 }
 void gameScreen::keyReleased  (int key){

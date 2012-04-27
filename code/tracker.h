@@ -8,7 +8,7 @@
 
 #ifndef TARGET_OSX
     //WIN
-    //#define USE_UEYE
+    #define USE_UEYE
     #include "ofxUeye.h"
     #include "ofxUeyeSettings.h"
     //#define USE_COLOR_PROFILES
@@ -108,7 +108,7 @@ private:
     ofxUeyeSettings uEyeSettings;
 
     void setAutoSettings();
-    void setStaticSettings();
+    void setStaticSettings(int rgb);
 #else
     ofVideoGrabber videoGrabber;
 #endif

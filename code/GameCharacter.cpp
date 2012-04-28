@@ -8,7 +8,7 @@ GameCharacter::GameCharacter()
     gravity = ofVec2f(0,1200);
 
 
-    drawWidth = ofGetWidth()/8;
+    drawWidth = GAME_WIDTH/8;
     drawHeight = ofGetHeight()/6;
     width = drawWidth/2;
     height = drawHeight/2;

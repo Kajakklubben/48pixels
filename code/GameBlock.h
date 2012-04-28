@@ -40,7 +40,7 @@ class GameBlock
         GameBlock();
 
         void Set(int h, int w, int x, int y);
-        void SetType(GameBlockType type);
+        bool SetType(GameBlockType type);
 
         virtual ~GameBlock();
         void Draw(int layer);

@@ -26,7 +26,7 @@
 		<Cursor position="1036" topLine="52" />
 	</File>
 	<File name="..\code\GameBlock.h" open="1" top="0" tabpos="5">
-		<Cursor position="846" topLine="51" />
+		<Cursor position="846" topLine="48" />
 	</File>
 	<File name="..\code\GameCharacter.cpp" open="1" top="0" tabpos="9">
 		<Cursor position="749" topLine="27" />
@@ -55,7 +55,7 @@
 	<File name="..\code\main.cpp" open="1" top="0" tabpos="17">
 		<Cursor position="224" topLine="0" />
 	</File>
-	<File name="..\code\ofxKeyboardSettings.cpp" open="1" top="0" tabpos="21">
+	<File name="..\code\ofxKeyboardSettings.cpp" open="1" top="0" tabpos="20">
 		<Cursor position="1177" topLine="28" />
 	</File>
 	<File name="..\code\ofxUeye.cpp" open="0" top="0" tabpos="9">

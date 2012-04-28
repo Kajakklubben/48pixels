@@ -1,4 +1,5 @@
 #include "GameBackground.h"
+class GameScreen;
 
 GameBackground::GameBackground(SpriteAnimation* sprite)
 {
@@ -20,7 +21,7 @@ void GameBackground::draw()
 {
     ofSetColor(255,255,255,(int)(alpha*255));
 
-    sprite->draw(0,0,0,ofGetWidth(),ofGetHeight());
+    sprite->draw(0,GAME_STARTX,0,GAME_WIDTH,ofGetHeight());
 
     ofSetColor(0);
 }

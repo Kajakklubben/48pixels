@@ -15,6 +15,14 @@
 #include "GameCharacter.h"
 #include "gamepad.h"
 
+class GameBackground;
+const int GAME_WIDTH  = 1200;
+const int GAME_HEIGHT = 900;
+const int GAME_STARTX = 120;
+
+const int MUSIC_INACTIVITY_TIME = 120;
+const int MUSIC_FADEOUT_TIME = 10;
+
 class gameScreen
 {
     public:
@@ -38,7 +46,8 @@ class gameScreen
         GameBlock blocks[GAMEBLOCK_COLS][GAMEBLOCK_ROWS];
         GameBlock outsideScreenBlock;
         GameBlock* selectedBlock;
-
+        ofSoundPlayer music;
+        int lastActionTime;
         int blockWidth;
 		int blockHeight;
 		ofxXmlSettings XML;

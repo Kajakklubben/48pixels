@@ -4,6 +4,7 @@ gameScreen::gameScreen()
 {
     //Moved to init
     selectedBlock = 0;
+    lastActionTime = -500;
 }
 
 gameScreen::~gameScreen()
@@ -16,8 +17,11 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
     gamepad = &pad;
     tracker = &initTracker;
 
-    blockWidth = ofGetWidth()/GAMEBLOCK_COLS;
+
 	blockHeight = ofGetHeight()/GAMEBLOCK_ROWS;
+	blockWidth = blockHeight;
+
+    music.loadSound("../../../sound/music.mp3");
 
 
 	if(XML.loadFile("../../../settings/settings.xml") ){
@@ -44,10 +48,10 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
     {
         for(int x=0;x<GAMEBLOCK_COLS;x++)
         {
-            blocks[x][y].Set(blockWidth,blockHeight,x*blockWidth,y*blockHeight);
+            blocks[x][y].Set(blockWidth,blockHeight,GAME_STARTX+x*blockWidth,y*blockHeight);
             blocks[x][y].xIndex = x;
             blocks[x][y].yIndex = y;
-            printf("\nSetting x: %i,%i : pos: %i,%i",x,y,x*blockWidth,y*blockHeight);
+            printf("\nSetting x: %i,%i : pos: %i,%i",GAME_STARTX+x,y,x*blockWidth,y*blockHeight);
 
             //This is super ugly, but a quick fix and we only have to do it once :
             int leftx = x-1;
@@ -80,7 +84,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 
 
     player.game = this;
-    player.setPosition(ofVec2f(100.0,100.0));
+    player.setPosition(ofVec2f(600.0,100.0));
     outsideScreenBlock.SetType(BlockSolid);
 }
 
@@ -207,6 +211,7 @@ void gameScreen::update(float deltatime)
     #ifndef USE_TRACKER
         return;
     #endif
+    bool changed = false;
     for(int x=0;x<GAMEBLOCK_COLS;x++){
             for(int y=0;y<GAMEBLOCK_ROWS;y++){
                 int trackerX = GAMEBLOCK_COLS-x-1;
@@ -215,23 +220,35 @@ void gameScreen::update(float deltatime)
                 } else {
                     switch (tracker->blocks[trackerX][y].blockColor) {
                         case BlockGreen:
-                            blocks[x][y].SetType(BlockGrass);
+                            if(blocks[x][y].SetType(BlockGrass))
+                                changed = true;
                             break;
                         case BlockBrown:
-                            blocks[x][y].SetType(BlockGround);
+                            if(blocks[x][y].SetType(BlockGround))
+                                changed = true;
                             break;
                         case BlockBlue:
-                            blocks[x][y].SetType(BlockWater);
+                            if(blocks[x][y].SetType(BlockWater))
+                            changed = true;
                             break;
                         default:
-                            blocks[x][y].SetType(BlockNone);
+                            if(blocks[x][y].SetType(BlockNone))
+                            changed = true;
                             break;
                     }
                 }
 
             }
         }
+        if(changed)
+            lastActionTime = ofGetSystemTime();
 
+
+    if(ofGetSystemTime()-lastActionTime>MUSIC_INACTIVITY_TIME)
+        music.stop();
+
+    if(ofGetSystemTime()-lastActionTime<MUSIC_FADEOUT_TIME && !music.getIsPlaying())
+        music.play();
 }
 
 void gameScreen::drawBackground()
@@ -362,14 +379,14 @@ GameBlock* gameScreen::GetBlock(int x, int y)
         }
     }
 
-    if(x>=ofGetWidth())
+    if(x>=GAME_STARTX+GAME_WIDTH)
     {
-        outsideScreenBlock.x = ofGetWidth();
+        outsideScreenBlock.x = GAME_STARTX+GAME_WIDTH;
         outsideScreenBlock.y = y-blockHeight/2;
     }
-    if(x<=0)
+    if(x<=GAME_STARTX)
     {
-        outsideScreenBlock.x = -blockWidth;
+        outsideScreenBlock.x = GAME_STARTX-blockWidth;
         outsideScreenBlock.y = y-blockHeight/2;
     }
 

@@ -21,12 +21,14 @@ void GameBlock::Set(int w, int h, int x, int y)
     this->type = BlockNone;
     solid = false;
 }
-void GameBlock::SetType(GameBlockType type)
+bool GameBlock::SetType(GameBlockType type)
 {
+    bool changed = false;
     if(this->type != type)
     {
         oldSpriteLifetime = 0;
         lifetime = 0;
+        changed = true;
     }
 
 
@@ -50,6 +52,8 @@ void GameBlock::SetType(GameBlockType type)
 
    // else
         //printf("\nBlock animation index %i does not exist",type);
+
+        return changed;
 
 }
 

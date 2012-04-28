@@ -163,7 +163,7 @@ void GameBlock::updateSprite(int dir){
                  bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
 
                &&
-               (topBlock->solid || topBlock->water || topBlock->type==BlockGrass || topBlock->sprite==AnimationLoader::blockAnimations[S_pond] || topBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+               (topBlock->solid || topBlock->water  || topBlock->sprite==AnimationLoader::blockAnimations[S_pond] || topBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
                  topBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
 
                )

@@ -195,12 +195,12 @@
                     <frame img="character/char_jump02.png" />
                 </variation>
             </sprite>
-			<sprite name="stuck" margin="5">
+            <sprite name="stuck" margin="5">
                 <variation>
                     <frame duration="0.5" img="character/char_stuck01.png" />
                     <frame duration="0.5" img="character/char_stuck02.png" />
                 </variation>
-            </sprite>            
+            </sprite>
         </sprites>
     </characterSprites>
 </root>

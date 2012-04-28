@@ -16,7 +16,7 @@ enum CharacterAnimationType {
     S_jump=2,
     S_fall=3,
     S_swim=3,
-    S_trapped=3
+    S_trapped=4
 
 };
 

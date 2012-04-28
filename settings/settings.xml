@@ -152,6 +152,9 @@
             <sprite name="waterPlant" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/waterPlant01.png" />
+                    <frame duration="0.2" img="plant/waterPlant02.png" />
+                    <frame duration="0.2" img="plant/waterPlant03.png" />
+                    <frame duration="0.2" img="plant/waterPlant04.png" />
                 </variation>
             </sprite>
             <sprite name="waterPlantTrunk" margin="5" layer="7">
@@ -195,7 +198,12 @@
                     <frame img="character/char_jump02.png" />
                 </variation>
             </sprite>
-            <sprites />
+            <sprite name="stuck" margin="5">
+                <variation>
+                    <frame duration="0.5" img="character/char_stuck01.png" />
+                    <frame duration="0.5" img="character/char_stuck02.png" />
+                </variation>
+            </sprite>
         </sprites>
     </characterSprites>
 </root>

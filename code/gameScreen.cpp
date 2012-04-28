@@ -296,7 +296,7 @@ void gameScreen::draw()
     }
     if(player.state==C_Trapped)
     {
-        ofSetColor(255,255,255,150);
+        ofSetColor(255,255,255,255);
           player.draw();
     }
 

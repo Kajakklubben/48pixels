@@ -40,7 +40,7 @@ void GameBlock::SetType(GameBlockType type)
     else if(type==BlockWater)
         water = true;
 
-    //oldSprite = sprite;
+    oldSprite = sprite;
     if(type==BlockNone)
     {
         sprite = AnimationLoader::blockAnimations[0];

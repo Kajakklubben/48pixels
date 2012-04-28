@@ -1,13 +1,13 @@
 <root>
     <settings>
-        <calibrationCorner x="0.100000" y="0.100000" />
-        <calibrationCorner x="0.900000" y="0.100000" />
-        <calibrationCorner x="0.900000" y="0.900000" />
-        <calibrationCorner x="0.100000" y="0.900000" />
-        <blockColor r="0.318716" g="0.623615" b="0.759540" />
-        <blockColor r="0.479927" g="1.000000" b="0.000275" />
-        <blockColor r="0.999976" g="0.318158" b="0.023601" />
-        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.020000" trackingAreaSize="12" useCircleAverage="1" />
+        <calibrationCorner x="0.293750" y="0.370833" />
+        <calibrationCorner x="0.825000" y="0.360417" />
+        <calibrationCorner x="0.826563" y="0.875000" />
+        <calibrationCorner x="0.304688" y="0.875000" />
+        <blockColor r="0.226952" g="0.407881" b="0.544176" />
+        <blockColor r="0.281410" g="0.630761" b="0.038419" />
+        <blockColor r="0.763959" g="0.154562" b="0.046371" />
+        <trackSettings colorMatchDistanceHue="11" colorMatchDistanceValue="0.45" colorMatchDistanceSaturation="0.37" runningAverageAmount="0.030000" trackingAreaSize="12" useCircleAverage="1" />
     </settings>
     <backgrounds>
         <background spriteIndex="0" duration="25" fade="6" layer="0" />

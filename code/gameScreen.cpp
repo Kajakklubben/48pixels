@@ -300,6 +300,11 @@ void gameScreen::mousePressed(int x, int y, int button)
 }
 void gameScreen::keyPressed  (int key){
 
+	if (key == 'f'){
+
+		ofSetFullscreen(true);
+
+	}
 	if (key == 'e'){
 		selectedBlock->SetType(BlockGround);
 

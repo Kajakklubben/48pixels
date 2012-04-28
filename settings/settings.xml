@@ -144,17 +144,17 @@
                     <frame duration="0.2" img="water/springstalk04.png" />
                 </variation>
             </sprite>
-			<sprite name="earthWater" margin="5" layer="7">
+			<sprite name="earthWater" margin="5" layer="8">
                 <variation>
                     <frame duration="0.2" img="earth/earthWater01.png" />
                 </variation>
             </sprite>
-			<sprite name="waterPlant" margin="5" layer="8">
+			<sprite name="waterPlant" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/waterPlant01.png" />
                 </variation>
             </sprite>
-			<sprite name="waterPlantTrunk" margin="5" layer="8">
+			<sprite name="waterPlantTrunk" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/waterPlantTrunk01.png" />
                 </variation>

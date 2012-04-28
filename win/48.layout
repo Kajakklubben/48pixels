@@ -11,10 +11,10 @@
 		<Cursor position="1868" topLine="40" />
 	</File>
 	<File name="..\code\AnimationLoader.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="221" topLine="0" />
+		<Cursor position="2252" topLine="69" />
 	</File>
 	<File name="..\code\AnimationLoader.h" open="1" top="0" tabpos="3">
-		<Cursor position="512" topLine="0" />
+		<Cursor position="345" topLine="0" />
 	</File>
 	<File name="..\code\GameBackground.cpp" open="1" top="0" tabpos="16">
 		<Cursor position="192" topLine="0" />
@@ -23,37 +23,40 @@
 		<Cursor position="22" topLine="0" />
 	</File>
 	<File name="..\code\GameBlock.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="483" topLine="106" />
+		<Cursor position="1036" topLine="52" />
 	</File>
 	<File name="..\code\GameBlock.h" open="1" top="0" tabpos="5">
-		<Cursor position="1046" topLine="44" />
+		<Cursor position="846" topLine="51" />
 	</File>
 	<File name="..\code\GameCharacter.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="4883" topLine="135" />
+		<Cursor position="749" topLine="27" />
 	</File>
 	<File name="..\code\GameCharacter.h" open="1" top="0" tabpos="10">
-		<Cursor position="791" topLine="26" />
+		<Cursor position="1171" topLine="0" />
 	</File>
 	<File name="..\code\SpriteAnimation.cpp" open="1" top="0" tabpos="8">
-		<Cursor position="519" topLine="17" />
+		<Cursor position="519" topLine="0" />
 	</File>
 	<File name="..\code\SpriteAnimation.h" open="1" top="0" tabpos="6">
-		<Cursor position="443" topLine="2" />
+		<Cursor position="443" topLine="0" />
 	</File>
-	<File name="..\code\gameScreen.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="9614" topLine="339" />
+	<File name="..\code\gameScreen.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="6278" topLine="203" />
 	</File>
 	<File name="..\code\gameScreen.h" open="1" top="0" tabpos="7">
-		<Cursor position="932" topLine="28" />
+		<Cursor position="123" topLine="0" />
 	</File>
-	<File name="..\code\gamepad.cpp" open="1" top="1" tabpos="18">
-		<Cursor position="350" topLine="15" />
+	<File name="..\code\gamepad.cpp" open="1" top="0" tabpos="18">
+		<Cursor position="888" topLine="22" />
 	</File>
 	<File name="..\code\gamepad.h" open="1" top="0" tabpos="19">
 		<Cursor position="177" topLine="0" />
 	</File>
 	<File name="..\code\main.cpp" open="1" top="0" tabpos="17">
 		<Cursor position="224" topLine="0" />
+	</File>
+	<File name="..\code\ofxKeyboardSettings.cpp" open="1" top="0" tabpos="21">
+		<Cursor position="1177" topLine="28" />
 	</File>
 	<File name="..\code\ofxUeye.cpp" open="0" top="0" tabpos="9">
 		<Cursor position="32174" topLine="786" />
@@ -71,12 +74,12 @@
 		<Cursor position="376" topLine="0" />
 	</File>
 	<File name="..\code\testApp.h" open="1" top="0" tabpos="13">
-		<Cursor position="356" topLine="3" />
+		<Cursor position="356" topLine="0" />
 	</File>
 	<File name="..\code\tracker.cpp" open="1" top="0" tabpos="11">
-		<Cursor position="11982" topLine="389" />
+		<Cursor position="5275" topLine="174" />
 	</File>
 	<File name="..\code\tracker.h" open="1" top="0" tabpos="12">
-		<Cursor position="361" topLine="0" />
+		<Cursor position="233" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

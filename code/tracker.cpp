@@ -51,10 +51,10 @@ if(settings.loadFile("../../../settings/settings.xml"))
 
 
 
-    setCalibrationCorner(ofVec2f(0.1,0.1), 0);
+    /*setCalibrationCorner(ofVec2f(0.1,0.1), 0);
     setCalibrationCorner(ofVec2f(0.9,0.1), 1);
     setCalibrationCorner(ofVec2f(0.9,0.9), 2);
-    setCalibrationCorner(ofVec2f(0.1,0.9), 3);
+    setCalibrationCorner(ofVec2f(0.1,0.9), 3);*/
 
     handleHover = -1;
     handleSelected = -1;
@@ -89,6 +89,7 @@ if(settings.loadFile("../../../settings/settings.xml"))
                 ofVec2f p = ofVec2f(settings.getAttribute("calibrationCorner", "x", 0.0,i), settings.getAttribute("calibrationCorner", "y", 0.0,i));
 
                 setCalibrationCorner(p, i);
+                printf("\n Setting corner %i",i);
             }
         }
     } else {
@@ -322,7 +323,7 @@ void Tracker::setCalibrationCorner(ofVec2f p, int corner){
         settings.setAttribute("calibrationCorner", "x", p.x, corner);
         settings.setAttribute("calibrationCorner", "y", p.y, corner);
 
-        settings.saveFile("../../../settings/settings.xml");
+        settings.saveFile();
     }
 
     coordWarper.calculateMatrix(src, calibrationCorners);
@@ -650,7 +651,8 @@ void Tracker::initUeye()
 
         setStaticSettings(0);
         ueye.enableLive();
-
+        setStaticSettings(0);
+        setStaticSettings(0);
 		//settings.setup(&ueye);
 	}
 
@@ -792,7 +794,7 @@ void Tracker::mousePressed(int x, int y, int button){
                         settings.setAttribute("blockColor", "g", blockCalibrationColor[i].g, i);
                         settings.setAttribute("blockColor", "b", blockCalibrationColor[i].b, i);
 
-                        settings.saveFile("../../../settings/settings.xml");
+                        settings.saveFile();
                     }
 
 

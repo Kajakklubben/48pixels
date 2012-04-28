@@ -8,7 +8,7 @@ GameCharacter::GameCharacter()
     gravity = ofVec2f(0,1200);
 
 
-    drawWidth = ofGetWidth()/8;
+    drawWidth = GAME_WIDTH/8;
     drawHeight = ofGetHeight()/6;
     width = drawWidth/2;
     height = drawHeight/2;
@@ -51,19 +51,26 @@ void GameCharacter::update(float deltatime)
 
     GameBlock* currentBlock = game->GetBlock(position.x,position.y);
     GameBlock* bottomBlock = game->GetBlock(position.x,position.y+height/2);
+    if(state==C_Trapped)
+    {
+        velocity.x=0;
+        velocity.y=0;
+    }
     if(currentBlock->solid)
     {
             state =C_Trapped;
+
             return;
     }
     else
-    if(currentBlock->water || bottomBlock->water)
+    if(((currentBlock->water || currentBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || currentBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])&& currentBlock->sprite != AnimationLoader::blockAnimations[S_cloud] )
+       || ((bottomBlock->water || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) && bottomBlock->sprite != AnimationLoader::blockAnimations[S_cloud]))
     {
         if(state !=C_Swimming)
             velocity.y *=0.5;
 
             state =C_Swimming;
-        if(currentBlock->water)
+        if(currentBlock->water || currentBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || currentBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
             velocity +=-1.5*gravity*deltatime;
     }
     else
@@ -145,11 +152,25 @@ void GameCharacter::draw()
     int y = position.y-drawHeight/2;
     int w = drawWidth;
     int h = drawHeight;
+
+
+     if(state == C_Trapped)
+    {
+        int frame = (int)roundf(lifetime / AnimationLoader::characterAnimations[S_trapped]->duration)%(int)AnimationLoader::characterAnimations[S_trapped]->frames[0].size();
+        AnimationLoader::characterAnimations[S_trapped]->draw(frame,x,y,w,h);
+        return;
+    }
+
+
     if(lastDiretion>0)
     {
         x += drawWidth;
         w = -drawWidth;
     }
+
+
+
+
     if(moveDown && state!=C_Grounded)
     {
         y += drawHeight;
@@ -193,7 +214,6 @@ void GameCharacter::jump()
     {
         velocity.y = -GameCharacter_waterjumpheight;
     }
-
 }
 void GameCharacter::down()
 {

@@ -1,13 +1,13 @@
 <root>
     <settings>
-        <calibrationCorner x="0.100000" y="0.100000" />
-        <calibrationCorner x="0.900000" y="0.100000" />
-        <calibrationCorner x="0.900000" y="0.900000" />
-        <calibrationCorner x="0.100000" y="0.900000" />
-        <blockColor r="0.318716" g="0.623615" b="0.759540" />
-        <blockColor r="0.479927" g="1.000000" b="0.000275" />
-        <blockColor r="0.999976" g="0.318158" b="0.023601" />
-        <trackSettings colorMatchDistanceHue="10" colorMatchDistanceValue="0.4" colorMatchDistanceSaturation="0.32" runningAverageAmount="0.020000" trackingAreaSize="12" useCircleAverage="1" />
+        <calibrationCorner x="0.293750" y="0.370833" />
+        <calibrationCorner x="0.825000" y="0.360417" />
+        <calibrationCorner x="0.826563" y="0.875000" />
+        <calibrationCorner x="0.304688" y="0.875000" />
+        <blockColor r="0.226952" g="0.407881" b="0.544176" />
+        <blockColor r="0.281410" g="0.630761" b="0.038419" />
+        <blockColor r="0.763959" g="0.154562" b="0.046371" />
+        <trackSettings colorMatchDistanceHue="11" colorMatchDistanceValue="0.45" colorMatchDistanceSaturation="0.37" runningAverageAmount="0.030000" trackingAreaSize="12" useCircleAverage="1" />
     </settings>
     <backgrounds>
         <background spriteIndex="0" duration="25" fade="6" layer="0" />
@@ -58,25 +58,29 @@
     </backgroundSprites>
     <blockSprites>
         <sprites>
-            <sprite name="earth" margin="5">
+            <sprite name="earth" margin="5" layer="6">
                 <variation>
                     <frame img="earth/earth01.png" />
                 </variation>
             </sprite>
-            <sprite name="pond" margin="5">
+            <sprite name="pond" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/water_pond01.png" />
                     <frame duration="0.2" img="water/water_pond02.png" />
                     <frame duration="0.2" img="water/water_pond03.png" />
                     <frame duration="0.2" img="water/water_pond04.png" />
+                    <frame duration="0.2" img="water/water_pond05.png" />
+                    <frame duration="0.2" img="water/water_pond06.png" />
+                    <frame duration="0.2" img="water/water_pond07.png" />
+                    <frame duration="0.2" img="water/water_pond08.png" />
                 </variation>
             </sprite>
-            <sprite name="cloud" margin="5">
+            <sprite name="cloud" margin="5" layer="2">
                 <variation>
                     <frame img="water/cloud01.png" />
                 </variation>
             </sprite>
-            <sprite name="spring" margin="5">
+            <sprite name="spring" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/spring01.png" />
                     <frame duration="0.2" img="water/spring02.png" />
@@ -84,42 +88,42 @@
                     <frame duration="0.2" img="water/spring04.png" />
                 </variation>
             </sprite>
-            <sprite name="bush" margin="5">
+            <sprite name="bush" margin="5" layer="3">
                 <variation>
                     <frame img="plant/bush01.png" />
                 </variation>
             </sprite>
-            <sprite name="trunk" margin="5">
+            <sprite name="trunk" margin="5" layer="2">
                 <variation>
                     <frame img="plant/trunk01.png" />
                 </variation>
             </sprite>
-            <sprite name="vine" margin="5">
+            <sprite name="vine" margin="5" layer="2">
                 <variation>
                     <frame img="plant/vine01.png" />
                 </variation>
             </sprite>
-            <sprite name="vinetrunk" margin="5">
+            <sprite name="vinetrunk" margin="5" layer="2">
                 <variation>
                     <frame img="plant/vine02.png" />
                 </variation>
             </sprite>
-            <sprite name="grass" margin="5">
+            <sprite name="grass" margin="5" layer="6">
                 <variation>
                     <frame img="earth/grass01.png" />
                 </variation>
             </sprite>
-            <sprite name="lilypadFlower" margin="5">
+            <sprite name="lilypadFlower" margin="5" layer="2">
                 <variation>
                     <frame img="plant/lilypadflower01.png" />
                 </variation>
             </sprite>
-            <sprite name="lilypadStalk" margin="5">
+            <sprite name="lilypadStalk" margin="5" layer="2">
                 <variation>
                     <frame img="plant/lilypadstalk01.png" />
                 </variation>
             </sprite>
-            <sprite name="lilypad" margin="5">
+            <sprite name="lilypad" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/water_pad04.png" />
                     <frame duration="0.2" img="water/water_pad03.png" />
@@ -127,17 +131,44 @@
                     <frame duration="0.2" img="water/water_pad01.png" />
                 </variation>
             </sprite>
-            <sprite name="floatingPlant" margin="5">
+            <sprite name="floatingPlant" margin="5" layer="2">
                 <variation>
                     <frame img="plant/hangingplant01.png" />
                 </variation>
             </sprite>
-            <sprite name="springStalk" margin="5">
+            <sprite name="springStalk" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/springstalk01.png" />
                     <frame duration="0.2" img="water/springstalk02.png" />
                     <frame duration="0.2" img="water/springstalk03.png" />
                     <frame duration="0.2" img="water/springstalk04.png" />
+                </variation>
+            </sprite>
+            <sprite name="earthWater" margin="5" layer="8">
+                <variation>
+                    <frame duration="0.2" img="earth/earthWater01.png" />
+                </variation>
+            </sprite>
+            <sprite name="waterPlant" margin="5" layer="7">
+                <variation>
+                    <frame duration="0.2" img="plant/waterPlant01.png" />
+                    <frame duration="0.2" img="plant/waterPlant02.png" />
+                    <frame duration="0.2" img="plant/waterPlant03.png" />
+                    <frame duration="0.2" img="plant/waterPlant04.png" />
+                </variation>
+            </sprite>
+            <sprite name="waterPlantTrunk" margin="5" layer="7">
+                <variation>
+                    <frame duration="0.2" img="plant/waterPlantTrunk01.png" />
+                    <frame duration="0.2" img="plant/waterPlantTrunk02.png" />
+                    <frame duration="0.2" img="plant/waterPlantTrunk03.png" />
+                    <frame duration="0.2" img="plant/waterPlantTrunk04.png" />
+                    <frame duration="0.2" img="plant/waterPlantTrunk05.png" />
+                </variation>
+            </sprite>
+            <sprite name="floatingPlant" margin="5" layer="7">
+                <variation>
+                    <frame duration="0.2" img="plant/floatingPlant01.png" />
                 </variation>
             </sprite>
         </sprites>
@@ -167,7 +198,12 @@
                     <frame img="character/char_jump02.png" />
                 </variation>
             </sprite>
-            <sprites />
+            <sprite name="stuck" margin="5">
+                <variation>
+                    <frame duration="0.5" img="character/char_stuck01.png" />
+                    <frame duration="0.5" img="character/char_stuck02.png" />
+                </variation>
+            </sprite>
         </sprites>
     </characterSprites>
 </root>

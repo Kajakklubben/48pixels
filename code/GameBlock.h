@@ -28,11 +28,13 @@ enum BlockAnimationType {
     S_lillypad=11,
     S_floatingPlant=12,
     S_springStalk=13,
-    S_pondPad=14
+    S_earthWater=14,
+    S_waterplant=15,
+    S_waterplantTrunk=16
 };
 
-const double BlockFadeTime = 0.7;
-const double BlockFadeInTime = 0.7;
+const double BlockFadeTime = 0.8;
+const double BlockFadeInTime = 0.8;
 class GameBlock
 {
     public:
@@ -40,10 +42,10 @@ class GameBlock
         GameBlock();
 
         void Set(int h, int w, int x, int y);
-        void SetType(GameBlockType type);
+        bool SetType(GameBlockType type);
 
         virtual ~GameBlock();
-        void Draw();
+        void Draw(int layer);
         void drawOldSprite();
         void Update(float delta);
         void updateSprite(int dir);

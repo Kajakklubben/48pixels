@@ -15,11 +15,11 @@ AnimationLoader::~AnimationLoader()
 }
 
 
-SpriteAnimation* AnimationLoader::loadSprite(ofxXmlSettings xml)
+SpriteAnimation* AnimationLoader::loadSprite(ofxXmlSettings xml, int layer)
 {
 
     SpriteAnimation* sprite = new SpriteAnimation();
-
+    sprite->layer = layer;
     int numvar = xml.getNumTags("variation");
     for(int i = 0; i < numvar; i++)
     {
@@ -37,6 +37,8 @@ SpriteAnimation* AnimationLoader::loadSprite(ofxXmlSettings xml)
 
                 if(xml.attributeExists("frame","duration",f))
                     sprite->duration = xml.getAttribute("frame","duration",1.0,f);
+
+
 
                 frames.push_back(img);
                 //printf("\n Frame loaded successful! ");
@@ -77,8 +79,12 @@ void AnimationLoader::loadBlockAnimations(ofxXmlSettings xml)
     printf("\n %i number of block sprites",num);
     for(int i = 0; i < num; i++)
     {
+        int layer = 1;
+        if(xml.attributeExists("sprite","layer",i))
+            layer = xml.getAttribute("sprite","layer",1,i);
+
         xml.pushTag("sprite", i);
-        blockAnimations.push_back(loadSprite(xml));
+        blockAnimations.push_back(loadSprite(xml,layer));
         xml.popTag();
     }
     xml.popTag();

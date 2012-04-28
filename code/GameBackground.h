@@ -3,7 +3,7 @@
 
 #include "ofMain.h"
 #include "SpriteAnimation.h"
-
+#include "GameScreen.h"
 
 class GameBackground
 {

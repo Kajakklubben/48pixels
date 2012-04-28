@@ -12,7 +12,7 @@ class AnimationLoader
         AnimationLoader();
         virtual ~AnimationLoader();
 
-        static SpriteAnimation* loadSprite(ofxXmlSettings xml);
+        static SpriteAnimation* loadSprite(ofxXmlSettings xml, int layer = 1);
 
         static void loadBackgroundAnimations(ofxXmlSettings xml);
         static void loadBlockAnimations(ofxXmlSettings xml);

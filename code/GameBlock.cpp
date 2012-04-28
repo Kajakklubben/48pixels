@@ -157,9 +157,8 @@ void GameBlock::updateSprite(int dir){
             if((leftBlock->solid || leftBlock->water || sprite==AnimationLoader::blockAnimations[S_pond] ||  leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
                  leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
 
-                //(rightBlock->solid || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond] ||  rightBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
-                // rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
-
+              (rightBlock->type != BlockNone)
+               &&
                (bottomBlock->solid || bottomBlock->water || bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
                  bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
 

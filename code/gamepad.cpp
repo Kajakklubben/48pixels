@@ -50,17 +50,17 @@ void Gamepad::update(){
             }
 
             switch (read) {
-                case 9:
-                    gamepadState[3] = on;
-                    break;
                 case 10:
-                    gamepadState[0] = on;
-                    break;
-                case 11:
                     gamepadState[1] = on;
                     break;
-                case 8:
+                case 11:
+                    gamepadState[3] = on;
+                    break;
+                case 9:
                     gamepadState[2] = on;
+                    break;
+                case 8:
+                    gamepadState[0] = on;
                     break;
                 default:
                     break;

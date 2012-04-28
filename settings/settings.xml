@@ -7,7 +7,7 @@
         <blockColor r="0.306092" g="0.563457" b="0.684006" />
         <blockColor r="0.446070" g="0.998754" b="0.000189" />
         <blockColor r="0.999634" g="0.195685" b="0.006317" />
-        <trackSettings colorMatchDistanceHue="13" colorMatchDistanceValue="0.45" colorMatchDistanceSaturation="0.37" runningAverageAmount="0.030000" trackingAreaSize="12" useCircleAverage="1" />
+        <trackSettings colorMatchDistanceHue="17" colorMatchDistanceValue="0.45" colorMatchDistanceSaturation="0.37" runningAverageAmount="0.030000" trackingAreaSize="12" useCircleAverage="1" />
     </settings>
     <backgrounds>
         <background spriteIndex="0" duration="25" fade="6" layer="0" />

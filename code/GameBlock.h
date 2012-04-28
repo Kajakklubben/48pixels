@@ -28,7 +28,9 @@ enum BlockAnimationType {
     S_lillypad=11,
     S_floatingPlant=12,
     S_springStalk=13,
-    S_pondPad=14
+    S_earthWater=14,
+    S_waterplant=15,
+    S_waterplantTrunk=16
 };
 
 const double BlockFadeTime = 0.8;

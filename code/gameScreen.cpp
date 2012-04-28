@@ -22,6 +22,9 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 	blockWidth = blockHeight;
 
     music.loadSound("../../../sound/music.mp3");
+    music.play();
+    music.setLoop(true);
+    music.setPaused(true);
 
 
 	if(XML.loadFile("../../../settings/settings.xml") ){
@@ -162,7 +165,6 @@ void gameScreen::loadBlocks()
 
 void gameScreen::update(float deltatime)
 {
-printf("\n time: %i",ofGetSystemTime()-lastActionTime);
     for(int y=GAMEBLOCK_ROWS-1;y>=0;y--)
     {
         for(int x=0;x<GAMEBLOCK_COLS;x++)
@@ -246,10 +248,12 @@ printf("\n time: %i",ofGetSystemTime()-lastActionTime);
 
 
     if(ofGetSystemTime()-lastActionTime>MUSIC_INACTIVITY_TIME)
-        music.stop();
+        music.setPaused(true);
 
     if(ofGetSystemTime()-lastActionTime<MUSIC_FADEOUT_TIME && !music.getIsPlaying())
-        music.play();
+        music.setPaused(false);
+
+
 
 
 }

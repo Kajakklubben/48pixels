@@ -23,6 +23,8 @@ void GameBlock::Set(int w, int h, int x, int y)
 }
 bool GameBlock::SetType(GameBlockType type)
 {
+
+
     bool changed = false;
     if(this->type != type)
     {
@@ -87,13 +89,13 @@ void GameBlock::updateSprite(int dir){
 
         */
         //if empty space above, then grass on top, else earth
-        if(topBlock->type==BlockNone || topBlock->type==BlockGrass ||
+        if(topBlock->sprite == AnimationLoader::blockAnimations[S_pond] || topBlock->sprite == AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite == AnimationLoader::blockAnimations[S_waterplantTrunk] || topBlock->sprite == AnimationLoader::blockAnimations[S_lillypad])
+            sprite = AnimationLoader::blockAnimations[S_earthWater];
+        else if(topBlock->type==BlockNone || topBlock->type==BlockGrass ||
            topBlock->sprite==AnimationLoader::blockAnimations[S_spring]
            || topBlock->sprite==AnimationLoader::blockAnimations[S_springStalk]
            || topBlock->sprite==AnimationLoader::blockAnimations[S_cloud])
             sprite = AnimationLoader::blockAnimations[8];
-        else if(topBlock->sprite == AnimationLoader::blockAnimations[S_pond] || topBlock->sprite == AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite == AnimationLoader::blockAnimations[S_waterplantTrunk] || topBlock->sprite == AnimationLoader::blockAnimations[S_lillypad])
-            sprite = AnimationLoader::blockAnimations[S_earthWater];
         else
             sprite = AnimationLoader::blockAnimations[0];
 
@@ -113,8 +115,8 @@ void GameBlock::updateSprite(int dir){
 
         if(dir>0)
         {
-            if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond] || leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]) &&
-               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]))
+            if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond] || leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]))
             {
                 sprite = AnimationLoader::blockAnimations[S_pond];
                 return;
@@ -123,9 +125,9 @@ void GameBlock::updateSprite(int dir){
         }
         else if(dir<0)
         {
-            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond] || rightBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]) &&
-               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond] || leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]) &&
-               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]))
+            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond] || rightBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond] || leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]))
            {
                 sprite = AnimationLoader::blockAnimations[S_pond];
                 return;
@@ -136,7 +138,7 @@ void GameBlock::updateSprite(int dir){
                 bottomBlock->sprite = AnimationLoader::blockAnimations[S_springStalk];
                 return;
             }
-            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond])
+            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant])
             {
                 sprite = AnimationLoader::blockAnimations[S_spring];
                 return;
@@ -152,9 +154,25 @@ void GameBlock::updateSprite(int dir){
 
         if(dir>0)
         {
-            if((leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond] || leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]) &&
-               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]))
+            if((leftBlock->solid || leftBlock->water || sprite==AnimationLoader::blockAnimations[S_pond] ||  leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+
+                //(rightBlock->solid || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond] ||  rightBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                // rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+
+               (bottomBlock->solid || bottomBlock->water || bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
+
+               &&
+               (topBlock->solid || topBlock->water || topBlock->sprite==AnimationLoader::blockAnimations[S_pond] || topBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 topBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
+
+               )
             {
+                if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant])
+                {
+                    bottomBlock->sprite = AnimationLoader::blockAnimations[S_waterplantTrunk];
+                }
                 sprite = AnimationLoader::blockAnimations[S_waterplant];
                 return;
             }
@@ -164,10 +182,34 @@ void GameBlock::updateSprite(int dir){
         }
         else if(dir<0)
         {
-            //vines
-            if((rightBlock->type==BlockGround || rightBlock->type==BlockSolid || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond] || rightBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]) &&
-               (leftBlock->type==BlockGround || leftBlock->type==BlockSolid || leftBlock->sprite==AnimationLoader::blockAnimations[S_pond] || leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]) &&
-               (bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid ||bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant]))
+            if((sprite!=AnimationLoader::blockAnimations[S_waterplant] && sprite!=AnimationLoader::blockAnimations[S_waterplantTrunk]) && (bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypad]))
+           {
+                sprite = AnimationLoader::blockAnimations[S_lillypadFlower];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_lillypad];
+                return;
+            }
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypadFlower] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypadStalk] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant])
+            {
+                sprite = AnimationLoader::blockAnimations[S_lillypadFlower];
+                bottomBlock->sprite = AnimationLoader::blockAnimations[S_lillypadStalk];
+                return;
+            }
+            else   if((leftBlock->solid || leftBlock->water || sprite==AnimationLoader::blockAnimations[S_pond] ||  leftBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || leftBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+
+                (rightBlock->solid  || rightBlock->sprite==AnimationLoader::blockAnimations[S_pond] ||  rightBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || rightBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk]) &&
+
+               (bottomBlock->solid  || bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
+
+               &&
+               (topBlock->solid || topBlock->water || topBlock->sprite==AnimationLoader::blockAnimations[S_pond] || topBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
+                 topBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
+
+               )
+
+
            {
                 sprite = AnimationLoader::blockAnimations[S_waterplant];
                 return;
@@ -198,18 +240,7 @@ void GameBlock::updateSprite(int dir){
                 return;
             }
             //lillypads
-            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_pond] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypad])
-           {
-                sprite = AnimationLoader::blockAnimations[S_lillypadFlower];
-                bottomBlock->sprite = AnimationLoader::blockAnimations[S_lillypad];
-                return;
-            }
-            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypadFlower] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_lillypadStalk])
-            {
-                sprite = AnimationLoader::blockAnimations[S_lillypadFlower];
-                bottomBlock->sprite = AnimationLoader::blockAnimations[S_lillypadStalk];
-                return;
-            }
+
 
         }
 

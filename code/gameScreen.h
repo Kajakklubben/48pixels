@@ -3,7 +3,7 @@
 
 #define GAMEBLOCK_COLS 8
 #define GAMEBLOCK_ROWS 6
-#define GAME_MAX_LAYERS 8
+#define GAME_MAX_LAYERS 10
 
 #include "GameBlock.h"
 #include "ofMain.h"

@@ -210,10 +210,10 @@ void gameScreen::update(float deltatime)
     for(int x=0;x<GAMEBLOCK_COLS;x++){
             for(int y=0;y<GAMEBLOCK_ROWS;y++){
                 int trackerX = GAMEBLOCK_COLS-x-1;
-                if(tracker->blocks[x][y].invalid){
+                if(tracker->blocks[trackerX][y].invalid){
                     blocks[x][y].SetType(BlockNone);
                 } else {
-                    switch (tracker->blocks[x][y].blockColor) {
+                    switch (tracker->blocks[trackerX][y].blockColor) {
                         case BlockGreen:
                             blocks[x][y].SetType(BlockGrass);
                             break;

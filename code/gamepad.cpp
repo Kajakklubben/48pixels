@@ -26,7 +26,7 @@ void Gamepad::setup(){
 #ifdef TARGET_OSX
     serialConnected = serial.setup("/dev/tty.usbserial-A800eIrv", 9600);
 #else
-    serialConnected = serial.setup("\\\\.\\COM11", 9600);
+    serialConnected = serial.setup("\\\\.\\COM3", 9600);
 #endif
 
     if(!serialConnected){

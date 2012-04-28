@@ -626,9 +626,9 @@ void Tracker::initUeye()
 {
     ofAddListener(ueye.events.dimensionChanged, this, &Tracker::ueyeDimensionChanged);
 
-    ueye.setVerbose(false);
+    ueye.setVerbose(true);
 	ueye.listDevices();
-
+printf("sadas",0);
 	if(ueye.init())
 	{
 		//cout << (IS_BINNING_8X_VERTICAL | IS_BINNING_8X_HORIZONTAL) << endl;

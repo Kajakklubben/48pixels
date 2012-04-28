@@ -57,7 +57,7 @@ void GameCharacter::update(float deltatime)
             return;
     }
     else
-    if(currentBlock->water || bottomBlock->water)
+    if((currentBlock->water && currentBlock->sprite != AnimationLoader::blockAnimations[S_cloud])  || (bottomBlock->water && bottomBlock->sprite != AnimationLoader::blockAnimations[S_cloud]))
     {
         if(state !=C_Swimming)
             velocity.y *=0.5;
@@ -193,7 +193,6 @@ void GameCharacter::jump()
     {
         velocity.y = -GameCharacter_waterjumpheight;
     }
-
 }
 void GameCharacter::down()
 {

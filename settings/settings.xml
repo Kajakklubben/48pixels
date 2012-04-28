@@ -157,6 +157,10 @@
 			<sprite name="waterPlantTrunk" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/waterPlantTrunk01.png" />
+					<frame duration="0.2" img="plant/waterPlantTrunk02.png" />
+					<frame duration="0.2" img="plant/waterPlantTrunk03.png" />
+					<frame duration="0.2" img="plant/waterPlantTrunk04.png" />
+					<frame duration="0.2" img="plant/waterPlantTrunk05.png" />
                 </variation>
             </sprite>	
 			<sprite name="floatingPlant" margin="5" layer="7">

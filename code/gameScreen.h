@@ -20,8 +20,8 @@ const int GAME_WIDTH  = 1200;
 const int GAME_HEIGHT = 900;
 const int GAME_STARTX = 120;
 
-const int MUSIC_INACTIVITY_TIME = 120;
-const int MUSIC_FADEOUT_TIME = 10;
+const int MUSIC_INACTIVITY_TIME = 120000;
+const int MUSIC_FADEOUT_TIME = 10000;
 
 class gameScreen
 {

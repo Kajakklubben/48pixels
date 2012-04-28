@@ -162,7 +162,7 @@ void gameScreen::loadBlocks()
 
 void gameScreen::update(float deltatime)
 {
-
+printf("\n time: %i",ofGetSystemTime()-lastActionTime);
     for(int y=GAMEBLOCK_ROWS-1;y>=0;y--)
     {
         for(int x=0;x<GAMEBLOCK_COLS;x++)
@@ -250,6 +250,8 @@ void gameScreen::update(float deltatime)
 
     if(ofGetSystemTime()-lastActionTime<MUSIC_FADEOUT_TIME && !music.getIsPlaying())
         music.play();
+
+
 }
 
 void gameScreen::drawBackground()

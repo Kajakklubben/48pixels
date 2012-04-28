@@ -245,12 +245,14 @@ void gameScreen::draw()
     drawBackground();
 
 
-
-    for(int y=0;y<GAMEBLOCK_ROWS;y++)
+    for(int l=0;l<GAME_MAX_LAYERS;l++)
     {
-        for(int x=0;x<GAMEBLOCK_COLS;x++)
+        for(int y=0;y<GAMEBLOCK_ROWS;y++)
         {
-            blocks[x][y].Draw();
+            for(int x=0;x<GAMEBLOCK_COLS;x++)
+            {
+                blocks[x][y].Draw(l);
+            }
         }
     }
 

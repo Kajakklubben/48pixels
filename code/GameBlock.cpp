@@ -221,8 +221,11 @@ void GameBlock::drawOldSprite()
         oldSprite = 0;
     }
 }
-void GameBlock::Draw()
+void GameBlock::Draw(int layer)
 {
+    if(sprite != 0 && layer != sprite->layer)
+        return;
+
     drawOldSprite();
 
     if(type == BlockNone || type == BlockSolid)

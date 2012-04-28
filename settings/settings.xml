@@ -84,7 +84,7 @@
                     <frame duration="0.2" img="water/spring04.png" />
                 </variation>
             </sprite>
-            <sprite name="bush" margin="5" layer="2">
+            <sprite name="bush" margin="5" layer="3">
                 <variation>
                     <frame img="plant/bush01.png" />
                 </variation>
@@ -119,7 +119,7 @@
                     <frame img="plant/lilypadstalk01.png" />
                 </variation>
             </sprite>
-            <sprite name="lilypad" margin="5" layer="2">
+            <sprite name="lilypad" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/water_pad04.png" />
                     <frame duration="0.2" img="water/water_pad03.png" />

@@ -3,7 +3,7 @@
 
 #define GAMEBLOCK_COLS 8
 #define GAMEBLOCK_ROWS 6
-#define GAME_MAX_LAYERS 8
+#define GAME_MAX_LAYERS 10
 
 #include "GameBlock.h"
 #include "ofMain.h"
@@ -20,7 +20,7 @@ const int GAME_WIDTH  = 1200;
 const int GAME_HEIGHT = 900;
 const int GAME_STARTX = 120;
 
-const int MUSIC_INACTIVITY_TIME = 12000;
+const int MUSIC_INACTIVITY_TIME = 30000;
 const int MUSIC_FADEOUT_TIME = 10000;
 
 class gameScreen

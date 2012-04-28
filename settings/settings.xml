@@ -58,12 +58,12 @@
     </backgroundSprites>
     <blockSprites>
         <sprites>
-            <sprite name="earth" margin="5">
+            <sprite name="earth" margin="5" layer="6">
                 <variation>
                     <frame img="earth/earth01.png" />
                 </variation>
             </sprite>
-            <sprite name="pond" margin="5">
+            <sprite name="pond" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/water_pond01.png" />
                     <frame duration="0.2" img="water/water_pond02.png" />
@@ -76,7 +76,7 @@
                     <frame img="water/cloud01.png" />
                 </variation>
             </sprite>
-            <sprite name="spring" margin="5" layer="2">
+            <sprite name="spring" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/spring01.png" />
                     <frame duration="0.2" img="water/spring02.png" />
@@ -104,7 +104,7 @@
                     <frame img="plant/vine02.png" />
                 </variation>
             </sprite>
-            <sprite name="grass" margin="5" layer="2">
+            <sprite name="grass" margin="5" layer="6">
                 <variation>
                     <frame img="earth/grass01.png" />
                 </variation>
@@ -132,7 +132,7 @@
                     <frame img="plant/hangingplant01.png" />
                 </variation>
             </sprite>
-            <sprite name="springStalk" margin="5" layer="2">
+            <sprite name="springStalk" margin="5" layer="6">
                 <variation>
                     <frame duration="0.2" img="water/springstalk01.png" />
                     <frame duration="0.2" img="water/springstalk02.png" />

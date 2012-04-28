@@ -203,12 +203,13 @@ void gameScreen::update(float deltatime)
 
     player.update(deltatime);
 
+    //return;
     #ifndef USE_TRACKER
         return;
     #endif
     for(int x=0;x<GAMEBLOCK_COLS;x++){
             for(int y=0;y<GAMEBLOCK_ROWS;y++){
-
+                int trackerX = GAMEBLOCK_COLS-x-1;
                 if(tracker->blocks[x][y].invalid){
                     blocks[x][y].SetType(BlockNone);
                 } else {
@@ -245,7 +246,22 @@ void gameScreen::draw()
     drawBackground();
 
 
-    for(int l=0;l<GAME_MAX_LAYERS;l++)
+    for(int l=0;l<5;l++)
+    {
+        for(int y=0;y<GAMEBLOCK_ROWS;y++)
+        {
+            for(int x=0;x<GAMEBLOCK_COLS;x++)
+            {
+                blocks[x][y].Draw(l);
+            }
+        }
+    }
+    ofSetColor(255,255,255,255);
+    ofFill();
+
+    player.draw();
+
+    for(int l=5;l<GAME_MAX_LAYERS;l++)
     {
         for(int y=0;y<GAMEBLOCK_ROWS;y++)
         {
@@ -272,7 +288,7 @@ void gameScreen::draw()
     }
     ofSetColor(255,255,255,255);
     ofFill();
-    player.draw();
+
 
 
 }

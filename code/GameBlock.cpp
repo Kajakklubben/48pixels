@@ -24,7 +24,11 @@ void GameBlock::Set(int w, int h, int x, int y)
 void GameBlock::SetType(GameBlockType type)
 {
     if(this->type != type)
+    {
+        oldSpriteLifetime = 0;
         lifetime = 0;
+    }
+
 
     this->type = type;
 
@@ -36,13 +40,13 @@ void GameBlock::SetType(GameBlockType type)
     else if(type==BlockWater)
         water = true;
 
-    oldSprite = sprite;
+    //oldSprite = sprite;
     if(type==BlockNone)
     {
-        sprite = 0;
+        sprite = AnimationLoader::blockAnimations[0];
 
     }
-    oldSpriteLifetime = 0;
+
 
    // else
         //printf("\nBlock animation index %i does not exist",type);

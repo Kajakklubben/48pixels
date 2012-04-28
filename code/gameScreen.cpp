@@ -271,6 +271,12 @@ void gameScreen::draw()
             }
         }
     }
+    if(player.state==C_Trapped)
+    {
+        ofSetColor(255,255,255,150);
+          player.draw();
+    }
+
 
     if(selectedBlock != 0)
     {

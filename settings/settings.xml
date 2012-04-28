@@ -145,6 +145,11 @@
                     <frame duration="0.2" img="earth/earthWater01.png" />
                 </variation>
             </sprite>
+			<sprite name="waterPlant" margin="5" layer="8">
+                <variation>
+                    <frame duration="0.2" img="plant/waterPlant01.png" />
+                </variation>
+            </sprite>			
         </sprites>
     </blockSprites>
     <characterSprites>

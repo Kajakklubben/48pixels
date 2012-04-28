@@ -204,6 +204,21 @@
                     <frame duration="0.5" img="character/char_stuck02.png" />
                 </variation>
             </sprite>
+			<sprite name="climb" margin="5">
+                <variation>
+                    <frame duration="0.2" img="character/char_climb01.png" />
+					<frame duration="0.2" img="character/char_climb02.png" />
+					<frame duration="0.2" img="character/char_climb03.png" />
+					<frame duration="0.2" img="character/char_climb04.png" />
+                </variation>
+            </sprite>
+			<sprite name="swim" margin="5">
+                <variation>
+                    <frame duration="0.2" img="character/char_swim01.png" />
+					<frame duration="0.2" img="character/char_swim02.png" />
+					<frame duration="0.2" img="character/char_swim03.png" />
+                </variation>
+            </sprite>
         </sprites>
     </characterSprites>
 </root>

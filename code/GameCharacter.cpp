@@ -58,8 +58,8 @@ void GameCharacter::update(float deltatime)
 
     GameBlock* currentBlock = game->GetBlock(position.x,position.y);
     GameBlock* topBlock = game->GetBlock(position.x,position.y-height/2+1);
-    GameBlock* leftBlock = game->GetBlock(position.x-width/2,position.y+1);
-    GameBlock* rightBlock = game->GetBlock(position.x+width/2,position.y-1);
+    GameBlock* leftBlock = game->GetBlock(position.x-width/2,position.y+3);
+    GameBlock* rightBlock = game->GetBlock(position.x+width/2,position.y-3);
     GameBlock* bottomBlock = game->GetBlock(position.x,position.y+height/2-1);
     if(state==C_Trapped)
     {

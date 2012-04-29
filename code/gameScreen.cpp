@@ -260,7 +260,7 @@ void gameScreen::update(float deltatime)
                                 changed = true;
                                 for(int l=0;l<8;l++)
                                     SoundLoader::redSounds[l].stop();
-                                SoundLoader::redSounds[GAMEBLOCK_ROWS-y].play();
+                                SoundLoader::redSounds[GAMEBLOCK_ROWS-y+1].play();
                             }
 
                             break;

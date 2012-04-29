@@ -23,6 +23,7 @@ public:
     //---------------------
 
     bool trackerDebug;
+    bool showMouse;
 
     //---------------------
 

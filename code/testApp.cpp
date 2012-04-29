@@ -43,6 +43,16 @@ void testApp::draw(){
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 
+    if(key=='s')
+        {
+            showMouse = !showMouse;
+
+            if(showMouse)
+                ofShowCursor();
+            else
+                ofHideCursor();
+        }
+
     game.keyPressed(key);
 
     tracker.keyPressed(key);
@@ -66,20 +76,30 @@ void testApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button){
 
+  if(showMouse)
+    {
     tracker.mouseDragged(x, y, button);
+    }
 
 }
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-    tracker.mousePressed(x, y, button);
+    if(showMouse)
+    {
+         tracker.mousePressed(x, y, button);
     game.mousePressed(x,y,button);
+    }
+
 
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
+      if(showMouse)
+    {
     tracker.mouseReleased(x, y, button);
+    }
 
 }
 

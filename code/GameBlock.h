@@ -32,7 +32,9 @@ enum BlockAnimationType {
     S_waterplant=15,
     S_waterplantTrunk=16,
     S_branchLeft=18,
-    S_branchRight=19
+    S_branchRight=19,
+    S_vineBranchLeft=20,
+    S_vineBranchRight=21
 };
 
 const double BlockFadeTime = 0.8;

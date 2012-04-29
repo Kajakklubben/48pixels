@@ -23,7 +23,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 
     music.loadSound("../../../sound/music.mp3");
     music.setVolume(0.0f);
-    music.play();
+   //music.play();
     music.setLoop(true);
     SoundLoader::load();
     //music.setPaused(true);
@@ -204,6 +204,7 @@ void gameScreen::update(float deltatime)
     }
 
 
+
     if(gamepad->gamepadDown())
     {
          lastActionTime = ofGetSystemTime();
@@ -287,11 +288,11 @@ void gameScreen::update(float deltatime)
             lastActionTime = ofGetSystemTime();
 
 
-    if(ofGetSystemTime()-lastActionTime>MUSIC_INACTIVITY_TIME)
+   /* if(ofGetSystemTime()-lastActionTime>MUSIC_INACTIVITY_TIME)
         music.setPaused(true);
 
     if(ofGetSystemTime()-lastActionTime<MUSIC_FADEOUT_TIME && !music.getIsPlaying())
-        music.setPaused(false);
+        music.setPaused(false);*/
 
 
 

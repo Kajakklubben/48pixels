@@ -42,7 +42,8 @@ void GameCharacter::update(float deltatime)
     if(velocity.y<=0)
         moveDown = false;
 
-    velocity += gravity*deltatime;
+    if(state != C_Climbing)
+        velocity += gravity*deltatime;
     if(velocity.length()>GameCharacter_maxVelocity)
         velocity = velocity.normalized()*GameCharacter_maxVelocity;
 
@@ -58,14 +59,16 @@ void GameCharacter::update(float deltatime)
 
     GameBlock* currentBlock = game->GetBlock(position.x,position.y);
     GameBlock* topBlock = game->GetBlock(position.x,position.y-height/2+1);
-    GameBlock* leftBlock = game->GetBlock(position.x-width/2+1,position.y);
-    GameBlock* rightBlock = game->GetBlock(position.x+width/2-1,position.y);
-    GameBlock* bottomBlock = game->GetBlock(position.x,position.y+height/2-1);
+    GameBlock* leftBlock = game->GetBlock(position.x-width/2+3,position.y);
+    GameBlock* rightBlock = game->GetBlock(position.x+width/2-3,position.y);
+    GameBlock* bottomBlock = game->GetBlock(position.x,position.y+height/2-2);
+
     if(state==C_Trapped)
     {
         velocity.x=0;
         velocity.y=0;
     }
+
     if(currentBlock->solid || leftBlock->solid || rightBlock->solid || bottomBlock->solid || topBlock->solid)
     {
             state =C_Trapped;
@@ -82,6 +85,11 @@ void GameCharacter::update(float deltatime)
             state =C_Swimming;
         if(currentBlock->water || currentBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || currentBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
             velocity +=-1.5*gravity*deltatime;
+
+    }
+    else if(state==C_Climbing && currentBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+    {
+        velocity.y*=0.7f;
     }
     else
         state =C_Air;
@@ -187,6 +195,20 @@ void GameCharacter::draw()
         h = -drawHeight;
     }
 
+    if(state==C_Swimming)
+    {
+        int frame = (int)roundf(lifetime / AnimationLoader::characterAnimations[S_swim]->duration)%(int)AnimationLoader::characterAnimations[S_swim]->frames[0].size();
+         AnimationLoader::characterAnimations[S_swim]->draw(frame,x,y,w,h);
+    }
+    else if(state==C_Climbing)
+    {
+
+        int frame = (int)roundf(lifetime / AnimationLoader::characterAnimations[s_climbing]->duration)%(int)AnimationLoader::characterAnimations[s_climbing]->frames[0].size();
+        if(abs(velocity.y)<0.05f)
+            frame=0;
+         AnimationLoader::characterAnimations[s_climbing]->draw(frame,x,y,w,h);
+    }
+    else
     if(state!=C_Grounded && velocity.y<0)
         AnimationLoader::characterAnimations[S_jump]->draw(0,x,y,w,h);
     else if(state!=C_Grounded)
@@ -214,8 +236,13 @@ void GameCharacter::move(int dir)
 
 void GameCharacter::jump()
 {
+    GameBlock* currentBlock = game->GetBlock(position.x,position.y);
 
-
+    if(currentBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+    {
+        state=C_Climbing;
+         velocity.y = -GameCharacter_maxMovespeed;
+    }
     if(state==C_Grounded)
     {
         velocity.y = -GameCharacter_jumpheight;

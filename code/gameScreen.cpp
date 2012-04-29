@@ -24,7 +24,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
     music.loadSound("../../../sound/music.mp3");
     music.play();
     music.setLoop(true);
-    music.setPaused(true);
+    //music.setPaused(true);
 
 
 	if(XML.loadFile("../../../settings/settings.xml") ){
@@ -180,15 +180,35 @@ void gameScreen::update(float deltatime)
     }
 
     if(gamepad->gamepadLeft())
+    {
+        lastActionTime = ofGetSystemTime();
         player.move(-1);
+    }
+
     else if(gamepad->gamepadRight())
-        player.move(1);
+    {
+        lastActionTime = ofGetSystemTime();
+          player.move(1);
+
+    }
     else
+    {
         player.move(0);
+    }
     if(gamepad->gamepadUp())
+    {
+         lastActionTime = ofGetSystemTime();
         player.jump();
+    }
+
+
     if(gamepad->gamepadDown())
+    {
+         lastActionTime = ofGetSystemTime();
         player.down();
+    }
+
+
 
     for(int y=0;y<GAMEBLOCK_ROWS;y++)
     {

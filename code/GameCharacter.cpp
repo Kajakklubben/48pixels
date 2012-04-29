@@ -46,17 +46,27 @@ void GameCharacter::update(float deltatime)
     if(velocity.length()>GameCharacter_maxVelocity)
         velocity = velocity.normalized()*GameCharacter_maxVelocity;
 
+    if(position.x<GAME_STARTX || position.x>GAME_STARTX+GAME_WIDTH || position.y<0 || position.y>ofGetHeight())
+    { //if outside the screen throw it inside!
+        ofVec2f center = ofVec2f(ofGetWidth()/2,ofGetHeight()/2);
+        position = center;
+    }
+
     float CollisionThreshold = 10;
     ofVec2f nextPos = position+velocity*deltatime;
 
+
     GameBlock* currentBlock = game->GetBlock(position.x,position.y);
+    GameBlock* topBlock = game->GetBlock(position.x,position.y-height/2);
+    GameBlock* leftBlock = game->GetBlock(position.x-width/2,position.y);
+    GameBlock* rightBlock = game->GetBlock(position.x+width/2,position.y);
     GameBlock* bottomBlock = game->GetBlock(position.x,position.y+height/2);
     if(state==C_Trapped)
     {
         velocity.x=0;
         velocity.y=0;
     }
-    if(currentBlock->solid)
+    if(currentBlock->solid || leftBlock->solid || rightBlock->solid || bottomBlock->solid || topBlock->solid)
     {
             state =C_Trapped;
 

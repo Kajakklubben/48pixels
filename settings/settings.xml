@@ -179,22 +179,38 @@
                     <frame duration="0.2" img="plant/floatingPlant01.png" />
                 </variation>
             </sprite>
+<<<<<<< HEAD
             <sprite name="branchLeft" margin="5" layer="7">
+=======
+			<sprite name="branchLeft" margin="5" layer="3">
+>>>>>>> Layers added for branches
                 <variation>
                     <frame duration="0.2" img="plant/branchLeft01.png" />
                 </variation>
             </sprite>
+<<<<<<< HEAD
             <sprite name="branchRight" margin="5" layer="7">
+=======
+			<sprite name="branchRight" margin="5" layer="3">
+>>>>>>> Layers added for branches
                 <variation>
                     <frame duration="0.2" img="plant/branchRight01.png" />
                 </variation>
             </sprite>
+<<<<<<< HEAD
             <sprite name="vineBranchLeft" margin="5" layer="7">
+=======
+			<sprite name="vineBranchLeft" margin="5" layer="3">
+>>>>>>> Layers added for branches
                 <variation>
                     <frame duration="0.2" img="plant/rootBranchLeft01.png" />
                 </variation>
             </sprite>
+<<<<<<< HEAD
             <sprite name="vineBranchRight" margin="5" layer="7">
+=======
+			<sprite name="vineBranchRight" margin="5" layer="3">
+>>>>>>> Layers added for branches
                 <variation>
                     <frame duration="0.2" img="plant/rootBranchRight01.png" />
                 </variation>

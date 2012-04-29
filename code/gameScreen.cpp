@@ -22,7 +22,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 	blockWidth = blockHeight;
 
     music.loadSound("../../../sound/music.mp3");
-    music.setVolume(0.5f);
+    music.setVolume(0.0f);
     music.play();
     music.setLoop(true);
     SoundLoader::load();
@@ -248,7 +248,9 @@ void gameScreen::update(float deltatime)
                             if(blocks[x][y].SetType(BlockGrass))
                             {
                                 changed = true;
-                                SoundLoader::greenSounds[GAMEBLOCK_ROWS-1-y].play();
+                                for(int l=0;l<8;l++)
+                                    SoundLoader::greenSounds[l].stop();
+                                SoundLoader::greenSounds[GAMEBLOCK_ROWS-y].play();
                             }
 
                             break;
@@ -256,7 +258,9 @@ void gameScreen::update(float deltatime)
                             if(blocks[x][y].SetType(BlockGround))
                             {
                                 changed = true;
-                                SoundLoader::redSounds[GAMEBLOCK_ROWS-1-y].play();
+                                for(int l=0;l<8;l++)
+                                    SoundLoader::redSounds[l].stop();
+                                SoundLoader::redSounds[GAMEBLOCK_ROWS-y].play();
                             }
 
                             break;
@@ -264,7 +268,9 @@ void gameScreen::update(float deltatime)
                             if(blocks[x][y].SetType(BlockWater))
                             {
                                 changed = true;
-                                SoundLoader::blueSounds[GAMEBLOCK_ROWS-1-y].play();
+                                for(int l=0;l<8;l++)
+                                    SoundLoader::blueSounds[l].stop();
+                                SoundLoader::blueSounds[GAMEBLOCK_ROWS-y].play();
                             }
 
                             break;

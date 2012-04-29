@@ -245,7 +245,17 @@ void GameBlock::updateSprite(int dir){
                 return;
             }
             //lillypads
+            else if(leftBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_branchLeft];
+                return;
 
+            }
+            else if(rightBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_branchRight];
+                return;
+            }
 
         }
 

@@ -82,14 +82,14 @@
             </sprite>
             <sprite name="spring" margin="5" layer="6">
                 <variation>
-                    <frame duration="0.1" img="water/spring01.png" />
-                    <frame duration="0.1" img="water/spring02.png" />
-                    <frame duration="0.1" img="water/spring03.png" />
-                    <frame duration="0.1" img="water/spring04.png" />
-                    <frame duration="0.1" img="water/spring05.png" />
-                    <frame duration="0.1" img="water/spring06.png" />
-                    <frame duration="0.1" img="water/spring07.png" />
-                    <frame duration="0.1" img="water/spring08.png" />
+                    <frame duration="0.2" img="water/spring01.png" />
+                    <frame duration="0.2" img="water/spring02.png" />
+                    <frame duration="0.2" img="water/spring03.png" />
+                    <frame duration="0.2" img="water/spring04.png" />
+                    <frame duration="0.2" img="water/spring05.png" />
+                    <frame duration="0.2" img="water/spring06.png" />
+                    <frame duration="0.2" img="water/spring07.png" />
+                    <frame duration="0.2" img="water/spring08.png" />
                 </variation>
             </sprite>
             <sprite name="bush" margin="5" layer="3">

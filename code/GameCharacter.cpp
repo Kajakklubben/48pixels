@@ -87,7 +87,7 @@ void GameCharacter::update(float deltatime)
             velocity +=-1.5*gravity*deltatime;
 
     }
-    else if(state==C_Climbing && currentBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+    else if(state==C_Climbing && (currentBlock->sprite==AnimationLoader::blockAnimations[S_trunk] || currentBlock->sprite==AnimationLoader::blockAnimations[S_vinetrunk]))
     {
         velocity.y*=0.7f;
     }
@@ -238,7 +238,7 @@ void GameCharacter::jump()
 {
     GameBlock* currentBlock = game->GetBlock(position.x,position.y);
 
-    if(currentBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+    if(currentBlock->sprite==AnimationLoader::blockAnimations[S_trunk] || currentBlock->sprite==AnimationLoader::blockAnimations[S_vinetrunk])
     {
         state=C_Climbing;
          velocity.y = -GameCharacter_maxMovespeed;

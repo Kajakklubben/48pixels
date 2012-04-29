@@ -86,10 +86,10 @@
                     <frame duration="0.2" img="water/spring02.png" />
                     <frame duration="0.2" img="water/spring03.png" />
                     <frame duration="0.2" img="water/spring04.png" />
-					<frame duration="0.2" img="water/spring05.png" />
-					<frame duration="0.2" img="water/spring06.png" />
-					<frame duration="0.2" img="water/spring07.png" />
-					<frame duration="0.2" img="water/spring08.png" />
+                    <frame duration="0.2" img="water/spring05.png" />
+                    <frame duration="0.2" img="water/spring06.png" />
+                    <frame duration="0.2" img="water/spring07.png" />
+                    <frame duration="0.2" img="water/spring08.png" />
                 </variation>
             </sprite>
             <sprite name="bush" margin="5" layer="3">
@@ -179,22 +179,22 @@
                     <frame duration="0.2" img="plant/floatingPlant01.png" />
                 </variation>
             </sprite>
-			<sprite name="branchLeft" margin="5" layer="7">
+            <sprite name="branchLeft" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/branchLeft01.png" />
                 </variation>
             </sprite>
-			<sprite name="branchRight" margin="5" layer="7">
+            <sprite name="branchRight" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/branchRight01.png" />
                 </variation>
             </sprite>
-			<sprite name="vineBranchLeft" margin="5" layer="7">
+            <sprite name="vineBranchLeft" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/rootBranchLeft01.png" />
                 </variation>
             </sprite>
-			<sprite name="vineBranchRight" margin="5" layer="7">
+            <sprite name="vineBranchRight" margin="5" layer="7">
                 <variation>
                     <frame duration="0.2" img="plant/rootBranchRight01.png" />
                 </variation>

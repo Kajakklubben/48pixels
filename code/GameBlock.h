@@ -50,6 +50,7 @@ class GameBlock
         void Update(float delta);
         void updateSprite(int dir);
 
+
         GameBlockType type;
         int xIndex;
         int yIndex;

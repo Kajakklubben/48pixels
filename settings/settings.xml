@@ -125,10 +125,14 @@
             </sprite>
             <sprite name="lilypad" margin="5" layer="6">
                 <variation>
-                    <frame duration="0.2" img="water/water_pad04.png" />
-                    <frame duration="0.2" img="water/water_pad03.png" />
-                    <frame duration="0.2" img="water/water_pad02.png" />
                     <frame duration="0.2" img="water/water_pad01.png" />
+                    <frame duration="0.2" img="water/water_pad02.png" />
+                    <frame duration="0.2" img="water/water_pad03.png" />
+                    <frame duration="0.2" img="water/water_pad04.png" />
+                    <frame duration="0.2" img="water/water_pad05.png" />
+                    <frame duration="0.2" img="water/water_pad06.png" />
+                    <frame duration="0.2" img="water/water_pad07.png" />
+                    <frame duration="0.2" img="water/water_pad08.png" />
                 </variation>
             </sprite>
             <sprite name="floatingPlant" margin="5" layer="2">
@@ -202,6 +206,21 @@
                 <variation>
                     <frame duration="0.5" img="character/char_stuck01.png" />
                     <frame duration="0.5" img="character/char_stuck02.png" />
+                </variation>
+            </sprite>
+            <sprite name="climb" margin="5">
+                <variation>
+                    <frame duration="0.2" img="character/char_climb01.png" />
+                    <frame duration="0.2" img="character/char_climb02.png" />
+                    <frame duration="0.2" img="character/char_climb03.png" />
+                    <frame duration="0.2" img="character/char_climb04.png" />
+                </variation>
+            </sprite>
+            <sprite name="swim" margin="5">
+                <variation>
+                    <frame duration="0.2" img="character/char_swim01.png" />
+                    <frame duration="0.2" img="character/char_swim02.png" />
+                    <frame duration="0.2" img="character/char_swim03.png" />
                 </variation>
             </sprite>
         </sprites>

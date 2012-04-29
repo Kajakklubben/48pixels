@@ -77,6 +77,7 @@ void GameBlock::Update(float deltatime)
     oldSpriteLifetime +=deltatime;
 
 }
+
 void GameBlock::updateSprite(int dir){
 
 
@@ -165,6 +166,8 @@ void GameBlock::updateSprite(int dir){
                &&
                (topBlock->solid || topBlock->water  || topBlock->sprite==AnimationLoader::blockAnimations[S_pond] || topBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
                  topBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
+                &&
+                (topBlock->water || bottomBlock->water || leftBlock->water || rightBlock->water)
 
                )
             {

@@ -14,13 +14,15 @@
 #include "GameBackground.h"
 #include "GameCharacter.h"
 #include "gamepad.h"
+#include "AnimationLoader.h"
+#include "SoundLoader.h"
 
 class GameBackground;
 const int GAME_WIDTH  = 1200;
 const int GAME_HEIGHT = 900;
 const int GAME_STARTX = 120;
 
-const int MUSIC_INACTIVITY_TIME = 30000;
+const int MUSIC_INACTIVITY_TIME = 60000;
 const int MUSIC_FADEOUT_TIME = 10000;
 
 class gameScreen

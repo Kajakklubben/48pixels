@@ -4,7 +4,9 @@
 void testApp::setup(){
 
 
-
+    #ifdef USE_TRACKER
+    ofHideCursor();
+    #endif
     tracker.setup();
     ofBackground(0,0,0);
 

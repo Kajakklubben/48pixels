@@ -248,7 +248,7 @@ void gameScreen::update(float deltatime)
                             if(blocks[x][y].SetType(BlockGrass))
                             {
                                 changed = true;
-                                SoundLoader::greenSounds[y].play();
+                                SoundLoader::greenSounds[GAMEBLOCK_ROWS-1-y].play();
                             }
 
                             break;
@@ -256,7 +256,7 @@ void gameScreen::update(float deltatime)
                             if(blocks[x][y].SetType(BlockGround))
                             {
                                 changed = true;
-                                SoundLoader::redSounds[y].play();
+                                SoundLoader::redSounds[GAMEBLOCK_ROWS-1-y].play();
                             }
 
                             break;
@@ -264,7 +264,7 @@ void gameScreen::update(float deltatime)
                             if(blocks[x][y].SetType(BlockWater))
                             {
                                 changed = true;
-                                SoundLoader::blueSounds[y].play();
+                                SoundLoader::blueSounds[GAMEBLOCK_ROWS-1-y].play();
                             }
 
                             break;

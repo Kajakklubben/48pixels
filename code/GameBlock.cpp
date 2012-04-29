@@ -178,6 +178,22 @@ void GameBlock::updateSprite(int dir){
                 sprite = AnimationLoader::blockAnimations[S_waterplant];
                 return;
             }
+           if((bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[S_trunk] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_bush]) && (topBlock->type==BlockGrass))
+            {
+                sprite = AnimationLoader::blockAnimations[S_trunk];
+                return;
+            }
+            else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid)
+           {
+                sprite = AnimationLoader::blockAnimations[S_bush];
+                return;
+            }
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_trunk] && topBlock->type!=BlockGrass)
+            {
+                sprite = AnimationLoader::blockAnimations[S_bush];
+
+                return;
+            }
 
 
 
@@ -211,6 +227,7 @@ void GameBlock::updateSprite(int dir){
                (topBlock->solid || topBlock->water ||topBlock->sprite==AnimationLoader::blockAnimations[S_pond] || topBlock->sprite==AnimationLoader::blockAnimations[S_earthWater] ||
                  topBlock->sprite==AnimationLoader::blockAnimations[S_waterplant] || topBlock->sprite==AnimationLoader::blockAnimations[S_waterplantTrunk])
 
+                && (topBlock->water || bottomBlock->water || leftBlock->water || rightBlock->water)
                )
 
 
@@ -232,23 +249,40 @@ void GameBlock::updateSprite(int dir){
                 return;
             }
             //trees
+            if((bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid || bottomBlock->sprite==AnimationLoader::blockAnimations[S_trunk] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_bush]) && (topBlock->type==BlockGrass))
+            {
+                sprite = AnimationLoader::blockAnimations[S_trunk];
+                return;
+            }
             else if(bottomBlock->type==BlockGround || bottomBlock->type==BlockSolid)
            {
                 sprite = AnimationLoader::blockAnimations[S_bush];
                 return;
             }
-            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_bush] || bottomBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+            else if(bottomBlock->sprite==AnimationLoader::blockAnimations[S_trunk] && topBlock->type!=BlockGrass)
             {
                 sprite = AnimationLoader::blockAnimations[S_bush];
-                bottomBlock->sprite = AnimationLoader::blockAnimations[S_trunk];
+
+                return;
+            }
+            if(leftBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_branchRight];
+                return;
+
+            }
+            else if(rightBlock->sprite==AnimationLoader::blockAnimations[S_trunk])
+            {
+                sprite = AnimationLoader::blockAnimations[S_branchLeft];
                 return;
             }
             //lillypads
 
-
         }
 
         sprite = AnimationLoader::blockAnimations[S_floatingPlant];
+
+
 
     }
 

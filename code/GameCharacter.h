@@ -15,8 +15,9 @@ enum CharacterAnimationType {
     S_walk=1,
     S_jump=2,
     S_fall=3,
-    S_swim=3,
-    S_trapped=4
+    S_swim=6,
+    S_trapped=4,
+    s_climbing = 5
 
 };
 
@@ -26,6 +27,7 @@ enum CharacterState {
     C_Trapped=1,
     C_Grounded=2,
     C_Swimming=3,
+    C_Climbing=4,
 
 };
 

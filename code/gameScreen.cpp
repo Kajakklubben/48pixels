@@ -22,7 +22,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
 	blockWidth = blockHeight;
 
     music.loadSound("../../../sound/music.mp3");
-    music.setVolume(0.7f);
+    music.setVolume(0.0f);
     music.play();
     music.setLoop(true);
     SoundLoader::load();

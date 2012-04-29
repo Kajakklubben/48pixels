@@ -129,10 +129,10 @@
                     <frame duration="0.2" img="water/water_pad02.png" />
                     <frame duration="0.2" img="water/water_pad03.png" />
                     <frame duration="0.2" img="water/water_pad04.png" />
-					<frame duration="0.2" img="water/water_pad05.png" />
-					<frame duration="0.2" img="water/water_pad06.png" />
-					<frame duration="0.2" img="water/water_pad07.png" />
-					<frame duration="0.2" img="water/water_pad08.png" />
+                    <frame duration="0.2" img="water/water_pad05.png" />
+                    <frame duration="0.2" img="water/water_pad06.png" />
+                    <frame duration="0.2" img="water/water_pad07.png" />
+                    <frame duration="0.2" img="water/water_pad08.png" />
                 </variation>
             </sprite>
             <sprite name="floatingPlant" margin="5" layer="2">

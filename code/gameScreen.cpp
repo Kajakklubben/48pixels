@@ -24,6 +24,7 @@ void gameScreen::init(Tracker& initTracker, Gamepad& pad)
     music.loadSound("../../../sound/music.mp3");
     music.play();
     music.setLoop(true);
+    SoundLoader::load();
     //music.setPaused(true);
 
 
@@ -244,15 +245,27 @@ void gameScreen::update(float deltatime)
                     switch (tracker->blocks[x][y].blockColor) {
                         case BlockGreen:
                             if(blocks[x][y].SetType(BlockGrass))
+                            {
                                 changed = true;
+                                SoundLoader::greenSounds[x].play();
+                            }
+
                             break;
                         case BlockBrown:
                             if(blocks[x][y].SetType(BlockGround))
+                            {
                                 changed = true;
+                                SoundLoader::redSounds[x].play();
+                            }
+
                             break;
                         case BlockBlue:
                             if(blocks[x][y].SetType(BlockWater))
-                            changed = true;
+                            {
+                                changed = true;
+                                SoundLoader::blueSounds[x].play();
+                            }
+
                             break;
                         default:
                             if(blocks[x][y].SetType(BlockNone))

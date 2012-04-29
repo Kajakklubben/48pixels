@@ -14,6 +14,8 @@
 #include "GameBackground.h"
 #include "GameCharacter.h"
 #include "gamepad.h"
+#include "AnimationLoader.h"
+#include "SoundLoader.h"
 
 class GameBackground;
 const int GAME_WIDTH  = 1200;

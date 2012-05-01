@@ -345,6 +345,8 @@
 		<Unit filename="..\code\GameBlock.h" />
 		<Unit filename="..\code\GameCharacter.cpp" />
 		<Unit filename="..\code\GameCharacter.h" />
+		<Unit filename="..\code\SoundLoader.cpp" />
+		<Unit filename="..\code\SoundLoader.h" />
 		<Unit filename="..\code\SpriteAnimation.cpp" />
 		<Unit filename="..\code\SpriteAnimation.h" />
 		<Unit filename="..\code\calibrator.cpp" />
